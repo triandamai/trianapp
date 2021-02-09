@@ -12,7 +12,7 @@ import { ThemeActionTypes } from "./action-type";
 import { ThemeMutationTypes as MutationTypes } from "./mutation-types";
 import { getTheme, setTheme } from "../LocalData";
 import { RootState } from "../index";
-
+//builder
 type ThemeActionContext = {
   commit<K extends keyof Mutations>(
     key: K,
@@ -35,8 +35,7 @@ export type Mutations<S = State> = {
 export type Getters = {
   theme(state: State): string;
 };
-
-//
+//module begin
 const state: State = {
   theme: ""
 };
