@@ -1,6 +1,7 @@
 <template>
   <nav-bar />
   <router-view />
+  <Footer />
 </template>
 <script lang="ts">
 import { defineComponent, onBeforeMount, watch } from "vue";
@@ -8,12 +9,12 @@ import { useStore } from "@/store";
 import { ThemeActionTypes } from "@/store/module/action-type";
 //comp
 import NavBar from "@/components/NavBar.vue";
+import Footer from "@/components/Footer.vue";
 export default defineComponent({
-  components: { NavBar },
+  components: { NavBar, Footer },
   name: "App",
   setup() {
     const store = useStore();
-    // console.log(store.state.theme.theme);
 
     onBeforeMount(() => {
       store.dispatch(ThemeActionTypes.INIT_THEME, "");
