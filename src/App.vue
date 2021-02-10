@@ -1,8 +1,3 @@
-<template>
-  <nav-bar />
-  <router-view />
-  <Footer />
-</template>
 <script lang="ts">
 import { defineComponent, onBeforeMount, watch } from "vue";
 import { useStore } from "@/store";
@@ -10,8 +5,9 @@ import { ThemeActionTypes } from "@/store/module/action-type";
 //comp
 import NavBar from "@/components/NavBar.vue";
 import Footer from "@/components/Footer.vue";
+import BottomNavigation from "./components/BottomNavigation.vue";
 export default defineComponent({
-  components: { NavBar, Footer },
+  components: { NavBar, Footer, BottomNavigation },
   name: "App",
   setup() {
     const store = useStore();
@@ -29,4 +25,11 @@ export default defineComponent({
   },
 });
 </script>
+<template>
+  <nav-bar />
+  <router-view />
+  <bottom-navigation class="block md:hidden lg:hidden" />
+  <Footer class="hidden md:block lg:block" />
+</template>
+
 

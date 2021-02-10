@@ -22,6 +22,7 @@ type ThemeActionContext = {
 
 export type State = {
   theme: string;
+  width: number;
 };
 export interface Actions {
   [ThemeActionTypes.INIT_THEME](
@@ -37,7 +38,8 @@ export type Getters = {
 };
 //module begin
 const state: State = {
-  theme: ""
+  theme: "",
+  width: 0
 };
 const getters: GetterTree<State, RootState> & Getters = {
   theme: state => state.theme
