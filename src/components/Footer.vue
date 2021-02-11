@@ -4,7 +4,7 @@
   <footer class="w-full px-4 py-2 bg-white shadow-sm dark:bg-gray-800">
     <!-- marging just for display-->
 
-    <div class="flex items-center justify-between my-4">
+    <div class="flex items-center justify-between my-4 font-mono">
       <div class="flex items-center">
         <a href="#">
           <svg

@@ -63,7 +63,7 @@ export default defineComponent({});
               ></rect>
             </g>
           </svg>
-          <span class="block text-xs tab tab-home">Artikel</span>
+          <span class="block font-mono text-xs tab tab-home">Artikel</span>
         </router-link>
         <router-link
           to="/tutorial"
@@ -112,7 +112,7 @@ export default defineComponent({});
               </g>
             </g>
           </svg>
-          <span class="block text-xs tab tab-kategori">Tutorial</span>
+          <span class="block font-mono text-xs tab tab-kategori">Tutorial</span>
         </router-link>
         <router-link
           to="/about"
@@ -145,7 +145,7 @@ export default defineComponent({});
               ></circle>
             </g>
           </svg>
-          <span class="block text-xs tab tab-explore">Tentang</span>
+          <span class="block font-mono text-xs tab tab-explore">Tentang</span>
         </router-link>
         <router-link
           to="/about"
@@ -194,7 +194,7 @@ export default defineComponent({});
               </g>
             </g>
           </svg>
-          <span class="block text-xs tab tab-account">Akun</span>
+          <span class="block font-mono text-xs tab tab-account">Akun</span>
         </router-link>
       </div>
     </section>

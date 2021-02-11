@@ -52,7 +52,8 @@ export default defineComponent({
               src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
               alt="Workflow"
             />
-            <span class="mx-2 font-bold text-gray-800 dark:text-gray-300"
+            <span
+              class="mx-2 font-mono font-bold text-gray-800 dark:text-gray-300"
               >trianapp</span
             >
           </div>
@@ -65,7 +66,7 @@ export default defineComponent({
             <router-link to="/" v-slot="{ isActive }">
               <a
                 href="javascript.void(0);"
-                class="inline-flex items-center px-4 py-2 font-normal rounded bg-gray-light hover:bg-gray-300 hover:text-gray-800 dark:hover:bg-gray-900 dark:hover:text-gray-100"
+                class="inline-flex items-center px-4 py-2 font-mono font-normal rounded bg-gray-light hover:bg-gray-300 hover:text-gray-800 dark:hover:bg-gray-900 dark:hover:text-gray-100"
                 :class="
                   isActive
                     ? 'bg-gray-200 dark:bg-gray-900 text-gray-700 dark:text-gray-100'
@@ -91,7 +92,7 @@ export default defineComponent({
             <router-link to="/tutorial" v-slot="{ isActive }"
               ><a
                 href="javascript.void(0);"
-                class="inline-flex items-center px-4 py-2 font-normal rounded bg-gray-light hover:bg-gray-300 hover:text-gray-800 dark:hover:bg-gray-900 dark:hover:text-gray-100"
+                class="inline-flex items-center px-4 py-2 font-mono font-normal rounded bg-gray-light hover:bg-gray-300 hover:text-gray-800 dark:hover:bg-gray-900 dark:hover:text-gray-100"
                 :class="
                   isActive
                     ? 'bg-gray-200 dark:bg-gray-900 text-gray-700 dark:text-gray-100'
@@ -118,7 +119,7 @@ export default defineComponent({
             <router-link to="/about" v-slot="{ isActive }">
               <a
                 href="javascript.void(0);"
-                class="inline-flex items-center px-4 py-2 font-normal rounded bg-gray-light hover:bg-gray-300 hover:text-gray-800 dark:hover:bg-gray-900 dark:hover:text-gray-100"
+                class="inline-flex items-center px-4 py-2 font-mono font-normal rounded bg-gray-light hover:bg-gray-300 hover:text-gray-800 dark:hover:bg-gray-900 dark:hover:text-gray-100"
                 :class="
                   isActive
                     ? 'bg-gray-200 dark:bg-gray-900 text-gray-700 dark:text-gray-100'
@@ -171,7 +172,7 @@ export default defineComponent({
                 id="user-menu"
                 aria-haspopup="true"
               >
-                <span class="sr-only">Open user menu</span>
+                <span class="font-mono sr-only">Open user menu</span>
                 <img
                   class="w-8 h-8 rounded-full"
                   src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
@@ -190,7 +191,7 @@ export default defineComponent({
               To: "transform opacity-0 scale-95"
           -->
             <div
-              class="absolute right-0 w-48 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg dark:bg-gray-900 ring-1 ring-black ring-opacity-5"
+              class="absolute right-0 w-48 py-1 mt-2 font-mono origin-top-right bg-white rounded-md shadow-lg dark:bg-gray-900 ring-1 ring-black ring-opacity-5"
               role="menu"
               v-show="menuProfil"
               aria-orientation="vertical"
