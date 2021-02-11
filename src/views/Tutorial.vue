@@ -1,5 +1,7 @@
 <template>
-  <div class="w-full h-screen overflow-hidden bg-gray-200 dark:bg-black"></div>
+  <div
+    class="w-full h-screen overflow-hidden bg-gray-200 dark:bg-gray-900"
+  ></div>
 </template>
 
 <script lang="ts">

@@ -1,11 +1,14 @@
 <script lang="ts">
-import { defineComponent, ref, watch } from "vue";
+import { defineComponent, onBeforeMount, reactive, ref, watch } from "vue";
 import { useStore } from "@/store";
 import { ThemeActionTypes } from "@/store/module/action-type";
 
 export default defineComponent({
   setup() {
     const menuProfil = ref(false);
+    const view = reactive({
+      atTopOfPage: true,
+    });
     const profilToggle = () => {
       menuProfil.value = !menuProfil.value;
     };
@@ -16,17 +19,30 @@ export default defineComponent({
       store.dispatch(ThemeActionTypes.INIT_THEME, "");
     };
 
+    onBeforeMount(() => {
+      window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 0) {
+          if (view.atTopOfPage) view.atTopOfPage = false;
+        } else {
+          if (!view.atTopOfPage) view.atTopOfPage = true;
+        }
+      });
+    });
     return {
       toggleTheme,
       menuProfil,
       profilToggle,
       store,
+      view,
     };
   },
 });
 </script>
 <template>
-  <nav class="bg-white shadow-sm dark:bg-gray-800">
+  <nav
+    :class="{ scrolled: !view.atTopOfPage }"
+    class="fixed w-screen bg-white dark:bg-gray-800"
+  >
     <div class="px-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
       <div class="relative flex items-center justify-between h-16">
         <div class="flex items-center justify-center flex-1">
@@ -134,27 +150,11 @@ export default defineComponent({
             <div class="flex">
               <button
                 @click="toggleTheme"
-                class="flex items-center mx-5 text-sm focus:outline-none"
+                class="flex items-center mx-5 text-sm text-gray-900 focus:outline-none dark:text-gray-100"
                 id="user-menu"
                 aria-haspopup="true"
               >
                 <svg
-                  v-if="store.state.theme == 'light'"
-                  class="w-5 h-5 mr-2"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-                  />
-                </svg>
-                <svg
-                  v-else
                   class="w-5 h-5 mr-2"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
@@ -221,3 +221,12 @@ export default defineComponent({
     </div>
   </nav>
 </template>
+<style scoped>
+nav {
+  z-index: 10;
+}
+nav.scrolled {
+  @apply shadow-lg;
+  border-bottom: 0px;
+}
+</style>
