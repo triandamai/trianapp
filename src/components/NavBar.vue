@@ -203,6 +203,12 @@ export default defineComponent({
                 role="menuitem"
                 >Your Profile</a
               >
+              <router-link
+                to="/new"
+                class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700"
+                role="menuitem"
+                >Post Article</router-link
+              >
               <a
                 href="#"
                 class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700"
