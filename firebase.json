@@ -1,6 +1,9 @@
 {
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
   "hosting": {
-    "site": "trianapp",
     "public": "dist",
     "ignore": [
       "firebase.json",

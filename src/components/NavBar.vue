@@ -1,7 +1,5 @@
 <script lang="ts">
-import { defineComponent, onBeforeMount, reactive, ref, watch } from "vue";
-import { useStore } from "@/store";
-import { ThemeActionTypes } from "@/store/module/action-types";
+import { defineComponent, onBeforeMount, reactive, ref } from "vue";
 
 export default defineComponent({
   setup(_, { emit }) {
@@ -37,10 +35,7 @@ export default defineComponent({
 });
 </script>
 <template>
-  <nav
-    :class="{ scrolled: !view.atTopOfPage }"
-    class="fixed w-screen bg-white dark:bg-gray-800"
-  >
+  <nav :class="{ scrolled: !view.atTopOfPage }" class="fixed w-screen">
     <div class="px-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
       <div class="relative flex items-center justify-between h-16">
         <div class="flex items-center justify-center flex-1">
@@ -57,17 +52,17 @@ export default defineComponent({
           </div>
         </div>
         <div
-          class="flex items-center justify-center flex-1 hidden md:block lg:block"
+          class="items-center justify-center flex-1 hidden md:block lg:block"
         >
           <div class="flex space-x-4">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
             <router-link to="/" v-slot="{ isActive }">
               <a
                 href="javascript.void(0);"
-                class="inline-flex items-center px-4 py-2 font-mono font-normal rounded bg-gray-light hover:bg-gray-300 hover:text-gray-800 dark:hover:bg-gray-900 dark:hover:text-gray-100"
+                class="inline-flex items-center px-4 py-2 font-mono font-normal rounded bg-gray-light hover:bg-gray-300 hover:text-gray-800 dark:hover:bg-gray-700 dark:hover:text-gray-100"
                 :class="
                   isActive
-                    ? 'bg-gray-200 dark:bg-gray-900 text-gray-700 dark:text-gray-100'
+                    ? 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-100'
                     : 'text-gray-400'
                 "
               >
@@ -90,10 +85,10 @@ export default defineComponent({
             <router-link to="/tutorial" v-slot="{ isActive }"
               ><a
                 href="javascript.void(0);"
-                class="inline-flex items-center px-4 py-2 font-mono font-normal rounded bg-gray-light hover:bg-gray-300 hover:text-gray-800 dark:hover:bg-gray-900 dark:hover:text-gray-100"
+                class="inline-flex items-center px-4 py-2 font-mono font-normal rounded bg-gray-light hover:bg-gray-300 hover:text-gray-800 dark:hover:bg-gray-700 dark:hover:text-gray-100"
                 :class="
                   isActive
-                    ? 'bg-gray-200 dark:bg-gray-900 text-gray-700 dark:text-gray-100'
+                    ? 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-100'
                     : 'text-gray-400'
                 "
               >
@@ -117,10 +112,10 @@ export default defineComponent({
             <router-link to="/about" v-slot="{ isActive }">
               <a
                 href="javascript.void(0);"
-                class="inline-flex items-center px-4 py-2 font-mono font-normal rounded bg-gray-light hover:bg-gray-300 hover:text-gray-800 dark:hover:bg-gray-900 dark:hover:text-gray-100"
+                class="inline-flex items-center px-4 py-2 font-mono font-normal rounded bg-gray-light hover:bg-gray-300 hover:text-gray-800 dark:hover:bg-gray-700 dark:hover:text-gray-100"
                 :class="
                   isActive
-                    ? 'bg-gray-200 dark:bg-gray-900 text-gray-700 dark:text-gray-100'
+                    ? 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-100'
                     : 'text-gray-400'
                 "
               >

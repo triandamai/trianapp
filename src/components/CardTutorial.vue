@@ -1,8 +1,28 @@
+<script lang="ts">
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  props: {
+    data: {
+      type: Object,
+      default: null,
+    },
+  },
+  setup(props) {
+    return {
+      ...props,
+    };
+  },
+});
+</script>
 <template>
-  <div class="flex flex-col w-full p-10 mb-6 md:w-1/3 lg:w-1/3 md:mb-0">
-    <div class="bg-gray-100 pattern-dots-md dark:bg-gray-900">
+  <div class="flex flex-col w-full p-10 mb-6 md:w-1/2 lg:w-1/3 md:mb-0">
+    <div
+      class="bg-gray-100 cursor-pointer pattern-dots-md dark:bg-gray-900"
+      @click="$router.push({ path: `/read/${data.id}` })"
+    >
       <div
-        class="p-4 text-gray-900 transform translate-x-4 -translate-y-4 bg-white rounded dark:text-gray-100 dark:bg-gray-800 hover:translate-x-6 hover:-translate-y-6 md:translate-x-5 md:-translate-y-5 lg:translate-x-5 lg:-translate-y-5"
+        class="p-4 text-gray-900 transform translate-x-4 -translate-y-4 bg-white rounded shadow-md dark:text-gray-100 dark:bg-gray-800 hover:translate-x-6 hover:-translate-y-6 md:translate-x-5 md:-translate-y-5 lg:translate-x-5 lg:-translate-y-5"
       >
         <div
           class="inline-flex items-center justify-center flex-shrink-0 w-10 h-10 mb-5 text-blue-500 bg-blue-100 rounded-full"
@@ -23,12 +43,15 @@
           </svg>
         </div>
         <div class="flex-grow">
-          <h2 class="mb-3 font-mono text-lg font-bold title-font">
-            Belajar Membuat Website
+          <h2
+            class="mb-3 font-mono text-lg font-bold break-words cursor-pointer title-font hover:underline hover:"
+          >
+            {{ data.title }}
           </h2>
-          <p class="flex-wrap font-mono text-sm leading-relaxed text-justify">
-            Hallo gaes 😍 saya sedang membuat projek untuk portofolio saya 🎨.
-            Semoga kamu suka. Yuk bergabung bersama memuat websitenya lebih baik
+          <p
+            class="flex-wrap font-mono text-sm leading-relaxed text-justify overflow-ellipsis"
+          >
+            {{ data.description }}
           </p>
         </div>
       </div>

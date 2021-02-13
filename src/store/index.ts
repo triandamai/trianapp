@@ -21,13 +21,16 @@ export interface AppState {
 export const key: InjectionKey<Store<AppState>> = Symbol();
 
 export const store = createStore<AppState>({
-  state: reactive({
+  state: {
     theme: "",
     tutorial: [],
     article: []
-  }),
+  },
   getters: {
-    getTheme: state => state.theme
+    getTheme: state => state.theme,
+    getTutorialById: state => (id: any) => {
+      return state.tutorial.find(tutorial => tutorial.id === id);
+    }
   },
   actions: {
     [ThemeActionTypes.INIT_THEME]({ state, commit }, payload) {
@@ -46,7 +49,7 @@ export const store = createStore<AppState>({
         }
       }
     },
-    [DocumentActionTypes.POST_ARTICLE](
+    [DocumentActionTypes.POST_TUTORIAL](
       { commit },
       payload: {
         id: string;
@@ -69,19 +72,49 @@ export const store = createStore<AppState>({
           });
       });
     },
-    [DocumentActionTypes.GET_ARTICLE]({ commit }) {
+    [DocumentActionTypes.GET_TUTORIAL]({ commit }) {
       return new Promise(resolve => {
         dbTutorial
           .get()
           .then(doc => {
             console.log(doc.size);
             doc.forEach(snapshot => {
-              console.log(snapshot.id);
-              console.log(snapshot.data());
+              if (snapshot.exists) {
+                commit(DocumentMutationTypes.ADD_TUTORIAL, snapshot.data());
+                resolve({
+                  success: true,
+                  message: "exist",
+                  payload: snapshot.metadata
+                });
+              } else {
+                resolve({
+                  success: false,
+                  message: "not found",
+                  payload: null
+                });
+              }
             });
           })
           .catch(err => {
-            console.log(err);
+            resolve({ success: false, message: "error", payload: err });
+          });
+      });
+    },
+    [DocumentActionTypes.GET_TUTORIAL_BY_ID]({ commit }, id) {
+      return new Promise(resolve => {
+        dbTutorial
+          .doc(id)
+          .get()
+          .then(snapshot => {
+            if (snapshot.exists) {
+              commit(DocumentMutationTypes.ADD_TUTORIAL, snapshot.data());
+              resolve({ success: true, message: "dataexist", payload: null });
+            } else {
+              resolve({ success: false, message: "notfound", payload: null });
+            }
+          })
+          .catch(e => {
+            resolve({ success: false, message: "error", payload: e });
           });
       });
     }
@@ -93,10 +126,29 @@ export const store = createStore<AppState>({
       setTheme(payload);
     },
     [DocumentMutationTypes.ADD_TUTORIAL](state, payload) {
-      console.log("add", payload);
+      const exist = state.tutorial.some(item => {
+        return item.id == payload.id;
+      });
+      if (!exist) {
+        state.tutorial.push(payload);
+      } else {
+        const index = state.tutorial
+          .map(tutorial => tutorial.id)
+          .indexOf(payload.id);
+        Object.assign(state.tutorial[index], payload);
+      }
+    },
+    [DocumentMutationTypes.CHANGE_TUTORIAL](state, payload) {
+      const index = state.tutorial
+        .map(tutorial => tutorial.id)
+        .indexOf(payload.id);
+      Object.assign(state.tutorial[index], payload);
     },
     [DocumentMutationTypes.REMOVE_TUTORIAL](state, payload) {
-      console.log("remove", payload);
+      const index = state.tutorial
+        .map(tutorial => tutorial.id)
+        .indexOf(payload.id);
+      state.tutorial.splice(index);
     }
   }
 });

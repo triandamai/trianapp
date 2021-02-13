@@ -10,6 +10,7 @@ export interface DataContent {
   id: string;
   slug: string;
   title: string;
+  description: string;
   content: Array<Content>;
   createdAt: any;
   updateAt: any;

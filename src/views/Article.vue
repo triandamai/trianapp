@@ -9,9 +9,7 @@ export default defineComponent({
 </script>
 <template>
   <div class="w-full font-mono bg-gray-100 dark:bg-gray-900">
-    <section
-      class="text-gray-900 bg-gray-100 dark:bg-gray-900 dark:text-gray-200"
-    >
+    <section class="text-gray-900 dark:text-gray-200">
       <div class="max-w-6xl px-5 py-24 mx-auto">
         <div class="mb-20 text-center">
           <h1

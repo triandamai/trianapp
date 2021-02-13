@@ -1,7 +1,6 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import draggable from "vuedraggable";
-import { useStore } from "@/store";
 
 //comp
 import TextInput from "@/components/editor/TextInput.vue";
@@ -22,6 +21,7 @@ export default defineComponent({
       ],
       content: [],
       title: "",
+      description: "",
     };
   },
   methods: {
@@ -61,6 +61,7 @@ export default defineComponent({
         id: this.title.replaceAll(" ", "-"),
         slug: this.title.replaceAll(" ", "-"),
         title: this.title,
+        description: this.description,
         content: contens,
         createdAt: Date.now().toString(),
         updateAt: Date.now().toString(),
@@ -69,7 +70,7 @@ export default defineComponent({
         return;
       }
       this.$store
-        .dispatch(DocumentActionTypes.POST_ARTICLE, datacontent)
+        .dispatch(DocumentActionTypes.POST_TUTORIAL, datacontent)
         .then((res: any) => {
           console.log(res);
         });
@@ -125,8 +126,13 @@ export default defineComponent({
               <div class="w-full h-full px-5 bg-white rounded-t-md">
                 <input
                   class="w-full h-full px-5 py-3 font-bold focus:outline-none"
-                  placeholder="Ketikkan Judul Artikel"
+                  placeholder="Ketikkan Judul Tutorial"
                   v-model="title"
+                />
+                <input
+                  class="w-full h-full px-5 py-3 font-bold focus:outline-none"
+                  placeholder="Ketikkan Deskripsi Tutorial"
+                  v-model="description"
                 />
               </div>
               <!-- file upload modal -->

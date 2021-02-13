@@ -12,7 +12,7 @@ jobs:
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_TRIANAPP_59E65 }}'
-          projectId: trianapp-59e65
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_MYPROJECT_64AAC }}'
+          projectId: myproject-64aac
         env:
           FIREBASE_CLI_PREVIEWS: hostingchannels

@@ -9,12 +9,12 @@ export default defineComponent({});
   >
     <div class="font-mono bg-gray-100 pattern-dots-md dark:bg-gray-900">
       <div
-        class="text-gray-900 transform translate-x-4 -translate-y-4 bg-white rounded dark:text-gray-100 dark:bg-gray-800 hover:translate-x-6 hover:-translate-y-6 md:translate-x-5 md:-translate-y-5 lg:translate-x-5 lg:-translate-y-5"
+        class="text-gray-900 transform translate-x-4 -translate-y-4 bg-white rounded dark:text-gray-100 hover:translate-x-6 hover:-translate-y-6 md:translate-x-5 md:-translate-y-5 lg:translate-x-5 lg:-translate-y-5"
       >
         <div
           class="w-full h-56 bg-gray-300 bg-center bg-cover rounded-sm shadow-md"
           style="
-            background-image: url(https://images.unsplash.com/photo-1521185496955-15097b20c5fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+            background-image: url(https://images.unsplash.com/photo-1521185496955-15097b20c5fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80);
           "
         ></div>
 

@@ -3,6 +3,7 @@ export enum ThemeActionTypes {
 }
 
 export enum DocumentActionTypes {
-  GET_ARTICLE = "GETARTICLE",
-  POST_ARTICLE = "POSTARTICLE"
+  GET_TUTORIAL = "GETTUTORIAL",
+  POST_TUTORIAL = "POSTTUTORIAL",
+  GET_TUTORIAL_BY_ID = "GETTUTORIALBYID"
 }

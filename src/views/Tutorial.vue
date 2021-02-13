@@ -11,17 +11,20 @@ export default defineComponent({
   setup() {
     const store = useStore();
     onMounted(() => {
-      console.log("onMount");
-      store.dispatch(DocumentActionTypes.GET_ARTICLE);
+      store.dispatch(DocumentActionTypes.GET_TUTORIAL);
     });
+    return {
+      store,
+    };
   },
 });
 </script>
 <template>
-  <div class="w-full font-mono bg-gray-200 dark:bg-gray-900">
-    <section
-      class="text-gray-900 bg-gray-100 dark:bg-gray-900 dark:text-gray-200"
-    >
+  <div
+    class="w-full h-full font-mono bg-gray-100 min-h-max dark:bg-gray-900"
+    style="height: 80%"
+  >
+    <section class="text-gray-900 dark:text-gray-200">
       <div class="container px-5 py-24 mx-auto">
         <div class="mb-20 text-center">
           <h1
@@ -41,7 +44,11 @@ export default defineComponent({
         </div>
         <div class="flex flex-wrap -mx-4 -mt-4 -mb-10 sm:-m-4">
           <!-- CARD -->
-          <card-tutorial v-for="(item, index) in 10" :key="index" />
+          <card-tutorial
+            v-for="(item, index) in store.state.tutorial"
+            :data="item"
+            :key="index"
+          />
         </div>
       </div>
     </section>

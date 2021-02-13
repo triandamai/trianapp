@@ -5,5 +5,6 @@ export enum ThemeMutationTypes {
 
 export enum DocumentMutationTypes {
   ADD_TUTORIAL = "ADDARTICLE",
+  CHANGE_TUTORIAL = "CHANGETUTORIAL",
   REMOVE_TUTORIAL = "REMOVETURTORIAL"
 }
