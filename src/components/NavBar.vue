@@ -1,9 +1,11 @@
 <script lang="ts">
 import { defineComponent, onBeforeMount, reactive, ref } from "vue";
+import { useStore } from "@/store";
 
 export default defineComponent({
   setup(_, { emit }) {
     const menuProfil = ref(false);
+    const store = useStore();
     const view = reactive({
       atTopOfPage: true,
     });
@@ -28,7 +30,7 @@ export default defineComponent({
       toggleTheme,
       menuProfil,
       profilToggle,
-      // store,
+      store,
       view,
     };
   },
@@ -41,12 +43,13 @@ export default defineComponent({
         <div class="flex items-center justify-center flex-1">
           <div class="flex items-center flex-shrink-0">
             <img
-              class="block w-auto h-8"
+              @click="$router.push({ path: '/article' })"
+              class="block w-auto h-8 cursor-pointer"
               src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
               alt="Workflow"
             />
             <span
-              class="mx-2 font-mono font-bold text-gray-800 dark:text-gray-300"
+              class="mx-2 font-mono font-bold text-gray-800 cursor-pointer dark:text-gray-300"
               >trianapp</span
             >
           </div>
@@ -56,7 +59,7 @@ export default defineComponent({
         >
           <div class="flex space-x-4">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            <router-link to="/" v-slot="{ isActive }">
+            <router-link to="/article" v-slot="{ isActive }">
               <a
                 href="javascript.void(0);"
                 class="inline-flex items-center px-4 py-2 font-mono font-normal rounded bg-gray-light hover:bg-gray-300 hover:text-gray-800 dark:hover:bg-gray-700 dark:hover:text-gray-100"
@@ -150,12 +153,28 @@ export default defineComponent({
               >
                 <svg
                   class="w-5 h-5 mr-2"
+                  v-if="store.state.theme == 'light'"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >
                   <path
                     d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+                  />
+                </svg>
+                <svg
+                  class="w-5 h-5 mr-2"
+                  v-else
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
                   />
                 </svg>
               </button>
@@ -208,11 +227,11 @@ export default defineComponent({
                 role="menuitem"
                 >Settings</a
               >
-              <a
-                href="#"
-                class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700"
+              <router-link
+                to="/auth/login"
+                class="block px-4 py-2 text-sm text-gray-700 cursor-pointer dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700"
                 role="menuitem"
-                >Sign out</a
+                >Sign out</router-link
               >
             </div>
           </div>

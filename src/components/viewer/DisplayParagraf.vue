@@ -14,5 +14,5 @@ export default defineComponent({
 });
 </script>
 <template>
-  <div class="pb-6" v-html="props.body"></div>
+  <div class="my-6" v-html="props.body"></div>
 </template>

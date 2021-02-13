@@ -15,7 +15,7 @@ export default defineComponent({
 </script>
 <template>
   <div
-    class="pl-4 mb-6 italic border-l-4 border-gray-500 rounded"
+    class="pl-4 my-6 italic bg-gray-200 border-l-4 border-gray-500 dark:bg-gray-800 bg-opacity-40 dark:bg-opacity-10"
     v-html="props.body"
   ></div>
 </template>

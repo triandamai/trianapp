@@ -8,9 +8,16 @@ import BlockquoteInput from "@/components/editor/BlockquoteInput.vue";
 import CodePreviewInput from "@/components/editor/CodePreviewInput.vue";
 import { DocumentActionTypes } from "@/store/module/action-types";
 import { Content, DataContent } from "@/store/module/model-types";
+import QuoteInput from "@/components/editor/QuoteInput.vue";
 
 export default defineComponent({
-  components: { draggable, TextInput, BlockquoteInput, CodePreviewInput },
+  components: {
+    draggable,
+    TextInput,
+    BlockquoteInput,
+    CodePreviewInput,
+    QuoteInput,
+  },
   data() {
     return {
       availablecontent: [
@@ -18,6 +25,8 @@ export default defineComponent({
         { name: "BlockQuote", id: 2, type: "blockquote", body: "" },
         { name: "Code Preview", id: 3, type: "code", body: "" },
         { name: "Gambar", id: 4, type: "image", body: "" },
+        { name: "Heading", id: 5, type: "heading", body: "" },
+        { name: "Kutipan", id: 6, type: "quote", body: "" },
       ],
       content: [],
       title: "",
@@ -79,9 +88,7 @@ export default defineComponent({
 });
 </script>
 <template>
-  <div
-    class="w-full h-full min-h-screen font-mono bg-gray-200 dark:bg-gray-900"
-  >
+  <div class="w-full font-mono bg-gray-200 dark:bg-gray-900">
     <section
       class="w-full text-gray-900 bg-gray-200 dark:bg-gray-900 dark:text-gray-200"
     >
@@ -97,21 +104,23 @@ export default defineComponent({
           >
             <template #item="{ element }">
               <div
-                class="col-span-12 mt-2 list-group-item sm:col-span-6 md:col-span-3"
+                class="col-span-12 mt-2 cursor-pointer list-group-item sm:col-span-6 md:col-span-3"
               >
-                <div class="flex flex-row p-4 bg-white rounded shadow-sm">
+                <div
+                  class="flex flex-row p-4 bg-white rounded shadow-sm dark:bg-gray-800"
+                >
                   <div class="items-center content-center ml-4">
-                    <div class="text-sm text-gray-500">{{ element.name }}</div>
+                    <div class="text-sm text-gray-500 dark:text-gray-50">
+                      {{ element.name }}
+                    </div>
                   </div>
                 </div>
               </div>
             </template>
           </draggable>
         </div>
-        <div class="w-1/5 h-full mx-10"></div>
-        <div
-          class="flex-wrap w-2/3 h-full mx-10 overflow-auto overflow-y-scroll"
-        >
+        <div class="w-1/4 h-full mx-10"></div>
+        <div class="w-2/4 mx-10">
           <!-- component -->
           <div class="flex justify-start w-full mb-3">
             <button
@@ -121,16 +130,16 @@ export default defineComponent({
               Simpan
             </button>
           </div>
-          <div class="w-full h-full px-2 pt-2 bg-gray-300">
-            <main class="container h-full max-w-screen-lg mx-auto">
-              <div class="w-full h-full px-5 bg-white rounded-t-md">
+          <div class="w-full px-2 pt-2 bg-gray-300 dark:bg-gray-800">
+            <main class="max-w-screen-lg mx-auto">
+              <div class="w-full px-5 bg-white dark:bg-gray-800 rounded-t-md">
                 <input
-                  class="w-full h-full px-5 py-3 font-bold focus:outline-none"
+                  class="w-full px-5 py-3 font-bold focus:outline-none dark:bg-gray-800 dark:text-gray-50"
                   placeholder="Ketikkan Judul Tutorial"
                   v-model="title"
                 />
                 <input
-                  class="w-full h-full px-5 py-3 font-bold focus:outline-none"
+                  class="w-full px-5 py-3 font-bold focus:outline-none dark:bg-gray-800 dark:text-gray-50"
                   placeholder="Ketikkan Deskripsi Tutorial"
                   v-model="description"
                 />
@@ -138,7 +147,7 @@ export default defineComponent({
               <!-- file upload modal -->
               <article
                 aria-label="File Upload Modal"
-                class="relative flex flex-col h-full bg-white rounded-none"
+                class="flex flex-col bg-white rounded-none dark:bg-gray-800"
               >
                 <!-- <article
                 aria-label="File Upload Modal"
@@ -171,13 +180,13 @@ export default defineComponent({
 
                 <!-- scroll area -->
                 <section
-                  class="flex flex-col w-full h-full px-8 pt-2 pb-4 overflow-auto"
+                  class="flex flex-col w-full px-8 pt-2 pb-4 overflow-auto"
                 >
                   <header
                     class="flex flex-col items-center justify-center py-12 border-2 border-gray-400 border-dashed"
                   >
                     <p
-                      class="flex flex-wrap justify-center mb-3 font-semibold text-gray-900"
+                      class="flex flex-wrap justify-center mb-3 font-semibold text-gray-900 dark:text-gray-100"
                     >
                       <span>Drag dan drop </span>&nbsp;<span
                         >file gambar disini atau</span
@@ -191,7 +200,7 @@ export default defineComponent({
                     />
                     <button
                       id="button"
-                      class="px-3 py-1 mt-2 bg-gray-200 rounded-sm hover:bg-gray-300 focus:shadow-outline focus:outline-none"
+                      class="px-3 py-1 mt-2 bg-gray-200 rounded-sm hover:bg-gray-300 focus:shadow-outline focus:outline-none dark:bg-gray-900"
                     >
                       Unggah file
                     </button>
@@ -222,7 +231,7 @@ export default defineComponent({
           </div>
 
           <draggable
-            class="flex-1 w-full h-full min-h-full px-2 py-8 pt-2 bg-gray-300"
+            class="relative flex-grow px-2 py-8 pt-2 bg-gray-300 dark:bg-gray-800"
             :list="content"
             group="people"
             @change="log"
@@ -244,6 +253,12 @@ export default defineComponent({
                 />
                 <code-preview-input
                   v-if="element.type == 'code'"
+                  :title="element.name"
+                  :index="element.index"
+                  v-on:body="setBody"
+                />
+                <quote-input
+                  v-if="element.type == 'quote'"
                   :title="element.name"
                   :index="element.index"
                   v-on:body="setBody"

@@ -35,15 +35,15 @@ export default defineComponent({
   <div
     class="flex-grow col-span-12 list-group-item sm:col-span-6 md:col-span-3"
   >
-    <div class="flex flex-grow bg-white shadow-sm">
-      <div class="w-full pl-4 pr-8 ml-4 justify-items-start">
+    <div class="flex flex-grow bg-white shadow-sm dark:bg-gray-800">
+      <div class="w-full pl-4 pr-4 ml-4 justify-items-start">
         <h3 class="text-left">
           {{ title }}
         </h3>
         <textarea
           :id="`text-${index}`"
           :ref="textarea"
-          class="w-full px-5 py-4 font-mono bg-gray-200 rounded-md focus:outline-none"
+          class="w-full py-4 font-mono bg-gray-200 rounded-md focus:outline-none dark:bg-gray-800"
           v-model="inputVal"
           :style="{ 'min-height': `${inputH}px` }"
           rows="1"

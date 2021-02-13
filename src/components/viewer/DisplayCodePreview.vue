@@ -14,7 +14,8 @@ export default defineComponent({
 });
 </script>
 <template>
-  <h2 class="my-6 text-2xl font-semibold text-gray-800">
-    {{ props.body }}
-  </h2>
+  <code
+    class="py-2 pl-2 pr-6 my-6 ml-6 text-gray-800 bg-gray-300 border-l-4 border-yellow-600 border-opacity-50 rounded-sm dark:border-opacity-30 dark:bg-gray-800 dark:text-gray-100"
+    v-html="props.body"
+  ></code>
 </template>

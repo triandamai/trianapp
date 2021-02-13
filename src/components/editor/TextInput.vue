@@ -36,7 +36,7 @@ export default defineComponent({
   <div
     class="flex-grow col-span-12 list-group-item sm:col-span-6 md:col-span-3"
   >
-    <div class="flex flex-grow p-4 bg-white shadow-sm">
+    <div class="flex flex-grow p-4 bg-white shadow-sm dark:bg-gray-800">
       <div class="w-full ml-4 justify-items-start">
         <h3 class="text-left">
           {{ title }}
@@ -44,7 +44,7 @@ export default defineComponent({
         <textarea
           :id="`text-${index}`"
           :ref="textarea"
-          class="w-full pr-5 focus:outline-none"
+          class="w-full pr-5 focus:outline-none dark:bg-gray-800 bg-gray-50"
           v-model="inputVal"
           :style="{ 'min-height': `${inputH}px` }"
           rows="1"
