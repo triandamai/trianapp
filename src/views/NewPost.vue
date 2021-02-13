@@ -1,38 +1,78 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import draggable from "vuedraggable";
+import { useStore } from "@/store";
 
 //comp
 import TextInput from "@/components/editor/TextInput.vue";
+import BlockquoteInput from "@/components/editor/BlockquoteInput.vue";
+import CodePreviewInput from "@/components/editor/CodePreviewInput.vue";
+import { DocumentActionTypes } from "@/store/module/action-types";
+import { Content, DataContent } from "@/store/module/model-types";
 
 export default defineComponent({
-  components: { draggable, TextInput },
+  components: { draggable, TextInput, BlockquoteInput, CodePreviewInput },
   data() {
     return {
-      list1: [
+      availablecontent: [
         { name: "Paragraf", id: 1, type: "text", body: "" },
         { name: "BlockQuote", id: 2, type: "blockquote", body: "" },
         { name: "Code Preview", id: 3, type: "code", body: "" },
         { name: "Gambar", id: 4, type: "image", body: "" },
       ],
-      list2: [],
+      content: [],
+      title: "",
     };
   },
   methods: {
     log: function (evt: any) {
       if (evt.moved) {
-        const data: any = this.list2[evt.moved.newIndex];
+        const data: any = this.content[evt.moved.newIndex];
         data.index = evt.moved.newIndex;
+      } else {
+        const data: any = this.content[evt.added.newIndex];
+        data.index = evt.added.newIndex;
       }
     },
     cloneDog({ id, name, type, body }: any) {
       return {
-        id: this.list2.length + 1,
-        index: this.list2.length + 1,
+        id: this.content.length + 1,
+        index: this.content.length + 1,
         type: type,
         body: body,
-        name: `${name} ${id}`,
+        name: name,
       };
+    },
+    setBody(payload: any) {
+      const data: any = this.content[payload.index];
+      data.body = payload.body;
+    },
+    sendData() {
+      const contens: Array<Content> = [];
+      this.content.map((item: any) => {
+        contens.push({
+          id: item.id,
+          index: item.index,
+          body: item.body,
+          type: item.type,
+        });
+      });
+      const datacontent: DataContent = {
+        id: this.title.replaceAll(" ", "-"),
+        slug: this.title.replaceAll(" ", "-"),
+        title: this.title,
+        content: contens,
+        createdAt: Date.now().toString(),
+        updateAt: Date.now().toString(),
+      };
+      if (contens.length < 1 || this.title.length < 10) {
+        return;
+      }
+      this.$store
+        .dispatch(DocumentActionTypes.POST_ARTICLE, datacontent)
+        .then((res: any) => {
+          console.log(res);
+        });
     },
   },
 });
@@ -48,7 +88,7 @@ export default defineComponent({
         <div class="fixed w-1/5 h-full mx-10">
           <draggable
             class="flex-1"
-            :list="list1"
+            :list="availablecontent"
             :group="{ name: 'people', pull: 'clone', put: false }"
             :clone="cloneDog"
             @change="log"
@@ -72,12 +112,21 @@ export default defineComponent({
           class="flex-wrap w-2/3 h-full mx-10 overflow-auto overflow-y-scroll"
         >
           <!-- component -->
-          <div class="w-full h-full px-5 pt-5 bg-gray-300">
+          <div class="flex justify-start w-full mb-3">
+            <button
+              class="justify-start px-4 py-1 text-green-800 text-opacity-100 bg-green-200 rounded-sm dark:text-green-300 bg-opacity-90 dark:bg-opacity-10 focus:outline-none"
+              @click="sendData"
+            >
+              Simpan
+            </button>
+          </div>
+          <div class="w-full h-full px-2 pt-2 bg-gray-300">
             <main class="container h-full max-w-screen-lg mx-auto">
-              <div class="w-full h-full px-5 py-3 bg-white rounded-t-md">
+              <div class="w-full h-full px-5 bg-white rounded-t-md">
                 <input
                   class="w-full h-full px-5 py-3 font-bold focus:outline-none"
                   placeholder="Ketikkan Judul Artikel"
+                  v-model="title"
                 />
               </div>
               <!-- file upload modal -->
@@ -115,15 +164,17 @@ export default defineComponent({
                 </div>
 
                 <!-- scroll area -->
-                <section class="flex flex-col w-full h-full p-8 overflow-auto">
+                <section
+                  class="flex flex-col w-full h-full px-8 pt-2 pb-4 overflow-auto"
+                >
                   <header
                     class="flex flex-col items-center justify-center py-12 border-2 border-gray-400 border-dashed"
                   >
                     <p
                       class="flex flex-wrap justify-center mb-3 font-semibold text-gray-900"
                     >
-                      <span>Drag and drop your</span>&nbsp;<span
-                        >files anywhere or</span
+                      <span>Drag dan drop </span>&nbsp;<span
+                        >file gambar disini atau</span
                       >
                     </p>
                     <input
@@ -136,7 +187,7 @@ export default defineComponent({
                       id="button"
                       class="px-3 py-1 mt-2 bg-gray-200 rounded-sm hover:bg-gray-300 focus:shadow-outline focus:outline-none"
                     >
-                      Upload a file
+                      Unggah file
                     </button>
                   </header>
 
@@ -165,18 +216,33 @@ export default defineComponent({
           </div>
 
           <draggable
-            class="flex-1 w-full h-full min-h-full px-5 py-5 bg-gray-300"
-            :list="list2"
+            class="flex-1 w-full h-full min-h-full px-2 py-8 pt-2 bg-gray-300"
+            :list="content"
             group="people"
             @change="log"
             item-key="id"
           >
             <template #item="{ element }">
-              <text-input
-                v-if="element.type == 'text' || element.type == 'blockquote'"
-                :title="element.name"
-                :index="element.index"
-              />
+              <div>
+                <text-input
+                  v-if="element.type == 'text'"
+                  :title="element.name"
+                  :index="element.index"
+                  v-on:body="setBody"
+                />
+                <blockquote-input
+                  v-if="element.type == 'blockquote'"
+                  :title="element.name"
+                  :index="element.index"
+                  v-on:body="setBody"
+                />
+                <code-preview-input
+                  v-if="element.type == 'code'"
+                  :title="element.name"
+                  :index="element.index"
+                  v-on:body="setBody"
+                />
+              </div>
             </template>
           </draggable>
         </div>

@@ -1,10 +1,10 @@
 <script lang="ts">
 import { defineComponent, onBeforeMount, reactive, ref, watch } from "vue";
 import { useStore } from "@/store";
-import { ThemeActionTypes } from "@/store/module/action-type";
+import { ThemeActionTypes } from "@/store/module/action-types";
 
 export default defineComponent({
-  setup() {
+  setup(_, { emit }) {
     const menuProfil = ref(false);
     const view = reactive({
       atTopOfPage: true,
@@ -13,10 +13,8 @@ export default defineComponent({
       menuProfil.value = !menuProfil.value;
     };
 
-    const store = useStore();
-
     const toggleTheme = () => {
-      store.dispatch(ThemeActionTypes.INIT_THEME, "");
+      emit("theme", true);
     };
 
     onBeforeMount(() => {
@@ -32,7 +30,7 @@ export default defineComponent({
       toggleTheme,
       menuProfil,
       profilToggle,
-      store,
+      // store,
       view,
     };
   },
@@ -150,9 +148,9 @@ export default defineComponent({
           <div class="relative ml-3">
             <div class="flex">
               <button
-                @click="toggleTheme"
                 class="flex items-center mx-5 text-sm text-gray-900 focus:outline-none dark:text-gray-100"
                 id="user-menu"
+                @click="toggleTheme"
                 aria-haspopup="true"
               >
                 <svg

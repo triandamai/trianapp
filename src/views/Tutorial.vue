@@ -1,11 +1,20 @@
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, onMounted } from "vue";
+import { useStore } from "@/store";
 
 //com
 import CardTutorial from "@/components/CardTutorial.vue";
+import { DocumentActionTypes } from "@/store/module/action-types";
 
 export default defineComponent({
   components: { CardTutorial },
+  setup() {
+    const store = useStore();
+    onMounted(() => {
+      console.log("onMount");
+      store.dispatch(DocumentActionTypes.GET_ARTICLE);
+    });
+  },
 });
 </script>
 <template>
