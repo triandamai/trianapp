@@ -20,6 +20,19 @@ export default defineComponent({
     const route = useRoute();
     const data = ref();
 
+    const getStringDate = (date: any) => {
+      const res = new Date(date * 1000);
+      return `${res
+        .getDate()
+        .toString()}-${res
+        .getMonth()
+        .toString()}-${res
+        .getUTCFullYear()
+        .toString()} ${res
+        .getHours()
+        .toString()}:${res.getMinutes().toString()}`;
+    };
+
     onBeforeMount(() => {
       store
         .dispatch(DocumentActionTypes.GET_TUTORIAL_BY_ID, route.params.id)
@@ -27,7 +40,7 @@ export default defineComponent({
           data.value = store.getters.getTutorialById(route.params.id);
         });
     });
-    return { data };
+    return { data, getStringDate };
   },
 });
 </script>
@@ -48,7 +61,10 @@ export default defineComponent({
           href="#"
           class="inline-flex items-center justify-center py-2 mb-2 text-green-700"
         >
-          Cryptocurrency
+          Published by<code> triandamai</code>
+          <code class="ml-2 text-gray-200">{{
+            getStringDate(data.createdAt)
+          }}</code>
         </a>
       </div>
 
