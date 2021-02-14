@@ -1,5 +1,34 @@
+<script lang="ts">
+import { defineComponent, onMounted } from "vue";
+import firebase from "firebase/app";
+import { AuthGoogle } from "@/store/firbaseDatabase";
+export default defineComponent({
+  setup() {
+    const login = () => {
+      const provider = new firebase.auth.GoogleAuthProvider();
+
+      AuthGoogle.signInWithRedirect(provider);
+    };
+    onMounted(() => {
+      AuthGoogle.getRedirectResult()
+        .then((result) => {
+          console.log(result);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    });
+
+    return {
+      login,
+    };
+  },
+});
+</script>
 <template>
-  <section class="flex flex-col items-center h-screen md:flex-row">
+  <section
+    class="flex flex-col items-center h-screen bg-white md:flex-row dark:bg-gray-900"
+  >
     <div
       class="relative hidden w-full h-screen bg-gray-400 lg:block md:w-1/3 xl:w-1/3"
     >
@@ -8,46 +37,21 @@
         alt=""
         class="absolute object-cover w-full h-full"
       />
-      <div class="relative z-10 m-12 text-left">
-        <a
-          class="flex items-center w-32 mb-4 font-medium text-gray-900 title-font md:mb-6"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
-            />
-          </svg>
-        </a>
-        <h1
-          class="mb-2 text-2xl font-semibold tracking-tighter text-blue-700 tsm:text-5xl title-font"
-        >
-          Discover 100+
-          <br />
-          screens ready to use.
-        </h1>
-      </div>
     </div>
     <div
-      class="flex w-full h-screen px-6 bg-blue-1300 md:max-w-md lg:max-w-full md:mx-auto md:w-1/2 xl:w-1/3 lg:px-16 xl:px-12 items-left justify-left"
+      class="flex w-full h-screen px-6 bg-white bg-blue-1300 md:max-w-md lg:max-w-full md:mx-auto md:w-1/2 xl:w-1/3 lg:px-16 xl:px-12 items-left justify-left dark:bg-gray-900"
     >
       <div class="w-full py-32 lg:py-6 lg:h-100">
         <h1
-          class="my-12 text-2xl font-semibold tracking-tighter text-blue-700 sm:text-3xl title-font"
+          class="my-12 text-2xl font-semibold tracking-tighter text-blue-700 sm:text-3xl title-font dark:text-blue-900"
         >
           Sign Up to a new world.
         </h1>
         <div class="flex justify-enter">
           <button
             type="button"
-            class="inline-flex w-full px-4 py-3 font-semibold text-blue-800 border border-gray-300 rounded-lg bg-blue-1300 hover:bg-blue-800 hover:text-white focus:bg-gray-100"
+            @click="login"
+            class="inline-flex w-full px-4 py-3 font-semibold text-blue-800 border border-gray-300 rounded-lg dark:text-blue-800 dark:border-gray-800 bg-blue-1300 hover:bg-blue-800 hover:text-white focus:bg-gray-100 dark:bg-gray-800 dark:hover:text-white"
           >
             <div class="flex items-center justify-center">
               <svg
@@ -87,7 +91,7 @@
           </button>
           <button
             type="button"
-            class="inline-flex px-4 py-3 ml-8 font-semibold text-blue-800 border border-gray-300 rounded-lg bg-blue-1300 hover:bg-blue-800 focus:bg-gray-100 hover:text-blue-500"
+            class="inline-flex px-4 py-3 ml-8 font-semibold text-blue-800 border border-gray-300 rounded-lg dark:border-gray-800 bg-blue-1300 hover:bg-blue-800 dark:hover:bg-blue-500 dark:hover:bg-opacity-10 focus:bg-gray-100 hover:text-blue-500"
           >
             <div class="flex items-center justify-center">
               <svg
@@ -108,15 +112,13 @@
         <form class="mt-6" action="#" method="POST">
           <div>
             <label
-              class="block text-xs font-medium leading-relaxed tracking-tighter text-gray-700"
+              class="block text-xs font-medium leading-relaxed tracking-tighter text-gray-700 dark:text-white"
               >Email Address</label
             >
             <input
               type="email"
-              name=""
-              id=""
               placeholder="Your Email "
-              class="w-full px-4 py-2 mt-2 text-base bg-gray-100 border-transparent rounded-lg ext-blue-700 focus:border-gray-500"
+              class="w-full px-4 py-2 mt-2 text-base bg-gray-100 border-transparent rounded-lg ext-blue-700 focus:outline-none"
               autofocus
               autocomplete
               required
@@ -124,23 +126,23 @@
           </div>
           <div class="mt-4">
             <label
-              class="block text-xs font-medium leading-relaxed tracking-tighter text-gray-700"
+              class="block text-xs font-medium leading-relaxed tracking-tighter text-gray-700 dark:text-white"
               >Password</label
             >
             <input
               type="password"
-              name=""
-              id=""
               placeholder="Your Password"
               minlength="6"
-              class="w-full px-4 py-2 text-base bg-gray-100 border-transparent rounded-lg ext-blue-700 focus:border-gray-500"
+              current-password
+              autocomplete="current-password"
+              class="w-full px-4 py-2 text-base bg-gray-100 border-transparent rounded-lg ext-blue-700 focus:outline-none"
               required
             />
           </div>
           <div class="mt-2 text-right">
             <a
               href="#"
-              class="text-sm font-semibold leading-relaxed text-gray-700 hover:text-blue-700 focus:text-blue-700"
+              class="text-sm font-semibold leading-relaxed text-gray-700 hover:text-blue-700 focus:text-blue-700 dark:text-white"
               >Forgot Password?</a
             >
           </div>
@@ -151,10 +153,12 @@
             Log In
           </button>
         </form>
-        <p class="mt-8 text-center">
+        <p class="mt-8 text-center text-gray-900 dark:text-white">
           Need an account?
-          <a href="#" class="font-semibold text-blue-500 hover:text-blue-400"
-            >Sign Up</a
+          <router-link
+            to="/auth/register"
+            class="font-semibold text-blue-500 hover:text-blue-400"
+            >Sign Up</router-link
           >
         </p>
       </div>

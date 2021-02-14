@@ -26,14 +26,16 @@ export default defineComponent({});
         </h2>
         <div class="border-t-2 border-gray-200 dark:border-gray-600"></div>
         <div class="flex flex-wrap">
-          <router-link to="/article" class="w-full" v-slot="{ isActive }">
+          <router-link
+            to="/dashboard/artikel"
+            class="w-full min-w-full"
+            v-slot="{ isActive }"
+          >
             <a
               href="javascript.void(0);"
-              class="inline-flex items-center py-2 font-mono font-normal rounded bg-gray-light hover:bg-gray-300 hover:text-gray-800 dark:hover:bg-gray-700 dark:hover:text-gray-100"
+              class="inline-flex items-center py-2 font-mono font-normal rounded bg-gray-light dark:hover:text-gray-100"
               :class="
-                isActive
-                  ? 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-100'
-                  : 'text-gray-400'
+                isActive ? ' text-gray-700 dark:text-gray-100' : 'text-gray-400'
               "
             >
               <svg
@@ -52,14 +54,16 @@ export default defineComponent({});
               <span>Artikel</span>
             </a>
           </router-link>
-          <router-link to="/article" class="w-full" v-slot="{ isActive }">
+          <router-link
+            to="/dashboard/tutorial"
+            class="w-full"
+            v-slot="{ isActive }"
+          >
             <a
               href="javascript.void(0);"
-              class="inline-flex items-center py-2 font-mono font-normal rounded bg-gray-light hover:bg-gray-300 hover:text-gray-800 dark:hover:bg-gray-700 dark:hover:text-gray-100"
+              class="inline-flex items-center font-mono font-normal placeholder-blue-400 rounded bg-gray-light hover:text-gray-800 dark:hover:text-gray-100"
               :class="
-                isActive
-                  ? 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-100'
-                  : 'text-gray-400'
+                isActive ? 'text-gray-700 dark:text-gray-100' : 'text-gray-400'
               "
             >
               <svg
@@ -75,35 +79,17 @@ export default defineComponent({});
                 />
                 <path d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V7z" />
               </svg>
-              <span>Artikel</span>
+              <span>Tutorial</span>
             </a>
           </router-link>
         </div>
-        <button
-          class="flex items-center justify-center w-full px-4 py-2 my-4 text-purple-500 bg-purple-300 rounded-md text-md dark:text-purple-500 dark:bg-opacity-10 bg-opacity-70"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="w-4 h-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
-            />
-          </svg>
-          Artikel
-        </button>
+
         <button
           class="flex items-center justify-center w-full px-4 py-2 my-4 text-green-500 bg-green-300 rounded-md text-md dark:text-green-500 dark:bg-opacity-10 bg-opacity-70"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="w-4 h-4"
+            class="w-4 h-4 mr-2"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -125,10 +111,10 @@ export default defineComponent({});
       <div class="flex justify-between w-full md:hidden lg:hidden xl:hidden">
         <span
           class="flex items-center justify-center text-justify text-gray-900 dark:text-gray-50 justify-items-center"
-          >List Post Artikel</span
+          >List Post Tutorial</span
         >
         <button
-          class="px-6 py-1 my-4 text-purple-500 bg-purple-300 rounded-sm justify-items-center text-md dark:text-purple-500 dark:bg-opacity-10 bg-opacity-70"
+          class="px-6 py-1 my-4 text-green-500 bg-purple-300 rounded-sm justify-items-center text-md dark:text-green-500 dark:bg-opacity-10 bg-opacity-70"
         >
           <span class="flex items-center justify-center"
             ><svg

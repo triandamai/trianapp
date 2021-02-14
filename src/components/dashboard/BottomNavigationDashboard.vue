@@ -18,7 +18,7 @@ export default defineComponent({
         class="flex justify-between text-gray-700 dark:text-gray-300"
       >
         <router-link
-          to="/"
+          to="/dashboard/tutorial"
           href="#"
           class="justify-center inline-block w-full pt-2 pb-1 text-center focus:text-teal-500 hover:text-teal-500"
         >
@@ -65,11 +65,11 @@ export default defineComponent({
               ></rect>
             </g>
           </svg>
-          <span class="block font-mono text-xs tab tab-home">Home</span>
+          <span class="block font-mono text-xs tab tab-home">Tutorial</span>
         </router-link>
 
         <router-link
-          to="/about"
+          to="/dashboard/artikel"
           href="#"
           class="justify-center inline-block w-full pt-2 pb-1 text-center focus:text-teal-500 hover:text-teal-500"
         >
@@ -99,10 +99,10 @@ export default defineComponent({
               ></circle>
             </g>
           </svg>
-          <span class="block font-mono text-xs tab tab-explore">Tentang</span>
+          <span class="block font-mono text-xs tab tab-explore">Artikel</span>
         </router-link>
         <router-link
-          to="/about"
+          to="/dashboard/profil"
           class="justify-center inline-block w-full pt-2 pb-1 text-center focus:text-teal-500 hover:text-teal-500"
         >
           <svg

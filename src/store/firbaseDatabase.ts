@@ -1,5 +1,6 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
+import "firebase/auth";
 
 const firebaseApp = firebase.initializeApp({
   apiKey: "AIzaSyBOo-s1-i_BcxU4EobnITuFW92wUVxWt2Q",
@@ -13,3 +14,6 @@ const firebaseApp = firebase.initializeApp({
 });
 export const dbArticle = firebaseApp.firestore().collection("article");
 export const dbTutorial = firebaseApp.firestore().collection("tutorial");
+export const dbUser = firebaseApp.firestore().collection("user");
+
+export const AuthGoogle = firebase.auth();
