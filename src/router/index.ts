@@ -54,7 +54,20 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/dashboard",
     component: () => import("@/views/Dashboard.vue"),
-    children: []
+    meta: {
+      requiresAuth: false
+    },
+    children: [
+      {
+        path: "",
+        redirect: "/dashboard/home"
+      },
+      {
+        path: "home",
+        name: "Home",
+        component: () => import("@/views/dashboard/Home.vue")
+      }
+    ]
   },
   {
     path: "/:pathMatch(.*)*",
