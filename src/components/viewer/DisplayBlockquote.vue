@@ -2,6 +2,7 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
+  name: "DisplayBlockquote",
   props: {
     body: {
       type: String,

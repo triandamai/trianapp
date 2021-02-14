@@ -2,6 +2,7 @@
 import { defineComponent, ref, watch, onMounted } from "vue";
 
 export default defineComponent({
+  name: "CodePreviewInput",
   props: {
     title: { type: String, default: "" },
     index: {

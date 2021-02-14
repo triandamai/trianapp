@@ -2,12 +2,9 @@
 import { defineComponent, onMounted } from "vue";
 import { useStore } from "@/store";
 
-//com
-import CardTutorial from "@/components/CardTutorial.vue";
 import { DocumentActionTypes } from "@/store/module/action-types";
 
 export default defineComponent({
-  components: { CardTutorial },
   setup() {
     const store = useStore();
     onMounted(() => {

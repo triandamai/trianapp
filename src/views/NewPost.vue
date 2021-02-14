@@ -3,20 +3,13 @@ import { defineComponent } from "vue";
 import draggable from "vuedraggable";
 
 //comp
-import TextInput from "@/components/editor/TextInput.vue";
-import BlockquoteInput from "@/components/editor/BlockquoteInput.vue";
-import CodePreviewInput from "@/components/editor/CodePreviewInput.vue";
+
 import { DocumentActionTypes } from "@/store/module/action-types";
 import { Content, DataContent } from "@/store/module/model-types";
-import QuoteInput from "@/components/editor/QuoteInput.vue";
 
 export default defineComponent({
   components: {
     draggable,
-    TextInput,
-    BlockquoteInput,
-    CodePreviewInput,
-    QuoteInput,
   },
   data() {
     return {

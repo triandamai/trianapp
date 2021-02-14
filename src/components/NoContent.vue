@@ -1,3 +1,10 @@
+<script lang="ts">
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  name: "NoContent",
+});
+</script>
 <template>
   <div
     class="container relative z-10 flex items-center px-6 py-32 mx-auto md:px-12 xl:py-40"

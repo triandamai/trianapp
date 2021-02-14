@@ -1,5 +1,6 @@
 import { createApp } from "vue";
 import App from "./App.vue";
+import { upperFirst, camelCase } from "lodash";
 
 import router from "./router";
 import { store, key } from "@/store";
@@ -9,6 +10,8 @@ import { getUser } from "@/store/LocalData";
 
 import "./registerServiceWorker";
 import "./assets/tailwind.css";
+
+const requireComponent = require.context("./components", true, /[\w-]+\.vue$/);
 
 /***
  *
@@ -22,8 +25,24 @@ router.beforeEach((to, from, next) => {
   } else {
     next();
   }
+
+  setTimeout(() => {
+    window.scrollTo(0, 0);
+  }, 100);
 });
 const app = createApp(App);
+
+requireComponent.keys().forEach(fileName => {
+  //get comp config
+  const componentConfig = requireComponent(fileName);
+  const componentName = upperFirst(
+    camelCase(
+      componentConfig.default.name.replace(/^\.\//, "").replace(/\.\w+$/, "")
+    )
+  );
+
+  app.component(componentName, componentConfig.default || componentConfig);
+});
 
 app.use(store, key);
 app.use(router);

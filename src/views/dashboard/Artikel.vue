@@ -119,9 +119,37 @@ export default defineComponent({});
         </button>
       </div>
     </div>
-    <div class="w-full h-full mx-2 md:w-1/2 md:mx-0 lg:mx-0 xl:mx-0">
+    <div
+      class="w-full h-full px-6 pt-20 mx-2 md:w-1/2 md:mx-0 lg:mx-0 xl:mx-0 md:px-2 lg:px-2"
+    >
+      <div class="flex justify-between w-full md:hidden lg:hidden xl:hidden">
+        <span
+          class="flex items-center justify-center text-justify text-gray-900 dark:text-gray-50 justify-items-center"
+          >List Post Artikel</span
+        >
+        <button
+          class="px-6 py-1 my-4 text-purple-500 bg-purple-300 rounded-sm justify-items-center text-md dark:text-purple-500 dark:bg-opacity-10 bg-opacity-70"
+        >
+          <span class="flex items-center justify-center"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              class="w-4 h-4 mr-2"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"
+              /></svg
+            >Artikel</span
+          >
+        </button>
+      </div>
       <div
-        class="items-center px-4 py-8 mt-20 bg-white rounded-md dark:bg-gray-800"
+        class="items-center px-4 py-8 mt-1 bg-white rounded-sm md:rounded-md lg:rounded-md dark:bg-gray-800"
       >
         <section class="flex flex-col w-full px-8 pt-8 pb-4 overflow-auto">
           <ul id="gallery" class="flex flex-wrap flex-1 -m-1">

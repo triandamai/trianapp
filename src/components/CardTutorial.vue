@@ -2,6 +2,7 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
+  name: "CardTutorial",
   props: {
     data: {
       type: Object,

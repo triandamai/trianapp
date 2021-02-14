@@ -3,6 +3,7 @@ import { defineComponent, onBeforeMount, reactive, ref } from "vue";
 import { useStore } from "@/store";
 
 export default defineComponent({
+  name: "NavBar",
   setup(_, { emit }) {
     const menuProfil = ref(false);
     const store = useStore();

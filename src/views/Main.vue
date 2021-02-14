@@ -4,13 +4,9 @@ import { defineComponent, onBeforeMount, onMounted, watch } from "vue";
 import { useStore } from "@/store";
 import { ThemeActionTypes } from "@/store/module/action-types";
 import { dbTutorial } from "@/store/firbaseDatabase";
-//comp
-import NavBar from "@/components/NavBar.vue";
-import Footer from "@/components/Footer.vue";
-import BottomNavigation from "@/components/BottomNavigation.vue";
+
 import { DocumentMutationTypes } from "@/store/module/mutation-types";
 export default defineComponent({
-  components: { NavBar, Footer, BottomNavigation },
   name: "App",
   setup() {
     const store = useStore();

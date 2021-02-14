@@ -2,6 +2,7 @@
 import { defineComponent, ref, watch, onMounted } from "vue";
 
 export default defineComponent({
+  name: "BlockquoteInput",
   props: {
     title: { type: String, default: "" },
     index: {

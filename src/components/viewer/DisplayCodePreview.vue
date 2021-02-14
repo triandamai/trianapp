@@ -2,6 +2,7 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
+  name: "DisplayCodePreview",
   props: {
     body: {
       type: String,
@@ -15,7 +16,7 @@ export default defineComponent({
 </script>
 <template>
   <code
-    class="py-2 pl-2 pr-6 my-6 ml-6 text-gray-800 bg-gray-300 border-l-4 border-yellow-600 border-opacity-50 rounded-sm dark:border-opacity-30 dark:bg-gray-800 dark:text-gray-100"
+    class="py-2 pl-2 pr-6 my-6 text-gray-800 bg-gray-300 border-l-4 border-yellow-600 border-opacity-50 rounded-sm whitespace-nowrap dark:border-opacity-30 dark:bg-gray-800 dark:text-gray-100"
     v-html="props.body"
   ></code>
 </template>

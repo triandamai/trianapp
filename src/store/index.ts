@@ -77,7 +77,6 @@ export const store = createStore<AppState>({
         dbTutorial
           .get()
           .then(doc => {
-            console.log(doc.size);
             doc.forEach(snapshot => {
               if (snapshot.exists) {
                 commit(DocumentMutationTypes.ADD_TUTORIAL, snapshot.data());

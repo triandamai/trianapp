@@ -1,20 +1,17 @@
 <script lang="ts">
-import { defineComponent, onBeforeMount, onMounted, ref } from "vue";
+import {
+  defineComponent,
+  onBeforeMount,
+  onMounted,
+  onUnmounted,
+  ref,
+} from "vue";
 import { useStore } from "@/store";
 import { useRoute } from "vue-router";
-import DisplayParagraf from "@/components/viewer/DisplayParagraf.vue";
-import DisplayBlockquote from "@/components/viewer/DisplayBlockquote.vue";
-import DisplayHeading from "@/components/viewer/DisplayHeading.vue";
+
 import { DocumentActionTypes } from "@/store/module/action-types";
-import DisplayCodePreview from "@/components/viewer/DisplayCodePreview.vue";
 
 export default defineComponent({
-  components: {
-    DisplayParagraf,
-    DisplayBlockquote,
-    DisplayHeading,
-    DisplayCodePreview,
-  },
   setup() {
     const store = useStore();
     const route = useRoute();

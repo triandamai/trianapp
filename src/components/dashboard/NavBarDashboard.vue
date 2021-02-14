@@ -3,6 +3,7 @@ import { defineComponent, onBeforeMount, reactive, ref } from "vue";
 import { useStore } from "@/store";
 
 export default defineComponent({
+  name: "NavBarDashboard",
   setup(_, { emit }) {
     const menuProfil = ref(false);
     const store = useStore();
@@ -66,7 +67,7 @@ export default defineComponent({
                 aria-haspopup="true"
               >
                 <svg
-                  class="w-5 h-5 mr-2"
+                  class="w-5 h-5 mr-2 transition ease-in"
                   v-if="store.state.theme == 'light'"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
@@ -77,7 +78,7 @@ export default defineComponent({
                   />
                 </svg>
                 <svg
-                  class="w-5 h-5 mr-2"
+                  class="w-5 h-5 mr-2 transition ease-out"
                   v-else
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
