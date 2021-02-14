@@ -1,13 +1,37 @@
 <script lang="ts">
-import { defineComponent, onMounted } from "vue";
+import { defineComponent, onMounted, reactive } from "vue";
 import firebase from "firebase/app";
-import { AuthGoogle } from "@/store/firbaseDatabase";
+import { AuthGoogle, dbUser } from "@/store/firbaseDatabase";
+import { useRouter } from "vue-router";
+
 export default defineComponent({
   setup() {
-    const login = () => {
+    const form = reactive({
+      email: "",
+      password: "",
+    });
+    const router = useRouter();
+    const loginGoogle = () => {
       const provider = new firebase.auth.GoogleAuthProvider();
 
       AuthGoogle.signInWithRedirect(provider);
+    };
+    const loginBasic = () => {
+      console.log("login basic");
+      AuthGoogle.signInWithEmailAndPassword(form.email, form.password)
+        .then((user) => {
+          if (user) {
+            dbUser
+              .doc(user.user?.uid)
+              .get()
+              .then((snapshot) => {
+                router.push({ path: "/dashboard" });
+              });
+          }
+        })
+        .catch((e) => {
+          console.log(e);
+        });
     };
     onMounted(() => {
       AuthGoogle.getRedirectResult()
@@ -20,7 +44,9 @@ export default defineComponent({
     });
 
     return {
-      login,
+      loginBasic,
+      loginGoogle,
+      form,
     };
   },
 });
@@ -50,7 +76,7 @@ export default defineComponent({
         <div class="flex justify-enter">
           <button
             type="button"
-            @click="login"
+            @click="loginGoogle"
             class="inline-flex w-full px-4 py-3 font-semibold text-blue-800 border border-gray-300 rounded-lg dark:text-blue-800 dark:border-gray-800 bg-blue-1300 hover:bg-blue-800 hover:text-white focus:bg-gray-100 dark:bg-gray-800 dark:hover:text-white"
           >
             <div class="flex items-center justify-center">
@@ -109,7 +135,7 @@ export default defineComponent({
             </div>
           </button>
         </div>
-        <form class="mt-6" action="#" method="POST">
+        <form class="mt-6" @submit.prevent="loginBasic">
           <div>
             <label
               class="block text-xs font-medium leading-relaxed tracking-tighter text-gray-700 dark:text-white"
@@ -117,10 +143,11 @@ export default defineComponent({
             >
             <input
               type="email"
+              v-model="form.email"
               placeholder="Your Email "
               class="w-full px-4 py-2 mt-2 text-base bg-gray-100 border-transparent rounded-lg ext-blue-700 focus:outline-none"
               autofocus
-              autocomplete
+              autocomplete="email"
               required
             />
           </div>
@@ -131,9 +158,9 @@ export default defineComponent({
             >
             <input
               type="password"
+              v-model="form.password"
               placeholder="Your Password"
               minlength="6"
-              current-password
               autocomplete="current-password"
               class="w-full px-4 py-2 text-base bg-gray-100 border-transparent rounded-lg ext-blue-700 focus:outline-none"
               required

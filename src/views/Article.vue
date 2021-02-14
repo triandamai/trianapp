@@ -1,11 +1,8 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import CardArtikel from "@/components/CardArtikel.vue";
 
-export default defineComponent({
-  components: { CardArtikel },
-});
+export default defineComponent({});
 </script>
 <template>
   <div class="w-full font-mono bg-gray-100 dark:bg-gray-900">

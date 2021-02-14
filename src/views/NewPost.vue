@@ -65,6 +65,8 @@ export default defineComponent({
         title: this.title,
         description: this.description,
         content: contens,
+        uuid: "kosong",
+        username: "kososng",
         createdAt: Date.now().toString(),
         updateAt: Date.now().toString(),
       };

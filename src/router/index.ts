@@ -28,11 +28,6 @@ const routes: Array<RouteRecordRaw> = [
         path: "/read/:id",
         name: "Read",
         component: () => import("@/views/Read.vue")
-      },
-      {
-        path: "/new",
-        name: "NewPost",
-        component: () => import("@/views/NewPost.vue")
       }
     ]
   },
@@ -81,6 +76,16 @@ const routes: Array<RouteRecordRaw> = [
         path: "profil",
         name: "Profil",
         component: () => import("@/views/dashboard/Profil.vue")
+      },
+      {
+        path: "addtutorial",
+        name: "AddTutorial",
+        component: () => import("@/views/NewPost.vue")
+      },
+      {
+        path: "addartikel",
+        name: "AddArtikel",
+        component: () => import("@/views/NewPost.vue")
       }
     ]
   },

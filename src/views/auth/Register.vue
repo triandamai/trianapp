@@ -2,6 +2,7 @@
 import { defineComponent, onMounted, reactive } from "vue";
 import firebase from "firebase/app";
 import { AuthGoogle, dbUser } from "@/store/firbaseDatabase";
+import { User } from "@/store/module/model-types";
 export default defineComponent({
   setup() {
     const form = reactive({
@@ -9,7 +10,14 @@ export default defineComponent({
       email: "",
       password: "",
       repassword: "",
+    });
+    const payloadform = reactive<User>({
+      username: "",
+      email: "",
+      password: "",
       createdAt: Date.now().toLocaleString(),
+      uuid: "",
+      authMethod: "basic",
       updatedAt: Date.now().toLocaleString(),
     });
     const registerGoogle = () => {
@@ -20,18 +28,24 @@ export default defineComponent({
     const registerEmailPassword = () => {
       if (form.password != form.repassword) return;
 
-      AuthGoogle.signInWithEmailAndPassword(form.email, form.password)
+      AuthGoogle.createUserWithEmailAndPassword(form.email, form.password)
         .then((user) => {
-          console.log(user);
+          payloadform.username = form.username;
+          payloadform.email = form.email;
+          payloadform.password = form.password;
+          payloadform.uuid = user.user?.uid;
+          payloadform.authMethod = "basic";
           if (user) {
             dbUser
               .doc(user.user?.uid)
-              .set(form)
+              .set(payloadform)
               .then((res) => {
                 //
+                console.log(res);
               })
               .catch((e) => {
                 //
+                console.log(e);
               });
           }
         })
@@ -43,6 +57,22 @@ export default defineComponent({
       AuthGoogle.getRedirectResult()
         .then((result) => {
           console.log(result);
+          if (result.user) {
+            payloadform.username = `${
+              result.user?.displayName ? result.user.displayName : "not defined"
+            }`;
+            payloadform.email = `${
+              result.user?.email ? result.user?.email : "not defined"
+            }`;
+            payloadform.password = `${
+              result.user?.email ? result.user?.email : "not defined"
+            }`;
+            payloadform.uuid = `${
+              result.user?.uid ? result.user?.uid : "not defined"
+            }`;
+            payloadform.authMethod = "google";
+            dbUser.doc(result.user?.uid).set(form);
+          }
         })
         .catch((error) => {
           console.error(error);
