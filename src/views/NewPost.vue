@@ -24,6 +24,7 @@ export default defineComponent({
       content: [],
       title: "",
       description: "",
+      header: "",
     };
   },
   methods: {
@@ -78,6 +79,24 @@ export default defineComponent({
         .then((res: any) => {
           console.log(res);
         });
+    },
+    //drag
+    hasFiles({ dataTransfer: { types = [] } }: any) {
+      return types.indexOf("Files") > 1;
+    },
+    addFile(target: any, file: any) {
+      const isImage = file.type.match("image.*"),
+        objectURL = URL.createObjectURL(file);
+    },
+    drophandler(ev: any) {
+      ev.preventDefault();
+      for (const file of ev.dataTransfer.files) {
+      }
+    },
+    dragOverHandler(e: any) {
+      if (this.hasFiles(e)) {
+        e.preventDefault();
+      }
     },
   },
 });
@@ -201,11 +220,7 @@ export default defineComponent({
                     </button>
                   </header>
 
-                  <ul
-                    id="gallery"
-                    class="flex flex-wrap flex-1 -m-1"
-                    v-show="false"
-                  >
+                  <ul id="gallery" class="flex flex-wrap flex-1 -m-1">
                     <li
                       id="empty"
                       class="flex flex-col items-center justify-center w-full h-full text-center"
