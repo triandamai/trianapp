@@ -24,7 +24,8 @@ export default defineComponent({
       content: [],
       title: "",
       description: "",
-      header: "",
+      header: null,
+      drag: false,
     };
   },
   methods: {
@@ -81,22 +82,24 @@ export default defineComponent({
         });
     },
     //drag
-    hasFiles({ dataTransfer: { types = [] } }: any) {
-      return types.indexOf("Files") > 1;
+
+    addFile(e: any) {
+      console.log(e);
+      const objectURL = URL.createObjectURL(e.dataTransfer.files[0]);
+
+      Object.assign(window.document.getElementById("image_header"), {
+        src: objectURL,
+      });
+      this.header = e.dataTransfer.files[0];
+      this.drag = false;
     },
-    addFile(target: any, file: any) {
-      const isImage = file.type.match("image.*"),
-        objectURL = URL.createObjectURL(file);
+    dragEnterHandler(e: any) {
+      console.log("ENTER", e);
+      this.drag = true;
     },
-    drophandler(ev: any) {
-      ev.preventDefault();
-      for (const file of ev.dataTransfer.files) {
-      }
-    },
-    dragOverHandler(e: any) {
-      if (this.hasFiles(e)) {
-        e.preventDefault();
-      }
+    dragLeaveHandler(e: any) {
+      console.log("LEAVE", e);
+      this.drag = false;
     },
   },
 });
@@ -158,22 +161,14 @@ export default defineComponent({
                   v-model="description"
                 />
               </div>
-              <!-- file upload modal -->
               <article
                 aria-label="File Upload Modal"
-                class="flex flex-col bg-white rounded-none dark:bg-gray-800"
+                class="relative flex flex-col h-full bg-white rounded-md shadow-xl"
               >
-                <!-- <article
-                aria-label="File Upload Modal"
-                class="relative flex flex-col h-full bg-white rounded-none"
-                ondrop="dropHandler(event);"
-                ondragover="dragOverHandler(event);"
-                ondragleave="dragLeaveHandler(event);"
-                ondragenter="dragEnterHandler(event);"
-              > -->
                 <!-- overlay -->
                 <div
                   id="overlay"
+                  :class="{ draggedover: drag }"
                   class="absolute top-0 left-0 z-50 flex flex-col items-center justify-center w-full h-full rounded-md pointer-events-none"
                 >
                   <i>
@@ -193,17 +188,20 @@ export default defineComponent({
                 </div>
 
                 <!-- scroll area -->
-                <section
-                  class="flex flex-col w-full px-8 pt-2 pb-4 overflow-auto"
+
+                <header
+                  @drop.prevent="addFile"
+                  @dragover.prevent
+                  @dragenter.prevent="dragEnterHandler"
+                  @dragleave.prevent="dragLeaveHandler"
+                  class="flex flex-col items-center justify-center px-12 py-12 mx-8 my-6 border-2 border-gray-400 border-dashed"
                 >
-                  <header
-                    class="flex flex-col items-center justify-center py-12 border-2 border-gray-400 border-dashed"
-                  >
+                  <div>
                     <p
-                      class="flex flex-wrap justify-center mb-3 font-semibold text-gray-900 dark:text-gray-100"
+                      class="flex flex-wrap justify-center mb-3 font-semibold text-gray-900"
                     >
-                      <span>Drag dan drop </span>&nbsp;<span
-                        >file gambar disini atau</span
+                      <span>Drag and drop your</span>&nbsp;<span
+                        >files anywhere or</span
                       >
                     </p>
                     <input
@@ -214,28 +212,12 @@ export default defineComponent({
                     />
                     <button
                       id="button"
-                      class="px-3 py-1 mt-2 bg-gray-200 rounded-sm hover:bg-gray-300 focus:shadow-outline focus:outline-none dark:bg-gray-900"
+                      class="px-3 py-1 mt-2 bg-gray-200 rounded-sm hover:bg-gray-300 focus:shadow-outline focus:outline-none"
                     >
-                      Unggah file
+                      Upload a file
                     </button>
-                  </header>
-
-                  <ul id="gallery" class="flex flex-wrap flex-1 -m-1">
-                    <li
-                      id="empty"
-                      class="flex flex-col items-center justify-center w-full h-full text-center"
-                    >
-                      <img
-                        class="w-32 mx-auto"
-                        src="https://user-images.githubusercontent.com/507615/54591670-ac0a0180-4a65-11e9-846c-e55ffce0fe7b.png"
-                        alt="no data"
-                      />
-                      <span class="text-gray-500 text-small"
-                        >No files selected</span
-                      >
-                    </li>
-                  </ul>
-                </section>
+                  </div>
+                </header>
               </article>
             </main>
           </div>
