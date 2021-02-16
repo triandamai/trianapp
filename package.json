@@ -10,7 +10,6 @@
     "deploy": "npm run build && firebase deploy"
   },
   "dependencies": {
-    "@kangc/v-md-editor": "^1.6.0",
     "@tailwindcss/postcss7-compat": "^2.0.2",
     "@types/lodash": "^4.14.168",
     "autoprefixer": "^9",
@@ -22,8 +21,7 @@
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2",
     "vue": "^3.0.0",
     "vue-class-component": "^8.0.0-0",
-    "vue-router": "^4.0.0-0",
-    "vue3-markdown-it": "^1.0.7",
+    "vue-router": "^4.0.3",
     "vuedraggable": "^4.0.1",
     "vuex": "^4.0.0-0"
   },

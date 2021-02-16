@@ -29,7 +29,7 @@ export default defineComponent({
   >
     <div
       class="bg-gray-100 cursor-pointer pattern-dots-md dark:bg-gray-900"
-      @click="$router.push({ path: `/read/${data.id}` })"
+      @click="$router.push({ path: `/main/read/${data.id}` })"
     >
       <div
         class="p-4 text-gray-900 transform translate-x-4 -translate-y-4 bg-white rounded shadow-md dark:text-gray-100 dark:bg-gray-800 hover:translate-x-6 hover:-translate-y-6 md:translate-x-5 md:-translate-y-5 lg:translate-x-5 lg:-translate-y-5"

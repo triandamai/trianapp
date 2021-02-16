@@ -9,7 +9,7 @@ export default defineComponent({
   <!-- component -->
   <div class="w-full">
     <!-- <section id="bottom-navigation" class="fixed inset-x-0 bottom-0 z-10 block bg-white shadow md:hidden"> // if shown only tablet/mobile-->
-    <section
+    <!-- <section
       id="bottom-navigation"
       class="fixed inset-x-0 bottom-0 z-10 block py-1 bg-white shadow dark:bg-gray-800"
     >
@@ -199,6 +199,6 @@ export default defineComponent({
           <span class="block font-mono text-xs tab tab-account">Akun</span>
         </router-link>
       </div>
-    </section>
+    </section> -->
   </div>
 </template>
