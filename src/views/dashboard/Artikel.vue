@@ -5,7 +5,7 @@ export default defineComponent({});
 </script>
 <template>
   <div class="flex flex-wrap">
-    <div class="hidden w-full md:w-1/4 md:block lg:block xl:block">
+    <div class="hidden w-full md:w-1/4 lg:w-1/4 md:block lg:block xl:block">
       <div
         class="px-4 py-4 mt-20 ml-32 mr-10 bg-white rounded-md dark:bg-gray-800"
       >
@@ -105,7 +105,7 @@ export default defineComponent({});
       </div>
     </div>
     <div
-      class="w-full h-full px-6 pt-20 mx-2 md:w-1/2 md:mx-0 lg:mx-0 xl:mx-0 md:px-2 lg:px-2"
+      class="w-full h-full px-6 pt-20 mx-2 md:w-2/3 lg:w-1/2 md:mx-0 lg:mx-0 xl:mx-0 md:px-2 lg:px-2"
     >
       <div class="flex justify-between w-full md:hidden lg:hidden xl:hidden">
         <span
@@ -155,7 +155,7 @@ export default defineComponent({});
         </section>
       </div>
     </div>
-    <div class="hidden w-full md:w-1/4 md:block lg:block xl:block">
+    <div class="hidden w-full md:w-1/5 md:block lg:block xl:block">
       <div
         class="px-4 py-4 mt-20 ml-10 mr-32 bg-white rounded-md dark:bg-gray-800"
       >

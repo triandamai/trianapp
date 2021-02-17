@@ -1,53 +1,15 @@
 <script lang="ts">
-import { defineComponent, onMounted, reactive } from "vue";
-import firebase from "firebase/app";
-import { AuthGoogle, dbUser } from "@/store/firbaseDatabase";
-import { useRouter } from "vue-router";
+import { defineComponent, onMounted } from "vue";
+import { useAuth } from "@/store/Repositoy";
 
 export default defineComponent({
   setup() {
-    const form = reactive({
-      email: "",
-      password: "",
-    });
-    const router = useRouter();
-    const loginGoogle = () => {
-      const provider = new firebase.auth.GoogleAuthProvider();
-
-      AuthGoogle.signInWithRedirect(provider);
-    };
-    const loginBasic = () => {
-      console.log("login basic");
-      AuthGoogle.signInWithEmailAndPassword(form.email, form.password)
-        .then((user) => {
-          if (user) {
-            dbUser
-              .doc(user.user?.uid)
-              .get()
-              .then((snapshot) => {
-                router.push({ path: "/dashboard" });
-              });
-          }
-        })
-        .catch((e) => {
-          console.log(e);
-        });
-    };
+    const { resultFromredirectGoogle } = useAuth();
     onMounted(() => {
-      AuthGoogle.getRedirectResult()
-        .then((result) => {
-          console.log(result);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+      resultFromredirectGoogle(true);
     });
 
-    return {
-      loginBasic,
-      loginGoogle,
-      form,
-    };
+    return { ...useAuth() };
   },
 });
 </script>
@@ -76,7 +38,7 @@ export default defineComponent({
         <div class="flex justify-enter">
           <button
             type="button"
-            @click="loginGoogle"
+            @click="loginWithGoogle"
             class="inline-flex w-full px-4 py-3 font-semibold text-blue-800 border border-gray-300 rounded-lg dark:text-blue-800 dark:border-gray-800 bg-blue-1300 hover:bg-blue-800 hover:text-white focus:bg-gray-100 dark:bg-gray-800 dark:hover:text-white"
           >
             <div class="flex items-center justify-center">
@@ -143,7 +105,7 @@ export default defineComponent({
             >
             <input
               type="email"
-              v-model="form.email"
+              v-model="authState.form.email"
               placeholder="Your Email "
               class="w-full px-4 py-2 mt-2 text-base bg-gray-100 border-transparent rounded-lg ext-blue-700 focus:outline-none"
               autofocus
@@ -158,7 +120,7 @@ export default defineComponent({
             >
             <input
               type="password"
-              v-model="form.password"
+              v-model="authState.form.password"
               placeholder="Your Password"
               minlength="6"
               autocomplete="current-password"
