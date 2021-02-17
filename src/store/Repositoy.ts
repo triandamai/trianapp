@@ -143,6 +143,7 @@ export const useAuth = () => {
       .doc(user.uuid)
       .set(user)
       .then(() => {
+        if (shouldLogin) return router.push({ path: "/auth" });
         router.push({ path: "/dashboard" });
       });
   };
