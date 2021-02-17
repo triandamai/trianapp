@@ -80,13 +80,13 @@ export const useAuth = () => {
       authState.form.password
     )
       .then(user => {
-        if (user.user?.uid)
+        if (user)
           setUser(
             {
               username: authState.form.username,
               email: authState.form.email,
               password: authState.form.password,
-              uuid: user.user.uid,
+              uuid: `${user.user?.uid}`,
               createdAt: Date.now().toLocaleString(),
               updatedAt: Date.now().toLocaleString(),
               authMethod: "basic"
@@ -111,7 +111,8 @@ export const useAuth = () => {
     AuthGoogle.getRedirectResult()
       .then(result => {
         if (result.user)
-          if (isLogin) changelastLogin(`${result.user?.uid}`);
+          if (!result.additionalUserInfo?.isNewUser)
+            return changelastLogin(`${result.user?.uid}`);
           else
             setUser(
               {
@@ -121,11 +122,11 @@ export const useAuth = () => {
                 createdAt: Date.now().toLocaleString(),
                 updatedAt: Date.now().toLocaleString(),
                 authMethod: "google",
-                uuid: result.user?.uid
+                uuid: `${result.user?.uid}`
               },
               false
             );
-        else authState.result = { status: false, message: "Gagal" };
+        else return (authState.result = { status: false, message: "Gagal" });
       })
       .catch(e => {
         authState.result = {
@@ -141,7 +142,7 @@ export const useAuth = () => {
   const setUser = (user: User, shouldLogin: boolean) => {
     dbUser
       .doc(user.uuid)
-      .set(user)
+      .set(user, { merge: true })
       .then(() => {
         if (shouldLogin) return router.push({ path: "/auth" });
         router.push({ path: "/dashboard" });
@@ -151,7 +152,7 @@ export const useAuth = () => {
   const changelastLogin = (uuid: string) => {
     dbUser
       .doc(uuid)
-      .set({ updatedAt: Date.now().toLocaleString() })
+      .set({ updatedAt: Date.now().toLocaleString() }, { merge: true })
       .then(() => {
         router.push({ path: "/dashboard" });
       });

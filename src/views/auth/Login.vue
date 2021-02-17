@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent, onMounted } from "vue";
-import { useAuth } from "@/store/Repositoy";
+import { useAuth } from "@/store/AuthRepositoy";
 
 export default defineComponent({
   setup() {
@@ -137,8 +137,23 @@ export default defineComponent({
           </div>
           <button
             type="submit"
+            :disabled="authState.isLoading"
             class="block w-full px-4 py-3 mt-6 font-semibold text-white transition duration-500 ease-in-out transform rounded-lg bg-gradient-to-r from-blue-700 hover:from-blue-600 to-blue-600 hover:to-blue-700 focus:shadow-outline focus:outline-none"
           >
+            <svg
+              class="spinner"
+              viewBox="0 0 50 50"
+              v-show="authState.isLoading"
+            >
+              <circle
+                class="path"
+                cx="25"
+                cy="25"
+                r="20"
+                fill="none"
+                stroke-width="5"
+              ></circle>
+            </svg>
             Log In
           </button>
         </form>
