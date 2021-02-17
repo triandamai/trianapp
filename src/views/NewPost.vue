@@ -1,6 +1,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import draggable from "vuedraggable";
+import { ContentType } from "@/store/NewPostRepository";
 
 //comp
 
@@ -13,14 +14,7 @@ export default defineComponent({
   },
   data() {
     return {
-      availablecontent: [
-        { name: "Paragraf", id: 1, type: "text", body: "" },
-        { name: "BlockQuote", id: 2, type: "blockquote", body: "" },
-        { name: "Code Preview", id: 3, type: "code", body: "" },
-        { name: "Gambar", id: 4, type: "image", body: "" },
-        { name: "Heading", id: 5, type: "heading", body: "" },
-        { name: "Kutipan", id: 6, type: "quote", body: "" },
-      ],
+      availablecontent: ContentType,
       content: [],
       title: "",
       description: "",
