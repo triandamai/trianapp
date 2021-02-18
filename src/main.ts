@@ -11,6 +11,8 @@ import { getUser } from "@/store/LocalData";
 import "./registerServiceWorker";
 import "./assets/tailwind.css";
 
+import draggable from "vuedraggable";
+
 const requireComponent = require.context("./components", true, /[\w-]+\.vue$/);
 
 /***
@@ -43,6 +45,7 @@ requireComponent.keys().forEach(fileName => {
 
   app.component(componentName, componentConfig.default || componentConfig);
 });
+app.component("draggable", draggable);
 
 app.use(store, key);
 app.use(router);
