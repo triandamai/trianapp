@@ -24,7 +24,8 @@ export const ContentType: Array<Content> = [
 ];
 
 export const savePost = async (): Promise<any> => {
-  return new Promise(resolve => {
-    resolve({});
-  });
+  return async (): Promise<any> =>
+    new Promise(resolve => {
+      resolve({ data: "Hello" });
+    });
 };
