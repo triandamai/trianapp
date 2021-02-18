@@ -152,6 +152,11 @@ const routes: Array<RouteRecordRaw> = [
         path: "profil",
         name: "Profil",
         component: () => import("@/views/dashboard/Profil.vue")
+      },
+      {
+        path: "new",
+        name: "NewPost",
+        component: () => import("@/views/NewPost.vue")
       }
     ]
   },

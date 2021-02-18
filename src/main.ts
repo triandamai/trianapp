@@ -11,7 +11,7 @@ import { getUser } from "@/store/LocalData";
 import "./registerServiceWorker";
 import "./assets/tailwind.css";
 
-import draggable from "vuedraggable";
+import draggable from "vue-draggable-next";
 
 const requireComponent = require.context("./components", true, /[\w-]+\.vue$/);
 
