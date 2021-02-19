@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import { reactive, ref } from "vue";
 import { dbTutorial, storage } from "@/store/firbaseDatabase";
 

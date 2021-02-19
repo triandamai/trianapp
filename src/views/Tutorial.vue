@@ -22,7 +22,7 @@ export default defineComponent({
 <template>
   <section class="text-gray-900 dark:text-gray-200">
     <div class="container px-5 py-24 mx-auto">
-      <header-section :title="Tutorial">
+      <header-section :title="'Tutorial'">
         <p
           class="mx-auto font-mono text-base leading-relaxed xl:w-2/4 lg:w-3/4"
         >
