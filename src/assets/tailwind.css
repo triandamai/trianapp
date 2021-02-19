@@ -4,6 +4,19 @@
 
 @tailwind utilities;
 
+#main {
+  @apply flex flex-col flex-grow h-screen overflow-x-hidden bg-gray-100 dark:bg-gray-900;
+}
+#navbarmain {
+  @apply bg-gray-50 dark:bg-gray-800;
+}
+#bottomnavmain {
+  @apply block md:hidden lg:hidden;
+}
+#footermain {
+  @apply hidden md:block lg:block;
+}
+
 /* custom scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
