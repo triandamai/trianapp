@@ -1,4 +1,5 @@
-import { reactive } from "vue";
+import { reactive, ref } from "vue";
+import { dbTutorial, storage } from "@/store/firbaseDatabase";
 
 type ContentType =
   | "text"
@@ -16,6 +17,21 @@ interface Content {
   body?: any;
   index?: number;
 }
+interface DataContent {
+  title: string;
+  id: string;
+  slug: string;
+  headerUrl: string;
+  tag: Array<string>;
+  editor: string;
+  content: Array<Content>;
+  createdAt: any;
+  updatedAt: any;
+}
+interface imageHeader {
+  url: string;
+  progress: any;
+}
 export const ContentType: Array<Content> = [
   { name: "Paragraf", id: 1, type: "text", body: "", index: 0 },
   { name: "BlockQuote", id: 2, type: "blockquote", body: "", index: 0 },
@@ -25,10 +41,22 @@ export const ContentType: Array<Content> = [
   { name: "Kutipan", id: 6, type: "quote", body: "", index: 0 }
 ];
 
-const DataContent = reactive<Array<Content>>([
-  { name: "Paragraf", id: 1, type: "text", body: "", index: 0 },
-  { name: "Paragraf", id: 1, type: "text", body: "", index: 0 }
-]);
+const content = reactive<DataContent>({
+  id: "",
+  title: "",
+  slug: "",
+  tag: ["tutorial"],
+  editor: "",
+  headerUrl: "",
+  content: [],
+  createdAt: "",
+  updatedAt: ""
+});
+const urlImageHeader = reactive<imageHeader>({
+  url: "",
+  progress: 0
+});
+
 export const usePost = () => {
   const onClone = (data: any) => {
     return data;
@@ -37,10 +65,30 @@ export const usePost = () => {
     console.log(evt);
   };
 
+  const uploadImageHeader = (data: { slug: string; file: File }) => {
+    storage
+      .ref("tutorial")
+      .child(data.slug + ".jpg")
+      .put(data.file)
+      .then(res => {
+        urlImageHeader.url = `${res.ref.fullPath}`;
+        urlImageHeader.progress = res.bytesTransferred;
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  };
+  const uploadContent = () => {
+    dbTutorial
+      .doc(content.id)
+      .set(content, { merge: true })
+      .then(res => {})
+      .catch(e => {});
+  };
   return {
     ContentType,
     onClone,
     onDrop,
-    DataContent
+    content
   };
 };
