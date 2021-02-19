@@ -60,12 +60,15 @@ export default defineComponent({
 });
 </script>
 <template>
-  <div
-    class="flex flex-col flex-grow h-screen overflow-x-hidden bg-gray-100 dark:bg-gray-900"
-  >
+  <main class="main">
     <nav-bar class="bg-gray-50 dark:bg-gray-800" v-on:theme="changeTheme" />
     <router-view class="flex-1" />
     <bottom-navigation class="block md:hidden lg:hidden" />
     <Footer class="hidden md:block lg:block flex-2" />
-  </div>
+  </main>
 </template>
+<style  scoped>
+.main {
+  @apply flex flex-col flex-grow h-screen overflow-x-hidden bg-gray-100 dark:bg-gray-900;
+}
+</style>

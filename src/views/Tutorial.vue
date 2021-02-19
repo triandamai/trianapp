@@ -3,11 +3,8 @@ import { defineComponent, onMounted } from "vue";
 import { useStore } from "@/store";
 
 import { DocumentActionTypes } from "@/store/module/action-types";
-import HeaderSection from "@/components/main/HeaderSection.vue";
-import ListItemSection from "@/components/main/ListItemSection.vue";
 
 export default defineComponent({
-  components: { HeaderSection, ListItemSection },
   setup() {
     const store = useStore();
     onMounted(() => {
