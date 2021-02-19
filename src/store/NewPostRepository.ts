@@ -1,6 +1,10 @@
 import { reactive, ref } from "vue";
 import { dbTutorial, storage } from "@/store/firbaseDatabase";
 
+/**
+ * ===== type
+ *
+ */
 type ContentType =
   | "text"
   | "paragraf"
@@ -41,6 +45,9 @@ export const ContentType: Array<Content> = [
   { name: "Kutipan", id: 6, type: "quote", body: "", index: 0 }
 ];
 
+/**
+ * ========== state section ===========
+ */
 const content = reactive<DataContent>({
   id: "",
   title: "",
@@ -56,6 +63,9 @@ const urlImageHeader = reactive<imageHeader>({
   url: "",
   progress: 0
 });
+/**
+ * ======== function ===========
+ */
 
 export const usePost = () => {
   const onClone = (data: any) => {
@@ -82,6 +92,13 @@ export const usePost = () => {
     dbTutorial
       .doc(content.id)
       .set(content, { merge: true })
+      .then(res => {})
+      .catch(e => {});
+  };
+  const deleteContent = () => {
+    dbTutorial
+      .doc(content.id)
+      .delete()
       .then(res => {})
       .catch(e => {});
   };
