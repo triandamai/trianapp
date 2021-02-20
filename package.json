@@ -21,7 +21,6 @@
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2",
     "vue": "^3.0.0",
     "vue-class-component": "^8.0.0-0",
-    "vue-draggable-next": "^2.0.1",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.0-0"
   },
