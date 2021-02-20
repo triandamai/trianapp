@@ -1,27 +1,16 @@
 <script lang="ts">
-import { defineComponent, onBeforeMount, onMounted, watch } from "vue";
+import { defineComponent, onBeforeMount, onMounted } from "vue";
 
-import { useStore } from "@/store";
-import { ThemeActionTypes } from "@/store/module/action-types";
 import { dbTutorial } from "@/store/firbaseDatabase";
+import { usetheme } from "@/store/ThemeRepository";
 
-import { DocumentMutationTypes } from "@/store/module/mutation-types";
 export default defineComponent({
   name: "App",
   setup() {
-    const store = useStore();
+    const { theme, setTheme } = usetheme();
 
-    const setTheme = () => {
-      document.querySelector("html")?.classList.remove("light");
-      document.querySelector("html")?.classList.remove("dark");
-      document.querySelector("html")?.classList.add(store.state.theme);
-    };
     const changeTheme = () => {
-      store.dispatch(
-        ThemeActionTypes.INIT_THEME,
-        store.state.theme == "light" ? "dark" : "light"
-      );
-      setTheme();
+      setTheme(theme.value == "light" ? "dark" : "light");
     };
     const listenTutorial = () => {
       dbTutorial.onSnapshot((doc) => {
