@@ -1,24 +1,23 @@
 <script lang="ts">
 import { defineComponent, onBeforeMount, reactive, ref } from "vue";
-import { useStore } from "@/store";
+import { useTheme } from "@/store/ThemeRepository";
 import { menu } from "@/router";
 
 export default defineComponent({
   name: "NavBar",
   setup(_, { emit }) {
     const menuProfil = ref(false);
-    const store = useStore();
     const view = reactive({
       atTopOfPage: true,
     });
+    const { changeTheme, theme } = useTheme();
     const profilToggle = () => {
       menuProfil.value = !menuProfil.value;
     };
 
     const toggleTheme = () => {
-      emit("theme", true);
+      changeTheme(!theme.theme);
     };
-
     onBeforeMount(() => {
       window.addEventListener("scroll", () => {
         if (window.pageYOffset > 0) {
@@ -32,7 +31,6 @@ export default defineComponent({
       toggleTheme,
       menuProfil,
       profilToggle,
-      store,
       view,
       menu,
     };
@@ -138,7 +136,7 @@ export default defineComponent({
               >
                 <svg
                   class="w-5 h-5 mr-2"
-                  v-if="store.state.theme == 'light'"
+                  v-if="theme == 'light'"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"

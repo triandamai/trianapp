@@ -1,35 +1,31 @@
-import { ref } from "vue";
+import { reactive } from "vue";
 import { getTheme, setTheme } from "@/store/LocalData";
-const theme = ref("");
-export const usetheme = () => {
-  const setTheme = (val: string) => {
+const theme = reactive({ theme: false });
+export function useTheme() {
+  function changeTheme(val?: boolean) {
     const cached = getTheme() ? getTheme() : false;
     const usePrefersDark = window.matchMedia("(prefers-color-scheme:dark)")
       .matches;
-    if (val) {
-      theme.value = val;
+    if (val != null) {
       setTheme(val);
+      theme.theme = val;
     } else {
       if (cached) {
-        theme.value = cached;
         setTheme(cached);
+        theme.theme = cached;
       } else if (usePrefersDark) {
-        theme.value = "dark";
-        setTheme("dark");
+        setTheme(true);
+        theme.theme = true;
       } else {
-        theme.value = "light";
-        setTheme("light");
+        setTheme(false);
+        theme.theme = false;
       }
     }
-    initTheme();
-  };
-  const initTheme = () => {
-    document.querySelector("html")?.classList.remove("light");
-    document.querySelector("html")?.classList.remove("dark");
-    document.querySelector("html")?.classList.add(theme.value);
-  };
+  }
+
   return {
     theme,
-    setTheme
+    setTheme,
+    changeTheme
   };
-};
+}

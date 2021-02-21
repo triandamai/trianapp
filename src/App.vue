@@ -1,3 +1,21 @@
+<script lang="ts">
+import { computed, defineComponent, watch } from "vue";
+import { useTheme } from "./store/ThemeRepository";
+
+export default defineComponent({
+  setup() {
+    const { theme } = useTheme();
+
+    watch(theme, (newVal) => {
+      document.querySelector("html")?.classList.remove("light");
+      document.querySelector("html")?.classList.remove("dark");
+      document
+        .querySelector("html")
+        ?.classList.add(newVal.theme ? "dark" : "light");
+    });
+  },
+});
+</script>
 <template>
   <router-view />
 </template>
