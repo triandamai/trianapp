@@ -1,6 +1,8 @@
 
-<script lang="ts">
+<script>
 import { defineComponent, ref } from "vue";
+import EditorJs from "@editorjs/editorjs";
+import * as Header from "@editorjs/header";
 
 import { useStore } from "@/store";
 export default defineComponent({
@@ -10,6 +12,10 @@ export default defineComponent({
     const sidebarOpen = ref(false);
     const darkMode = ref(false);
     const dropdownOpen = ref(false);
+    const editor = new EditorJs({
+      holder: "editorjs",
+      tools: { header: Header },
+    });
 
     return {
       sidebarOpen,
@@ -216,13 +222,14 @@ export default defineComponent({
           </header>
 
           <main class="flex-1 overflow-x-hidden overflow-y-auto">
-            <div class="container px-6 py-8 mx-auto">
+            <!-- <div class="container px-6 py-8 mx-auto">
               <div
                 class="grid text-xl text-gray-500 border-4 border-gray-300 border-dashed place-items-center h-96 dark:text-gray-300"
               >
                 Content
               </div>
-            </div>
+            </div> -->
+            <div class="bg-gray-800" id="editorjs"></div>
           </main>
         </div>
       </div>

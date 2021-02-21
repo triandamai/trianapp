@@ -11,12 +11,12 @@ import { getUser } from "@/store/LocalData";
 import "./registerServiceWorker";
 import "./assets/tailwind.css";
 
-const requireComponent = require.context("./components", true, /[\w-]+\.vue$/);
-
 /***
  *
  *
  */
+const requireComponent = require.context("./components", true, /[\w-]+\.vue$/);
+
 router.beforeEach((to, from, next) => {
   if (to.meta.requiresAuth) {
     const user = getUser();

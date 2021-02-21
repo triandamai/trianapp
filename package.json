@@ -10,6 +10,8 @@
     "deploy": "npm run build && firebase deploy"
   },
   "dependencies": {
+    "@editorjs/editorjs": "^2.19.1",
+    "@editorjs/header": "^2.6.1",
     "@tailwindcss/postcss7-compat": "^2.0.2",
     "@types/lodash": "^4.14.168",
     "autoprefixer": "^9",
