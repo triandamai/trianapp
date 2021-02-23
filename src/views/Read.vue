@@ -1,45 +1,7 @@
 <script lang="ts">
-import {
-  defineComponent,
-  onBeforeMount,
-  onMounted,
-  onUnmounted,
-  ref,
-} from "vue";
-import { useStore } from "@/store";
-import { useRoute } from "vue-router";
+import { defineComponent } from "vue";
 
-import { DocumentActionTypes } from "@/store/module/action-types";
-
-export default defineComponent({
-  setup() {
-    const store = useStore();
-    const route = useRoute();
-    const data = ref();
-
-    const getStringDate = (date: any) => {
-      const res = new Date(date * 1000);
-      return `${res
-        .getDate()
-        .toString()}-${res
-        .getMonth()
-        .toString()}-${res
-        .getUTCFullYear()
-        .toString()} ${res
-        .getHours()
-        .toString()}:${res.getMinutes().toString()}`;
-    };
-
-    onBeforeMount(() => {
-      store
-        .dispatch(DocumentActionTypes.GET_TUTORIAL_BY_ID, route.params.id)
-        .then(() => {
-          data.value = store.getters.getTutorialById(route.params.id);
-        });
-    });
-    return { data, getStringDate };
-  },
-});
+export default defineComponent({});
 </script>
 <template>
   <!-- component -->

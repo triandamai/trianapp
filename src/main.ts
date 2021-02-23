@@ -3,7 +3,6 @@ import App from "./App.vue";
 import { upperFirst, camelCase } from "lodash";
 
 import router from "./router";
-import { store, key } from "@/store";
 import { getUser } from "@/store/LocalData";
 
 /*eslint-disable*/
@@ -44,7 +43,6 @@ requireComponent.keys().forEach(fileName => {
   app.component(componentName, componentConfig.default || componentConfig);
 });
 
-app.use(store, key);
 app.use(router);
 
 app.mount("#app");

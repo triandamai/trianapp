@@ -2,7 +2,7 @@
 import { reactive } from "vue";
 import { AuthGoogle, dbUser } from "@/store/firbaseDatabase";
 import firebase from "firebase/app";
-import { User } from "./module/model-types";
+import { User } from "@/store/model-types";
 import { useRouter } from "vue-router";
 
 interface authState {

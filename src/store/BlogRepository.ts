@@ -1,10 +1,27 @@
-import { DataContent } from "@/store/module/model-types";
+import { DataContent } from "@/store/model-types";
 import { reactive } from "vue";
 import { dbTutorial } from "@/store/firbaseDatabase";
+import { Result } from "@/store/model-types";
 const dataTutorial = reactive<Array<DataContent>>([]);
 
 export function useBlog() {
-  const addTutorial = (payload: any) => {
+  function uploadTutorial(data: { id: string; payload: any }): Promise<Result> {
+    return new Promise(resolve => {
+      dbTutorial
+        .doc(data.id)
+        .set(data.payload, { merge: true })
+        .then(res => {
+          resolve({
+            success: true,
+            message: res
+          });
+        })
+        .catch(e => {
+          resolve({ success: false, message: e });
+        });
+    });
+  }
+  function addTutorial(payload: any) {
     const exist = dataTutorial.some(tutorial => (tutorial.id = payload.id));
     if (!exist) return dataTutorial.push(payload);
     else
@@ -12,22 +29,22 @@ export function useBlog() {
         dataTutorial[dataTutorial.map(item => item.id).indexOf(payload.id)],
         payload
       );
-  };
+  }
 
-  const changeTutorial = (payload: any) => {
+  function changeTutorial(payload: any) {
     Object.assign(
       dataTutorial[
         dataTutorial.map(tutorial => tutorial.id).indexOf(payload.id)
       ],
       payload
     );
-  };
-  const removeTutorial = (payloadId: any) => {
+  }
+  function removeTutorial(payloadId: any) {
     dataTutorial.splice(
       dataTutorial.map(tutorial => tutorial.id).indexOf(payloadId)
     );
-  };
-  const getAlltutorial = () => {
+  }
+  function getAlltutorial() {
     dbTutorial.get().then(doc => {
       doc.forEach(snapshot => {
         if (snapshot.exists) {
@@ -37,8 +54,8 @@ export function useBlog() {
         }
       });
     });
-  };
-  const listenTutorial = () => {
+  }
+  function listenTutorial() {
     dbTutorial.onSnapshot(doc => {
       doc.docChanges().forEach(change => {
         if (change.type == "added") {
@@ -52,7 +69,7 @@ export function useBlog() {
         }
       });
     });
-  };
+  }
 
   return {
     dataTutorial,
@@ -60,6 +77,7 @@ export function useBlog() {
     changeTutorial,
     removeTutorial,
     addTutorial,
-    listenTutorial
+    listenTutorial,
+    uploadTutorial
   };
 }

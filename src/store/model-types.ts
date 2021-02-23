@@ -28,3 +28,7 @@ export interface User {
   updatedAt: any;
   authMethod: AuthMethod;
 }
+export interface Result {
+  message: any;
+  success: boolean;
+}
