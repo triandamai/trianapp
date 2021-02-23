@@ -136,30 +136,30 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/dashboard",
     name: "Dashboard",
-    component: () => import("@/views/Dashboard.vue")
-    // children: [
-    //   { path: "", redirect: "/dashboard/tutorial" },
-    //   {
-    //     path: "tutorial",
-    //     name: "DashboardTutor",
-    //     component: () => import("@/views/dashboard/Tutorial.vue")
-    //   },
-    //   {
-    //     path: "artikel",
-    //     name: "DashboardArtikel",
-    //     component: () => import("@/views/dashboard/Artikel.vue")
-    //   },
-    //   {
-    //     path: "profil",
-    //     name: "Profil",
-    //     component: () => import("@/views/dashboard/Profil.vue")
-    //   },
-    //   {
-    //     path: "new",
-    //     name: "NewPost",
-    //     component: () => import("@/views/NewPost.vue")
-    //   }
-    // ]
+    component: () => import("@/views/Dashboard.vue"),
+    children: [
+      { path: "", redirect: "/dashboard/post" },
+      {
+        path: "post",
+        name: "DashboardTutor",
+        component: () => import("@/views/dashboard/NewTutorial.vue")
+      }
+      //   {
+      //     path: "artikel",
+      //     name: "DashboardArtikel",
+      //     component: () => import("@/views/dashboard/Artikel.vue")
+      //   },
+      //   {
+      //     path: "profil",
+      //     name: "Profil",
+      //     component: () => import("@/views/dashboard/Profil.vue")
+      //   },
+      //   {
+      //     path: "new",
+      //     name: "NewPost",
+      //     component: () => import("@/views/NewPost.vue")
+      //   }
+    ]
   },
   {
     path: "/auth",

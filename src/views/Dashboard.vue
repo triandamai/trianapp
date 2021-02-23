@@ -1,8 +1,6 @@
 
 <script>
 import { defineComponent, ref } from "vue";
-import EditorJs from "@editorjs/editorjs";
-import * as Header from "@editorjs/header";
 
 import { useStore } from "@/store";
 export default defineComponent({
@@ -12,10 +10,6 @@ export default defineComponent({
     const sidebarOpen = ref(false);
     const darkMode = ref(false);
     const dropdownOpen = ref(false);
-    const editor = new EditorJs({
-      holder: "editorjs",
-      tools: { header: Header },
-    });
 
     return {
       sidebarOpen,
@@ -31,7 +25,7 @@ export default defineComponent({
       x-data="{ sidebarOpen: false, darkMode: false }"
       :class="{ dark: darkMode }"
     >
-      <div class="flex h-screen bg-gray-100 dark:bg-gray-800 font-roboto">
+      <div class="flex h-screen bg-white dark:bg-gray-800 font-roboto">
         <div
           :class="sidebarOpen ? 'block' : 'hidden'"
           @click="sidebarOpen = false"
@@ -42,7 +36,7 @@ export default defineComponent({
           :class="
             sidebarOpen ? 'translate-x-0 ease-out' : '-translate-x-full ease-in'
           "
-          class="fixed inset-y-0 left-0 z-30 overflow-y-auto transition duration-300 transform bg-white w-60 dark:bg-gray-900 lg:translate-x-0 lg:static lg:inset-0"
+          class="fixed inset-y-0 left-0 z-30 overflow-y-auto transition duration-300 transform bg-gray-100 w-60 dark:bg-gray-900 lg:translate-x-0 lg:static lg:inset-0"
         >
           <div class="flex items-center justify-center mt-8">
             <div class="flex items-center">
@@ -190,7 +184,7 @@ export default defineComponent({
                   />
                 </button>
 
-                <div
+                <!-- <div
                   class="absolute right-0 z-10 w-48 mt-2 overflow-hidden bg-white rounded-md shadow-xl"
                   x-show="dropdownOpen"
                   x-transition:enter="transition ease-out duration-100 transform"
@@ -216,7 +210,7 @@ export default defineComponent({
                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-purple-600 hover:text-white"
                     >Logout</a
                   >
-                </div>
+                </div> -->
               </div>
             </div>
           </header>
@@ -229,7 +223,7 @@ export default defineComponent({
                 Content
               </div>
             </div> -->
-            <div class="bg-gray-800" id="editorjs"></div>
+            <router-view />
           </main>
         </div>
       </div>
