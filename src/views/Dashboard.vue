@@ -2,11 +2,9 @@
 <script>
 import { defineComponent, ref } from "vue";
 
-import { useStore } from "@/store";
 export default defineComponent({
   name: "App",
   setup() {
-    const store = useStore();
     const sidebarOpen = ref(false);
     const darkMode = ref(false);
     const dropdownOpen = ref(false);

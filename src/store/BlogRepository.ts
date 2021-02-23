@@ -5,7 +5,15 @@ import { Result } from "@/store/model-types";
 const dataTutorial = reactive<Array<DataContent>>([]);
 
 export function useBlog() {
-  function uploadTutorial(data: { id: string; payload: any }): Promise<Result> {
+  /**
+   *
+   * @param data
+   * @see Result
+   */
+  function uploadTutorial(data: {
+    id: string;
+    payload: DataContent;
+  }): Promise<Result> {
     return new Promise(resolve => {
       dbTutorial
         .doc(data.id)

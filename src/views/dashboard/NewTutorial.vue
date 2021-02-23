@@ -12,11 +12,22 @@ import CodeTool from "@editorjs/code";
 import InlineCode from "@editorjs/inline-code";
 import Marker from "@editorjs/marker";
 import { useBlog } from "@/store/BlogRepository";
-import { defineComponent } from "vue";
+import { defineComponent, reactive } from "vue";
 
 export default defineComponent({
   setup() {
-    const { addTutorial, dataTutorial, uploadTutorial } = useBlog();
+    const { uploadTutorial } = useBlog();
+    const dataTutorial = reactive({
+      id: "",
+      title: "",
+      uuid: "",
+      tag: "#VueJs",
+      username: "",
+      description: "",
+      createdAt: "",
+      updateAt: "",
+      content: null,
+    });
     const editor = new EditorJs({
       holder: "editorjs",
 
@@ -88,12 +99,26 @@ export default defineComponent({
       },
     });
     function processUpload() {
-      uploadTutorial({
-        id: "",
-        payload: {},
-      }).then(({ message, success }) => {
-        console.log(message, success);
-      });
+      if (dataTutorial.title == null || dataTutorial.title.length <= 5) return;
+
+      editor
+        .save()
+        .then((output) => {
+          console.log(output);
+          dataTutorial.content = output.blocks;
+          dataTutorial.createdAt = output.time;
+          dataTutorial.updateAt = output.time;
+
+          uploadTutorial({
+            id: dataTutorial.title.toString().replaceAll(" ", "-"),
+            payload: dataTutorial,
+          }).then(({ message, success }) => {
+            console.log(message, success);
+          });
+        })
+        .catch((e) => {
+          console.log(e);
+        });
     }
     return {
       dataTutorial,

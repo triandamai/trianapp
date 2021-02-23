@@ -11,9 +11,9 @@ export interface DataContent {
   slug: string;
   title: string;
   uuid: string;
+  tag: string;
   username: string;
   description: string;
-  content: Array<Content>;
   createdAt: any;
   updateAt: any;
 }
