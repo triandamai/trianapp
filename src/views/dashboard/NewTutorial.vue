@@ -12,11 +12,12 @@ import CodeTool from "@editorjs/code";
 import InlineCode from "@editorjs/inline-code";
 import Marker from "@editorjs/marker";
 import { useBlog } from "@/store/BlogRepository";
-import { defineComponent, reactive } from "vue";
+import { defineComponent, reactive, ref } from "vue";
 
 export default defineComponent({
   setup() {
     const { uploadTutorial } = useBlog();
+    const image = ref();
     const dataTutorial = reactive({
       id: "",
       title: "",
@@ -98,6 +99,10 @@ export default defineComponent({
         },
       },
     });
+    function onPickImage(e) {
+      console.log(e.target.files);
+      image.value = e.target.files[0];
+    }
     function processUpload() {
       if (dataTutorial.title == null || dataTutorial.title.length <= 5) return;
 
@@ -129,6 +134,7 @@ export default defineComponent({
     return {
       dataTutorial,
       processUpload,
+      onPickImage,
     };
   },
 });
@@ -164,7 +170,7 @@ export default defineComponent({
               />
             </svg>
             <span class="mt-2 text-base leading-normal">Pilih Gambar</span>
-            <input type="file" class="hidden" />
+            <input type="file" class="hidden" @change="onPickImage" />
           </label>
         </div>
         <div class="flex flex-wrap justify-between px-4 mt-6">
