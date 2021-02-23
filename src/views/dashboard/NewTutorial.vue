@@ -18,6 +18,7 @@ export default defineComponent({
   setup() {
     const { uploadTutorial } = useBlog();
     const image = ref();
+    const preview = ref();
     const dataTutorial = reactive({
       id: "",
       title: "",
@@ -102,6 +103,11 @@ export default defineComponent({
     function onPickImage(e) {
       console.log(e.target.files);
       image.value = e.target.files[0];
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        preview.value = e.target.result;
+      };
+      reader.readAsDataURL(e.target.files[0]);
     }
     function processUpload() {
       if (dataTutorial.title == null || dataTutorial.title.length <= 5) return;
@@ -135,6 +141,8 @@ export default defineComponent({
       dataTutorial,
       processUpload,
       onPickImage,
+      preview,
+      image,
     };
   },
 });
@@ -155,7 +163,10 @@ export default defineComponent({
           placeholder="Deskripsi"
         />
         <input class="px-4 py-2" placeholder="TAG" />
-        <div class="flex items-center justify-center w-full bg-grey-lighter">
+        <div
+          class="flex items-center justify-center w-full bg-grey-lighter imagePreviewWrapper"
+          :style="{ 'background-image': `url(${preview})` }"
+        >
           <label
             class="flex flex-col items-center w-64 px-4 py-6 tracking-wide uppercase bg-white border rounded-sm cursor-pointer text-blue border-blue hover:bg-blue hover:text-white"
           >
@@ -191,3 +202,14 @@ export default defineComponent({
     <div class="w-2/3 bg-white" id="editorjs" />
   </div>
 </template>
+<style scoped lang="scss">
+.imagePreviewWrapper {
+  width: 250px;
+  height: 250px;
+  display: block;
+  cursor: pointer;
+  margin: 0 auto 30px;
+  background-size: cover;
+  background-position: center center;
+}
+</style>
