@@ -31,7 +31,7 @@ export default defineComponent({
     const editor = new EditorJs({
       holder: "editorjs",
 
-      autofocus: true,
+      autofocus: false,
       placeholder: "Ketikkan Konten",
 
       tools: {
@@ -105,12 +105,18 @@ export default defineComponent({
         .save()
         .then((output) => {
           console.log(output);
+          const uniq = dataTutorial.title
+            .toString()
+            .replaceAll(" ", "-")
+            .toLowerCase();
+
           dataTutorial.content = output.blocks;
           dataTutorial.createdAt = output.time;
           dataTutorial.updateAt = output.time;
+          dataTutorial.id = uniq;
 
           uploadTutorial({
-            id: dataTutorial.title.toString().replaceAll(" ", "-"),
+            id: uniq,
             payload: dataTutorial,
           }).then(({ message, success }) => {
             console.log(message, success);
@@ -130,30 +136,51 @@ export default defineComponent({
 <template>
   <div class="flex flex-wrap w-full">
     <div class="w-1/5 px-6">
-      <input
-        class="px-4 py-2"
-        v-model="dataTutorial.title"
-        placeholder="Input Judul"
-      />
-      <input
-        class="px-4 py-2"
-        v-model="dataTutorial.description"
-        placeholder="Deskripsi"
-      />
-      <input class="px-4 py-2" placeholder="TAG" />
-      <div class="flex flex-wrap justify-between px-4 mt-6">
-        <button
-          @click="processUpload"
-          class="px-4 py-1 text-green-100 bg-green-500 rounded-sm dark:bg-opacity-10"
-        >
-          Simpan
-        </button>
-        <button
-          class="px-4 py-1 text-green-100 bg-green-500 rounded-sm dark:bg-opacity-10"
-        >
-          Draft
-        </button>
-      </div>
+      <form @submit.prevent="processUpload">
+        <input
+          class="px-4 py-2"
+          v-model="dataTutorial.title"
+          autofocus
+          placeholder="Input Judul"
+        />
+        <input
+          class="px-4 py-2"
+          v-model="dataTutorial.description"
+          placeholder="Deskripsi"
+        />
+        <input class="px-4 py-2" placeholder="TAG" />
+        <div class="flex items-center justify-center w-full bg-grey-lighter">
+          <label
+            class="flex flex-col items-center w-64 px-4 py-6 tracking-wide uppercase bg-white border rounded-sm cursor-pointer text-blue border-blue hover:bg-blue hover:text-white"
+          >
+            <svg
+              class="w-8 h-8"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z"
+              />
+            </svg>
+            <span class="mt-2 text-base leading-normal">Pilih Gambar</span>
+            <input type="file" class="hidden" />
+          </label>
+        </div>
+        <div class="flex flex-wrap justify-between px-4 mt-6">
+          <button
+            type="submit"
+            class="px-4 py-1 text-green-100 bg-green-500 rounded-sm dark:bg-opacity-10"
+          >
+            Simpan
+          </button>
+          <button
+            class="px-4 py-1 text-green-100 bg-green-500 rounded-sm dark:bg-opacity-10"
+          >
+            Draft
+          </button>
+        </div>
+      </form>
     </div>
     <div class="w-2/3 bg-white" id="editorjs" />
   </div>
