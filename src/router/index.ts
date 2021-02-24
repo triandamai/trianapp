@@ -146,6 +146,11 @@ const routes: Array<RouteRecordRaw> = [
         path: "post",
         name: "DashboardTutor",
         component: () => import("@/views/dashboard/NewTutorial.vue")
+      },
+      {
+        path: "tutorial",
+        name: "ListTutorial",
+        component: () => import("@/views/dashboard/Tutorial.vue")
       }
       //   {
       //     path: "artikel",
