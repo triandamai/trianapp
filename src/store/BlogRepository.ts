@@ -52,15 +52,20 @@ export function useBlog() {
       dataTutorial.map(tutorial => tutorial.id).indexOf(payloadId)
     );
   }
-  function getAlltutorial() {
-    dbTutorial.get().then(doc => {
-      doc.forEach(snapshot => {
-        if (snapshot.exists) {
-          addTutorial(snapshot.data());
-        } else {
-          //error
-        }
-      });
+  function getAlltutorial(): Promise<Result> {
+    return new Promise(resolve => {
+      dbTutorial
+        .get()
+        .then(doc => {
+          doc.forEach(snapshot => {
+            if (snapshot.exists) addTutorial(snapshot.data());
+
+            resolve({ success: true, message: "Sukses" });
+          });
+        })
+        .catch(() => {
+          resolve({ success: false, message: "Gagal" });
+        });
     });
   }
   function listenTutorial() {
