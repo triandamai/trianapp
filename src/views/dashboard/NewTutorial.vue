@@ -29,6 +29,7 @@ export default defineComponent({
       username: "",
       description: "",
       createdAt: "",
+      thumbnail: "",
       updateAt: "",
       content: null,
     });
@@ -103,13 +104,9 @@ export default defineComponent({
       },
     });
     function onPickImage(e) {
-      console.log(e.target.files);
       image.value = e.target.files[0];
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        preview.value = e.target.result;
-      };
-      reader.readAsDataURL(e.target.files[0]);
+      preview.value = URL.createObjectURL(e.target.files[0]);
+
       const taskUpload = storage
         .ref()
         .child("tutorial")
@@ -127,6 +124,11 @@ export default defineComponent({
         },
         (err) => {
           console.log(err);
+        },
+        () => {
+          taskUpload.snapshot.ref.getDownloadURL().then((url) => {
+            dataTutorial.thumbnail = url;
+          });
         }
       );
     }
@@ -187,20 +189,24 @@ export default defineComponent({
         <div
           class="flex items-center justify-center w-full bg-grey-lighter imagePreviewWrapper"
         >
-          <label
-            class="flex flex-col items-center w-64 px-4 py-6 tracking-wide uppercase bg-white border rounded-sm cursor-pointer text-blue border-blue hover:bg-blue hover:text-white"
-          >
-            <svg
-              class="w-8 h-8"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
+          <label>
+            <img :src="preview" v-if="preview" />
+            <div
+              v-else
+              class="flex flex-col items-center w-64 px-4 py-6 tracking-wide uppercase bg-white border rounded-sm cursor-pointer text-blue border-blue hover:bg-blue hover:text-white"
             >
-              <path
-                d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z"
-              />
-            </svg>
-            <span class="mt-2 text-base leading-normal">Pilih Gambar</span>
+              <svg
+                class="w-8 h-8"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z"
+                />
+              </svg>
+              <span class="mt-2 text-base leading-normal">Pilih Gambar</span>
+            </div>
             <input type="file" class="hidden" @change="onPickImage" />
           </label>
         </div>

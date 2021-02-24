@@ -11,6 +11,7 @@ export interface DataContent {
   title: string;
   uuid: string;
   tag: string;
+  thumbnail: string;
   username: string;
   description: string;
   createdAt: any;
