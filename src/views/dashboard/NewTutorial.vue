@@ -14,8 +14,10 @@ import Marker from "@editorjs/marker";
 import { useBlog } from "@/store/BlogRepository";
 import { storage, AuthGoogle } from "@/store/firbaseDatabase";
 import { defineComponent, reactive, ref } from "vue";
+import NotificationNewPost from "@/components/common/NotificationNewPost.vue";
 
 export default defineComponent({
+  components: { NotificationNewPost },
   setup() {
     const date = Date.now().toString();
     const { uploadTutorial } = useBlog();
@@ -171,8 +173,9 @@ export default defineComponent({
 });
 </script>
 <template>
-  <div class="flex flex-wrap w-full">
-    <div class="w-1/5 px-6">
+  <notification-new-post />
+  <div class="flex flex-wrap w-full mt-5">
+    <div class="w-1/5 px-3 mx-3">
       <form @submit.prevent="processUpload">
         <input
           class="px-4 py-2"
