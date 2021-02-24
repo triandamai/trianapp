@@ -11,7 +11,7 @@ export default defineComponent({
     onBeforeMount(() => {
       getAlltutorial().then(({ success }) => {
         if (success) {
-          console.clear();
+          console.log(dataTutorial);
         }
       });
     });
@@ -23,6 +23,10 @@ export default defineComponent({
 </script>
 <template>
   <div class="flex flex-wrap">
-    <item-tutorial v-for="(data, index) in dataTutorial" :key="index" />
+    <item-tutorial
+      v-for="(data, index) in dataTutorial"
+      :key="index"
+      :data="data"
+    />
   </div>
 </template>

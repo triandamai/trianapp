@@ -1,6 +1,7 @@
 
-<script>
+<script lang="ts">
 import { defineComponent, ref } from "vue";
+import { menuDashboard } from "@/store/model-types";
 
 export default defineComponent({
   name: "App",
@@ -8,11 +9,14 @@ export default defineComponent({
     const sidebarOpen = ref(false);
     const darkMode = ref(false);
     const dropdownOpen = ref(false);
+    const menus = menuDashboard;
+    console.log(menus);
 
     return {
       sidebarOpen,
       darkMode,
       dropdownOpen,
+      menus,
     };
   },
 });
@@ -45,30 +49,14 @@ export default defineComponent({
           </div>
 
           <nav class="flex flex-col px-4 mt-10 text-center">
-            <a
-              href="#"
-              class="py-2 text-sm text-gray-700 bg-gray-200 rounded dark:text-gray-100 dark:bg-gray-800"
-              >Overview</a
-            >
-            <a
-              href="#"
-              class="py-2 mt-3 text-sm text-gray-600 rounded dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800"
-              >Tickets</a
-            >
-            <a
-              href="#"
-              class="py-2 mt-3 text-sm text-gray-600 rounded dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800"
-              >Ideas</a
-            >
-            <a
-              href="#"
-              class="py-2 mt-3 text-sm text-gray-600 rounded dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800"
-              >Contacts</a
-            >
-            <a
-              href="#"
-              class="py-2 mt-3 text-sm text-gray-600 rounded dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800"
-              >Settings</a
+            <router-link
+              class="py-2 text-sm text-gray-700 rounded dark:text-gray-100 dark:bg-gray-800"
+              v-for="(menu, index) in menus"
+              :to="menu.to"
+              :key="index"
+              v-slot="{ isActive }"
+              :class="isActive ? 'bg-white' : 'bg-gray-100'"
+              >{{ menu.name }}</router-link
             >
           </nav>
         </div>
@@ -100,6 +88,13 @@ export default defineComponent({
                 <h1 class="text-2xl font-medium text-gray-800 dark:text-white">
                   Overview
                 </h1>
+              </div>
+              <div>
+                <router-link
+                  class="px-2 py-1 mx-3 text-yellow-600 bg-yellow-200 rounded-sm"
+                  to="/dashboard/post"
+                  >New</router-link
+                >
               </div>
             </div>
 

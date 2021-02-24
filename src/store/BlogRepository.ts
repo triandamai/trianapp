@@ -30,13 +30,17 @@ export function useBlog() {
     });
   }
   function addTutorial(payload: any) {
-    const exist = dataTutorial.some(tutorial => (tutorial.id = payload.id));
-    if (!exist) return dataTutorial.push(payload);
-    else
-      Object.assign(
-        dataTutorial[dataTutorial.map(item => item.id).indexOf(payload.id)],
-        payload
-      );
+    // const exist = dataTutorial.some(
+    //   tutorial => (tutorial.title = payload.title)
+    // );
+    // console.log(exist);
+    // if (!exist) return
+    dataTutorial.push(payload);
+    // else
+    //   Object.assign(
+    //     dataTutorial[dataTutorial.map(item => item.id).indexOf(payload.id)],
+    //     payload
+    //   );
   }
 
   function changeTutorial(payload: any) {

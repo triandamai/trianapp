@@ -3,7 +3,6 @@ import App from "./App.vue";
 import { upperFirst, camelCase } from "lodash";
 
 import router from "./router";
-import { getUser } from "@/store/LocalData";
 import { getCurrentUser } from "@/store/firbaseDatabase";
 
 /*eslint-disable*/
@@ -18,6 +17,7 @@ import "./assets/tailwind.css";
 const requireComponent = require.context("./components", true, /[\w-]+\.vue$/);
 
 router.beforeEach(async (to, from, next) => {
+  console.log(await getCurrentUser());
   if (to.meta.requiresAuth && !(await getCurrentUser())) {
     next({ path: "/auth/login" });
   } else {

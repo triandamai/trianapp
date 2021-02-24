@@ -32,3 +32,15 @@ export interface Result {
   message: any;
   success: boolean;
 }
+
+export interface MenuDashboard {
+  name: string;
+  to: string;
+}
+export const menuDashboard: Array<MenuDashboard> = [
+  { name: "Tutorial", to: "/dashboard/tutorial" }
+  // {
+  //   name: "Tutorial",
+  //   to: "/dashboard/artikel"
+  // }
+];
