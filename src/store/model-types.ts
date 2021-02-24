@@ -8,7 +8,6 @@ export interface Content {
 
 export interface DataContent {
   id: string;
-  slug: string;
   title: string;
   uuid: string;
   tag: string;

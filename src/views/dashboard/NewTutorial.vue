@@ -12,10 +12,12 @@ import CodeTool from "@editorjs/code";
 import InlineCode from "@editorjs/inline-code";
 import Marker from "@editorjs/marker";
 import { useBlog } from "@/store/BlogRepository";
+import { storage } from "@/store/firbaseDatabase";
 import { defineComponent, reactive, ref } from "vue";
 
 export default defineComponent({
   setup() {
+    const date = Date.now().toString();
     const { uploadTutorial } = useBlog();
     const image = ref();
     const preview = ref();
@@ -108,6 +110,25 @@ export default defineComponent({
         preview.value = e.target.result;
       };
       reader.readAsDataURL(e.target.files[0]);
+      const taskUpload = storage
+        .ref()
+        .child("tutorial")
+        .child(`image-${date}.jpg`)
+        .put(e.target.files[0]);
+
+      taskUpload.on(
+        "state_changed",
+        (snapshot) => {
+          console.log(
+            `Upload is ${
+              (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+            }`
+          );
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
     }
     function processUpload() {
       if (dataTutorial.title == null || dataTutorial.title.length <= 5) return;
@@ -165,7 +186,6 @@ export default defineComponent({
         <input class="px-4 py-2" placeholder="TAG" />
         <div
           class="flex items-center justify-center w-full bg-grey-lighter imagePreviewWrapper"
-          :style="{ 'background-image': `url(${preview})` }"
         >
           <label
             class="flex flex-col items-center w-64 px-4 py-6 tracking-wide uppercase bg-white border rounded-sm cursor-pointer text-blue border-blue hover:bg-blue hover:text-white"
@@ -203,13 +223,4 @@ export default defineComponent({
   </div>
 </template>
 <style scoped lang="scss">
-.imagePreviewWrapper {
-  width: 250px;
-  height: 250px;
-  display: block;
-  cursor: pointer;
-  margin: 0 auto 30px;
-  background-size: cover;
-  background-position: center center;
-}
 </style>
