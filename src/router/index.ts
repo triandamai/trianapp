@@ -137,6 +137,9 @@ const routes: Array<RouteRecordRaw> = [
     path: "/dashboard",
     name: "Dashboard",
     component: () => import("@/views/Dashboard.vue"),
+    meta: {
+      requiresAuth: true
+    },
     children: [
       { path: "", redirect: "/dashboard/post" },
       {

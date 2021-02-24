@@ -17,6 +17,13 @@ const firebaseApp = firebase.initializeApp({
   appId: "1:264573731963:web:075d35555653394abe4ede",
   measurementId: "G-RSRMRG3DYL"
 });
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    AuthGoogle.onAuthStateChanged(user => {
+      resolve(user);
+    }, reject);
+  });
+};
 export const dbArticle = firebaseApp.firestore().collection("article");
 export const dbTutorial = firebaseApp.firestore().collection("tutorial");
 export const dbUser = firebaseApp.firestore().collection("user");

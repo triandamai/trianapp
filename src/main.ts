@@ -4,6 +4,7 @@ import { upperFirst, camelCase } from "lodash";
 
 import router from "./router";
 import { getUser } from "@/store/LocalData";
+import { getCurrentUser } from "@/store/firbaseDatabase";
 
 /*eslint-disable*/
 
@@ -16,11 +17,9 @@ import "./assets/tailwind.css";
  */
 const requireComponent = require.context("./components", true, /[\w-]+\.vue$/);
 
-router.beforeEach((to, from, next) => {
-  if (to.meta.requiresAuth) {
-    const user = getUser();
-    if (user) next();
-    else next({ path: "/auth/login" });
+router.beforeEach(async (to, from, next) => {
+  if (to.meta.requiresAuth && !(await getCurrentUser())) {
+    next({ path: "/auth/login" });
   } else {
     next();
   }
