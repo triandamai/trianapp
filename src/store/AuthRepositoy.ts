@@ -80,6 +80,9 @@ export const useAuth = () => {
       authState.form.password
     )
       .then(user => {
+        AuthGoogle.currentUser?.updateProfile({
+          displayName: authState.form.username
+        });
         if (user)
           setUser(
             {

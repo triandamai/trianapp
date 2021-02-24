@@ -12,21 +12,23 @@ import CodeTool from "@editorjs/code";
 import InlineCode from "@editorjs/inline-code";
 import Marker from "@editorjs/marker";
 import { useBlog } from "@/store/BlogRepository";
-import { storage } from "@/store/firbaseDatabase";
+import { storage, AuthGoogle } from "@/store/firbaseDatabase";
 import { defineComponent, reactive, ref } from "vue";
 
 export default defineComponent({
   setup() {
     const date = Date.now().toString();
     const { uploadTutorial } = useBlog();
+    const user = AuthGoogle.currentUser;
     const image = ref();
     const preview = ref();
+    const uploadprocess = ref(null);
     const dataTutorial = reactive({
       id: "",
       title: "",
-      uuid: "",
+      uuid: user.uid,
       tag: "#VueJs",
-      username: "",
+      username: user.displayName,
       description: "",
       createdAt: "",
       thumbnail: "",
@@ -116,11 +118,9 @@ export default defineComponent({
       taskUpload.on(
         "state_changed",
         (snapshot) => {
-          console.log(
-            `Upload is ${
-              (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-            }`
-          );
+          const progress =
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          console.log(`Upload is ${progress.toFixed()}`);
         },
         (err) => {
           console.log(err);
