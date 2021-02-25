@@ -7,7 +7,7 @@ import "firebase/firestore";
 import "firebase/auth";
 import "firebase/storage";
 
-const firebaseApp = firebase.initializeApp({
+export const config = {
   apiKey: "AIzaSyBOo-s1-i_BcxU4EobnITuFW92wUVxWt2Q",
   authDomain: "myproject-64aac.firebaseapp.com",
   databaseURL: "https://myproject-64aac.firebaseio.com",
@@ -16,7 +16,8 @@ const firebaseApp = firebase.initializeApp({
   messagingSenderId: "264573731963",
   appId: "1:264573731963:web:075d35555653394abe4ede",
   measurementId: "G-RSRMRG3DYL"
-});
+};
+const firebaseApp = firebase.initializeApp(config);
 
 export const dbArticle = firebaseApp.firestore().collection("article");
 export const dbTutorial = firebaseApp.firestore().collection("tutorial");
