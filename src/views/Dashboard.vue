@@ -1,26 +1,27 @@
 
 <script lang="ts">
-import { defineComponent, reactive, ref } from "vue";
+import { defineComponent, onBeforeMount, reactive, ref } from "vue";
 import { menuDashboard } from "@/store/model-types";
 import { useTheme } from "@/store/ThemeRepository";
+import { useAuth } from "@/store/AuthRepositoy";
 
 export default defineComponent({
   name: "App",
   setup() {
     const sidebarOpen = ref(false);
     const dropdownOpen = reactive({ open: false });
-
+    const { getAuthUser } = useAuth();
     const menus = menuDashboard;
+    onBeforeMount(() => {
+      getAuthUser();
+    });
 
-    const dropdownToggle = () => {
-      dropdownOpen.open = !dropdownOpen.open;
-    };
     return {
       sidebarOpen,
       dropdownOpen,
-      dropdownToggle,
       menus,
       ...useTheme(),
+      ...useAuth(),
     };
   },
 });
@@ -169,11 +170,11 @@ export default defineComponent({
                   <h2
                     class="hidden text-sm text-gray-700 dark:text-gray-300 sm:block"
                   >
-                    Jones Ferdinand
+                    {{ authState.currentUser.displayName }}
                   </h2>
                   <img
-                    class="object-cover border-2 border-purple-500 rounded-full h-9 w-9"
-                    src="https://images.unsplash.com/photo-1553267751-1c148a7280a1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                    class="object-cover border-2 rounded-md h-9 w-9"
+                    :src="authState.currentUser.photoURL"
                     alt="Your avatar"
                   />
                 </button>
