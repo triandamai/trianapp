@@ -35,13 +35,32 @@ export default defineComponent({
       >
       <div class="flex flex-wrap w-full mt-5">
         <button
-          class="flex px-2 py-1 text-yellow-600 bg-yellow-200 rounded-md dark:bg-opacity-10"
+          class="flex px-2 py-1 mx-1 text-green-600 bg-green-200 rounded-md dark:bg-opacity-10"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            class="w-4"
+            class="w-4 mr-1"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M8 13v-1m4 1v-3m4 3V8M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"
+            />
+          </svg>
+          Preview
+        </button>
+        <button
+          class="flex px-2 py-1 mx-1 text-yellow-600 bg-yellow-200 rounded-md dark:bg-opacity-10"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            class="w-4 mr-1"
             stroke="currentColor"
           >
             <path
@@ -54,13 +73,13 @@ export default defineComponent({
           Edit
         </button>
         <button
-          class="flex px-2 py-1 mx-2 text-red-600 bg-red-300 rounded-md dark:bg-opacity-10"
+          class="flex px-2 py-1 mx-1 text-red-600 bg-red-300 rounded-md dark:bg-opacity-10"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            class="w-4"
+            class="w-4 mr-1"
             stroke="currentColor"
           >
             <path
