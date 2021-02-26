@@ -53,7 +53,6 @@ export function useBlog() {
     const exist = dataTutorial.some(
       tutorial => (tutorial.title = payload.title)
     );
-    console.log(exist);
     if (!exist) return dataTutorial.push(payload);
     else
       dataTutorial[
