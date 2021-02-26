@@ -1,6 +1,6 @@
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, reactive, ref } from "vue";
 import { menuDashboard } from "@/store/model-types";
 import { useTheme } from "@/store/ThemeRepository";
 
@@ -8,14 +8,17 @@ export default defineComponent({
   name: "App",
   setup() {
     const sidebarOpen = ref(false);
-    const darkMode = ref(false);
-    const dropdownOpen = ref(false);
+    const dropdownOpen = reactive({ open: false });
+
     const menus = menuDashboard;
 
+    const dropdownToggle = () => {
+      dropdownOpen.open = !dropdownOpen.open;
+    };
     return {
       sidebarOpen,
-      darkMode,
       dropdownOpen,
+      dropdownToggle,
       menus,
       ...useTheme(),
     };
@@ -158,9 +161,9 @@ export default defineComponent({
                 </svg>
               </button>
 
-              <div x-data="{ dropdownOpen: false }" class="relative">
+              <div class="relative">
                 <button
-                  @click="dropdownOpen = !dropdownOpen"
+                  @click="dropdownOpen.open = !dropdownOpen.open"
                   class="relative flex items-center space-x-2 focus:outline-none"
                 >
                   <h2
@@ -175,45 +178,21 @@ export default defineComponent({
                   />
                 </button>
 
-                <!-- <div
+                <div
+                  v-show="dropdownOpen.open"
                   class="absolute right-0 z-10 w-48 mt-2 overflow-hidden bg-white rounded-md shadow-xl"
-                  x-show="dropdownOpen"
-                  x-transition:enter="transition ease-out duration-100 transform"
-                  x-transition:enter-start="opacity-0 scale-95"
-                  x-transition:enter-end="opacity-100 scale-100"
-                  x-transition:leave="transition ease-in duration-75 transform"
-                  x-transition:leave-start="opacity-100 scale-100"
-                  x-transition:leave-end="opacity-0 scale-95"
-                  @click="dropdownOpen = false"
+                  @click="dropdownOpen.open = false"
                 >
                   <a
-                    href="#"
-                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-purple-600 hover:text-white"
-                    >Profile</a
-                  >
-                  <a
-                    href="#"
-                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-purple-600 hover:text-white"
-                    >Tickets</a
-                  >
-                  <a
-                    href="/login"
                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-purple-600 hover:text-white"
                     >Logout</a
                   >
-                </div> -->
+                </div>
               </div>
             </div>
           </header>
 
           <main class="flex-1 overflow-x-hidden overflow-y-auto">
-            <!-- <div class="container px-6 py-8 mx-auto">
-              <div
-                class="grid text-xl text-gray-500 border-4 border-gray-300 border-dashed place-items-center h-96 dark:text-gray-300"
-              >
-                Content
-              </div>
-            </div> -->
             <router-view />
           </main>
         </div>
