@@ -24,10 +24,7 @@ export default defineComponent({
 </script>
 <template>
   <section>
-    <div
-      x-data="{ sidebarOpen: false, darkMode: false }"
-      :class="{ dark: theme.theme }"
-    >
+    <div :class="{ dark: theme.theme }">
       <div class="flex h-screen bg-white dark:bg-gray-800 font-roboto">
         <div
           :class="sidebarOpen ? 'block' : 'hidden'"
@@ -106,7 +103,7 @@ export default defineComponent({
                 aria-label="Color Mode"
               >
                 <svg
-                  x-show="darkMode"
+                  v-show="theme.theme"
                   class="w-6 h-6"
                   viewBox="0 0 20 20"
                   fill="currentColor"
@@ -118,7 +115,7 @@ export default defineComponent({
                   />
                 </svg>
                 <svg
-                  x-show="!darkMode"
+                  v-show="!theme.theme"
                   class="w-6 h-6"
                   viewBox="0 0 20 20"
                   fill="currentColor"
