@@ -2,6 +2,7 @@
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 import { menuDashboard } from "@/store/model-types";
+import { useTheme } from "@/store/ThemeRepository";
 
 export default defineComponent({
   name: "App",
@@ -10,13 +11,13 @@ export default defineComponent({
     const darkMode = ref(false);
     const dropdownOpen = ref(false);
     const menus = menuDashboard;
-    console.log(menus);
 
     return {
       sidebarOpen,
       darkMode,
       dropdownOpen,
       menus,
+      ...useTheme(),
     };
   },
 });
@@ -25,7 +26,7 @@ export default defineComponent({
   <section>
     <div
       x-data="{ sidebarOpen: false, darkMode: false }"
-      :class="{ dark: darkMode }"
+      :class="{ dark: theme.theme }"
     >
       <div class="flex h-screen bg-white dark:bg-gray-800 font-roboto">
         <div
@@ -100,7 +101,7 @@ export default defineComponent({
 
             <div class="flex items-center space-x-4">
               <button
-                @click="darkMode = !darkMode"
+                @click="changeTheme(!theme.theme)"
                 class="flex text-gray-600 dark:text-gray-300 focus:outline-none"
                 aria-label="Color Mode"
               >
