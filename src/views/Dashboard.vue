@@ -185,6 +185,7 @@ export default defineComponent({
                   @click="dropdownOpen.open = false"
                 >
                   <a
+                    @click="userSignOut"
                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-purple-600 hover:text-white"
                     >Logout</a
                   >

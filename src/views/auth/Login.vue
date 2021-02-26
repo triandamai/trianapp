@@ -27,11 +27,11 @@ export default defineComponent({
       />
     </div>
     <div
-      class="flex w-full h-screen px-6 bg-white bg-blue-1300 md:max-w-md lg:max-w-full md:mx-auto md:w-1/2 xl:w-1/3 lg:px-16 xl:px-12 items-left justify-left dark:bg-gray-900"
+      class="flex w-full h-screen px-8 font-mono bg-white bg-blue-1300 md:max-w-md lg:max-w-full md:mx-auto md:w-1/2 xl:w-1/3 lg:px-16 xl:px-12 items-left justify-left dark:bg-gray-900"
     >
       <div class="w-full py-32 lg:py-6 lg:h-100">
         <h1
-          class="my-12 text-2xl font-semibold tracking-tighter text-blue-700 sm:text-3xl title-font dark:text-blue-900"
+          class="my-12 text-2xl font-semibold tracking-tighter text-gray-800 sm:text-3xl title-font dark:text-blue-900"
         >
           Sign Up to a new world.
         </h1>
@@ -39,7 +39,7 @@ export default defineComponent({
           <button
             type="button"
             @click="loginWithGoogle"
-            class="inline-flex w-full px-4 py-3 font-semibold text-blue-800 border border-gray-300 rounded-lg dark:text-blue-800 dark:border-gray-800 bg-blue-1300 hover:bg-blue-800 hover:text-white focus:bg-gray-100 dark:bg-gray-800 dark:hover:text-white"
+            class="inline-flex w-full px-4 py-3 font-mono font-semibold text-blue-800 border border-gray-300 rounded-sm dark:text-blue-800 dark:border-gray-800 bg-blue-1300 hover:bg-blue-800 hover:text-white focus:bg-gray-100 dark:bg-gray-800 dark:hover:text-white"
           >
             <div class="flex items-center justify-center">
               <svg
@@ -79,7 +79,7 @@ export default defineComponent({
           </button>
           <button
             type="button"
-            class="inline-flex px-4 py-3 ml-8 font-semibold text-blue-800 border border-gray-300 rounded-lg dark:border-gray-800 bg-blue-1300 hover:bg-blue-800 dark:hover:bg-blue-500 dark:hover:bg-opacity-10 focus:bg-gray-100 hover:text-blue-500"
+            class="inline-flex px-4 py-3 ml-8 font-semibold text-blue-800 border border-gray-300 rounded-sm dark:border-gray-800 bg-blue-1300 hover:bg-blue-800 dark:hover:bg-blue-500 dark:hover:bg-opacity-10 focus:bg-gray-100 hover:text-blue-500"
           >
             <div class="flex items-center justify-center">
               <svg
@@ -107,7 +107,7 @@ export default defineComponent({
               type="email"
               v-model="authState.form.email"
               placeholder="Your Email "
-              class="w-full px-4 py-2 mt-2 text-base bg-gray-100 border-transparent rounded-lg ext-blue-700 focus:outline-none"
+              class="w-full px-4 py-2 mt-2 text-base bg-gray-100 border-transparent rounded-sm ext-blue-700 focus:outline-none"
               autofocus
               autocomplete="email"
               required
@@ -124,7 +124,7 @@ export default defineComponent({
               placeholder="Your Password"
               minlength="6"
               autocomplete="current-password"
-              class="w-full px-4 py-2 text-base bg-gray-100 border-transparent rounded-lg ext-blue-700 focus:outline-none"
+              class="w-full px-4 py-2 text-base text-blue-700 bg-gray-100 border-transparent rounded-sm focus:outline-none"
               required
             />
           </div>
@@ -138,7 +138,7 @@ export default defineComponent({
           <button
             type="submit"
             :disabled="authState.isLoading"
-            class="block w-full px-4 py-3 mt-6 font-semibold text-white transition duration-500 ease-in-out transform rounded-lg bg-gradient-to-r from-blue-700 hover:from-blue-600 to-blue-600 hover:to-blue-700 focus:shadow-outline focus:outline-none"
+            class="block w-full px-4 py-3 mt-6 font-semibold text-white transition duration-500 ease-in-out transform rounded-sm bg-gradient-to-r from-blue-700 hover:from-blue-600 to-blue-600 hover:to-blue-700 focus:shadow-outline focus:outline-none"
           >
             <svg
               class="spinner"

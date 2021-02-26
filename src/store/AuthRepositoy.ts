@@ -35,7 +35,7 @@ const authState = reactive<authState>({
   },
   currentUser: ""
 });
-export const useAuth = () => {
+export function useAuth() {
   const router = useRouter();
   /**
    * get current user
@@ -171,12 +171,21 @@ export const useAuth = () => {
       });
   };
 
+  function userSignOut() {
+    AuthGoogle.signOut()
+      .then(res => {
+        router.push({ path: "/auth" });
+      })
+      .catch(e => {});
+  }
+
   return {
     authState,
     loginBasic,
     loginWithGoogle,
     registerBasic,
     resultFromredirectGoogle,
-    getAuthUser
+    getAuthUser,
+    userSignOut
   };
-};
+}
