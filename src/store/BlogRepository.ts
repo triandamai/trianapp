@@ -29,6 +29,26 @@ export function useBlog() {
         });
     });
   }
+  /**
+   * @param payload
+   */
+  function deleteTutorial(payload: any): Promise<Result> {
+    return new Promise(resolve => {
+      dbTutorial
+        .doc(payload.id)
+        .delete()
+        .then(() => {
+          resolve({ success: true, message: "Berhasil menghapus" });
+        })
+        .catch(e => {
+          resolve({ success: false, message: e });
+        });
+    });
+  }
+  /**
+   *
+   * @param payload
+   */
   function addTutorial(payload: any) {
     const exist = dataTutorial.some(
       tutorial => (tutorial.title = payload.title)
@@ -90,6 +110,7 @@ export function useBlog() {
     removeTutorial,
     addTutorial,
     listenTutorial,
-    uploadTutorial
+    uploadTutorial,
+    deleteTutorial
   };
 }
