@@ -141,7 +141,7 @@ const routes: Array<RouteRecordRaw> = [
       requiresAuth: true
     },
     children: [
-      { path: "", redirect: "/dashboard/post" },
+      { path: "", redirect: "/dashboard/tutorial" },
       {
         path: "post",
         name: "DashboardTutor",
