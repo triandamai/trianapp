@@ -1,6 +1,6 @@
 /*eslint-disable*/
 import { reactive } from "vue";
-import { AuthGoogle, dbUser } from "@/store/firbaseDatabase";
+import { AuthGoogle, dbUser, getCurrentUser } from "@/store/firbaseDatabase";
 import firebase from "firebase/app";
 import { User } from "@/store/model-types";
 import { useRouter } from "vue-router";
@@ -14,6 +14,7 @@ interface authState {
     username: string;
     repassword: string;
   };
+  currentUser: any;
 }
 interface authResult {
   status: boolean;
@@ -31,10 +32,19 @@ const authState = reactive<authState>({
     username: "",
     password: "",
     repassword: ""
-  }
+  },
+  currentUser: ""
 });
 export const useAuth = () => {
   const router = useRouter();
+  /**
+   * get current user
+   */
+  function getAuthUser() {
+    getCurrentUser().then(user => {
+      authState.currentUser = user;
+    });
+  }
   /**
    * login
    */
@@ -166,6 +176,7 @@ export const useAuth = () => {
     loginBasic,
     loginWithGoogle,
     registerBasic,
-    resultFromredirectGoogle
+    resultFromredirectGoogle,
+    getAuthUser
   };
 };

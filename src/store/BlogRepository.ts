@@ -30,26 +30,21 @@ export function useBlog() {
     });
   }
   function addTutorial(payload: any) {
-    // const exist = dataTutorial.some(
-    //   tutorial => (tutorial.title = payload.title)
-    // );
-    // console.log(exist);
-    // if (!exist) return
-    dataTutorial.push(payload);
-    // else
-    //   Object.assign(
-    //     dataTutorial[dataTutorial.map(item => item.id).indexOf(payload.id)],
-    //     payload
-    //   );
+    const exist = dataTutorial.some(
+      tutorial => (tutorial.title = payload.title)
+    );
+    console.log(exist);
+    if (!exist) return dataTutorial.push(payload);
+    else
+      dataTutorial[
+        dataTutorial.map(item => item.id).indexOf(payload.id)
+      ] = payload;
   }
 
   function changeTutorial(payload: any) {
-    Object.assign(
-      dataTutorial[
-        dataTutorial.map(tutorial => tutorial.id).indexOf(payload.id)
-      ],
-      payload
-    );
+    dataTutorial[
+      dataTutorial.map(tutorial => tutorial.id).indexOf(payload.id)
+    ] = payload;
   }
   function removeTutorial(payloadId: any) {
     dataTutorial.splice(

@@ -10,9 +10,9 @@ export default defineComponent({
 
     onBeforeMount(() => {
       getAlltutorial().then(({ success }) => {
-        if (success) {
-          console.log(dataTutorial);
-        }
+        /**
+         *
+         */
       });
     });
     return {
