@@ -9,7 +9,6 @@ export default defineComponent({
     const { dataTutorial, getAlltutorial } = useBlog();
     const modal = ref(false);
     function onRemove() {
-      console.log("sas");
       modal.value = !modal.value;
     }
 
@@ -36,6 +35,12 @@ export default defineComponent({
       :data="data"
       v-on:remove="onRemove"
     />
-    <Modal :show="modal" v-on:dismiss="onRemove" />
+    <Modal
+      :show="modal"
+      v-on:negative="onRemove"
+      v-on:positive="onRemove"
+      title="Hapus Tutorial ?"
+      message="Hapus Tutorial"
+    />
   </div>
 </template>
