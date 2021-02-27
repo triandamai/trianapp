@@ -61,29 +61,29 @@ export default defineComponent({
           class="flex items-start justify-center min-h-screen pt-24 text-center"
         >
           <div
-            class="p-8 overflow-hidden text-left bg-white rounded-sm shadow-xl"
+            class="px-8 pt-4 pb-2 overflow-hidden text-left bg-white rounded-sm shadow-xl dark:bg-gray-900"
             role="dialog"
             ref="modal"
             aria-modal="true"
             aria-labelledby="modal-tutorial"
           >
             <div class="mb-4">
-              <h1>{{ props.title }}</h1>
+              <h1 class="text-gray-900 dark:text-gray-50">{{ props.title }}</h1>
             </div>
             <div class="mb-8">
-              <p>
+              <p class="text-sm text-gray-900 dark:text-gray-50">
                 {{ props.message }}
               </p>
             </div>
             <div class="flex justify-between w-full">
               <button
                 @click="positiveButton"
-                class="px-4 py-1 mx-2 text-green-800 bg-green-500 rounded flex-no-shrink"
+                class="px-4 py-1 mx-2 text-green-800 bg-green-300 rounded dark:text-gray-50 dark:bg-opacity-10 flex-no-shrink"
               >
                 {{ props.negativebutton }}</button
               ><button
                 @click="negativeButton"
-                class="px-4 py-1 mx-2 text-gray-800 bg-gray-400 rounded flex-no-shrink"
+                class="px-4 py-1 mx-2 text-gray-800 bg-gray-300 rounded dark:text-gray-50 dark:bg-opacity-10 flex-no-shrink"
               >
                 {{ props.positivebutton }}
               </button>
