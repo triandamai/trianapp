@@ -28,5 +28,6 @@ export default defineComponent({
       :key="index"
       :data="data"
     />
+    <Modal />
   </div>
 </template>
