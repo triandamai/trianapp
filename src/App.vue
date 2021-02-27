@@ -18,6 +18,7 @@ export default defineComponent({
 </script>
 <template>
   <router-view />
+  <div id="modal"></div>
 </template>
 <style>
 .pattern-checks-sm {
