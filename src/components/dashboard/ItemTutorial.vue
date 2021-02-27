@@ -6,9 +6,14 @@ export default defineComponent({
   props: {
     data: Object,
   },
-  setup(props) {
+  setup(props, { emit }) {
+    function deleteTutorial() {
+      emit("remove", true);
+    }
+
     return {
       props,
+      deleteTutorial,
     };
   },
 });
@@ -73,6 +78,7 @@ export default defineComponent({
           Edit
         </button>
         <button
+          @click="deleteTutorial"
           class="flex px-2 py-1 mx-1 text-red-600 bg-red-300 rounded-md dark:bg-opacity-10"
         >
           <svg
