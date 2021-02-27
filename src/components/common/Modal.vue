@@ -50,8 +50,22 @@ export default defineComponent({
             aria-modal="true"
             aria-labelledby="modal-tutorial"
           >
-            HEHEH
-            <button @click="closeModal">close</button>
+            <div class="mb-4">
+              <h1>Welcome!</h1>
+            </div>
+            <div class="mb-8">
+              <p>
+                Ready to get started? Keep scrolling to see some great
+                components.
+              </p>
+            </div>
+            <div class="flex justify-center">
+              <button
+                class="px-4 py-2 rounded flex-no-shrink bg-teal hover:bg-teal-dark"
+              >
+                Let's Go
+              </button>
+            </div>
           </div>
         </div>
       </div>
