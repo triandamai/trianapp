@@ -38,94 +38,6 @@
               class="bg-screen-header-2-3 bg-black fixed w-full hidden h-full top-0 left-0 z-30 bg-opacity-60"
               @click="open = !open"
             ></div>
-            <nav
-              class="navigation-header-2-3 lg:mr-auto hidden lg:flex flex-col text-base justify-center z-50 fixed top-8 left-3 right-3 p-8 rounded-md shadow-md bg-white lg:flex lg:flex-row lg:relative lg:top-0 lg:shadow-none bg-popup-header-2-3 lg:bg-transparent lg:p-0 lg:items-center items-start"
-              :class="{ flex: open, hidden: !open }"
-            >
-              <a href="#">
-                <img
-                  class="m-0 lg:hidden mb-3"
-                  src="http://api.elements.buildwithangga.com/storage/files/2/assets/Header/Header2/Header-2-3.png"
-                  alt=""
-                />
-              </a>
-              <a
-                class="text-lg font-semibold leading-6 mx-0 lg:mx-5 my-4 lg:my-0 relative active"
-                style="color: #e7e7e8; font-family: 'Poppins', sans-serif"
-                href="#"
-                >Home</a
-              >
-              <a
-                class="text-lg font-light leading-6 mx-0 lg:mx-5 my-4 lg:my-0 relative"
-                style="font-family: 'Poppins', sans-serif"
-                href="#"
-                >Feature</a
-              >
-              <a
-                class="text-lg font-light leading-6 mx-0 lg:mx-5 my-4 lg:my-0 relative"
-                style="font-family: 'Poppins', sans-serif"
-                href="#"
-                >Pricing</a
-              >
-              <a
-                class="text-lg font-light leading-6 mx-0 lg:mx-5 my-4 lg:my-0 relative"
-                style="font-family: 'Poppins', sans-serif"
-                href="#"
-                >About Us</a
-              >
-              <a
-                class="text-lg font-light leading-6 mx-0 lg:mx-5 my-4 lg:my-0 relative"
-                style="font-family: 'Poppins', sans-serif"
-                href="#"
-                >Contact</a
-              >
-              <div class="flex items-center justify-end w-full lg:hidden mt-3">
-                <button
-                  class="font-light py-3 px-8 focus:outline-none"
-                  style="color: #e7e7e8; font-family: 'Poppins', sans-serif"
-                >
-                  Log In
-                </button>
-                <button
-                  class="text-white text-lg py-3 px-8 rounded-xl focus:outline-none box-shadow-header-2-3 font-semibold"
-                  style="
-                    background: #524eee;
-                    font-family: 'Poppins', sans-serif;
-                  "
-                >
-                  Try Now
-                </button>
-              </div>
-              <svg
-                @click="open = !open"
-                class="w-6 h-6 absolute top-4 right-4 lg:hidden cursor-pointer"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M6 18L18 6M6 6l12 12"
-                ></path>
-              </svg>
-            </nav>
-            <div class="hidden lg:inline-flex">
-              <button
-                class="inline-flex text-black font-light text-lg leading-7 py-3 px-8 focus:outline-none"
-                style="color: #e7e7e8; font-family: 'Poppins', sans-serif"
-              >
-                Log In
-              </button>
-              <button
-                class="inline-flex text-white text-lg leading-7 py-3 px-8 rounded-xl focus:outline-none box-shadow-header-2-3 font-semibold"
-                style="background: #524eee; font-family: 'Poppins', sans-serif"
-              >
-                Try Now
-              </button>
-            </div>
           </div>
         </header>
 
@@ -142,21 +54,15 @@
                 class="mb-8 leading-relaxed font-semibold text-sm"
                 style="color: #fb6262"
               >
-                FREE 30 DAY TRIAL
+                TRIAN DAMAI
               </p>
               <h1
                 class="lg:block hidden title-font sm:text-5xl lg:text-6xl text-4xl mb-8 font-semibold sm:leading-tight"
                 style="color: #cbcbd2; line-height: 1.2"
               >
-                The best way<br />
-                to organize your online learning
+                Software developer<br />
               </h1>
-              <h1
-                class="lg:hidden block title-font sm:text-5xl lg:text-6xl text-4xl mb-8 lg::px-10 md:px-10 sm:px-6 px-0 font-semibold sm:leading-tight"
-                style="color: #cbcbd2; line-height: 1.2"
-              >
-                The best way to organize your online learning
-              </h1>
+
               <div
                 class="inline-block items-center mx-auto lg:mx-0 lg:flex justify-center lg:space-x-8 md:space-x-2 sm:space-x-3 space-x-0"
               >
@@ -167,13 +73,13 @@
                     font-family: 'Poppins', sans-serif;
                   "
                 >
-                  Try it free
+                  Hire Me
                 </button>
                 <button
                   class="btn-outline-header-2-3 font-normal text-black text-base py-4 px-6 rounded-xl focus:outline-none bg-transparent rounded hover:border-transparent"
                   style="font-family: 'Poppins', sans-serif"
                 >
-                  <div class="flex items-center">
+                  <div class="flex items-center text-white">
                     <svg
                       class="mr-2.5"
                       width="13"
@@ -187,7 +93,7 @@
                         fill="#707092"
                       />
                     </svg>
-                    Watch the video
+                    Watch recent project
                   </div>
                 </button>
               </div>
