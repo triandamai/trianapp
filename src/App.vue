@@ -1,429 +1,69 @@
+<template>
+  <HelloWorld />
+</template>
+
 <script lang="ts">
-import { computed, defineComponent, watch } from "vue";
-import { useTheme } from "./store/ThemeRepository";
+import { defineComponent } from "vue";
+import HelloWorld from "./components/HelloWorld.vue";
 
 export default defineComponent({
-  setup() {
-    const { theme } = useTheme();
-
-    watch(theme, (newVal) => {
-      document.querySelector("html")?.classList.remove("light");
-      document.querySelector("html")?.classList.remove("dark");
-      document
-        .querySelector("html")
-        ?.classList.add(newVal.theme ? "dark" : "light");
-    });
+  name: "App",
+  components: {
+    HelloWorld,
   },
 });
 </script>
-<template>
-  <router-view />
-  <div id="modal"></div>
-</template>
+
 <style>
-.pattern-checks-sm {
-  background-image: repeating-linear-gradient(
-      45deg,
-      currentColor 25%,
-      transparent 25%,
-      transparent 75%,
-      currentColor 75%,
-      currentColor
-    ),
-    repeating-linear-gradient(
-      45deg,
-      currentColor 25%,
-      transparent 25%,
-      transparent 75%,
-      currentColor 75%,
-      currentColor
-    );
-  background-position: 0 0, 10px 10px;
-  background-size: calc(2 * 10px) calc(2 * 10px);
+.btn-outline-header-2-3 {
+  border: 1px solid #707092;
+  color: #707092;
 }
-.pattern-checks-md {
-  background-image: repeating-linear-gradient(
-      45deg,
-      currentColor 25%,
-      transparent 25%,
-      transparent 75%,
-      currentColor 75%,
-      currentColor
-    ),
-    repeating-linear-gradient(
-      45deg,
-      currentColor 25%,
-      transparent 25%,
-      transparent 75%,
-      currentColor 75%,
-      currentColor
-    );
-  background-position: 0 0, 25px 25px;
-  background-size: calc(2 * 25px) calc(2 * 25px);
+.btn-outline-header-2-3:hover {
+  border: 1px solid #ffffff;
+  color: #ffffff;
 }
-.pattern-checks-lg {
-  background-image: repeating-linear-gradient(
-      45deg,
-      currentColor 25%,
-      transparent 25%,
-      transparent 75%,
-      currentColor 75%,
-      currentColor
-    ),
-    repeating-linear-gradient(
-      45deg,
-      currentColor 25%,
-      transparent 25%,
-      transparent 75%,
-      currentColor 75%,
-      currentColor
-    );
-  background-position: 0 0, 50px 50px;
-  background-size: calc(2 * 50px) calc(2 * 50px);
+.btn-outline-header-2-3:hover div path {
+  fill: #ffffff;
 }
-.pattern-checks-xl {
-  background-image: repeating-linear-gradient(
-      45deg,
-      currentColor 25%,
-      transparent 25%,
-      transparent 75%,
-      currentColor 75%,
-      currentColor
-    ),
-    repeating-linear-gradient(
-      45deg,
-      currentColor 25%,
-      transparent 25%,
-      transparent 75%,
-      currentColor 75%,
-      currentColor
-    );
-  background-position: 0 0, 100px 100px;
-  background-size: calc(2 * 100px) calc(2 * 100px);
+.box-shadow-header-2-3:hover {
+  --tw-shadow: inset 0 0px 25px 0 rgba(20, 20, 50, 0.7);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
-.pattern-grid-sm {
-  background-image: linear-gradient(currentColor 1px, transparent 1px),
-    linear-gradient(to right, currentColor 1px, transparent 1px);
-  background-size: 10px 10px;
+.navigation-header-2-3 a:hover,
+.active::after {
+  font-weight: 600;
 }
-.pattern-grid-md {
-  background-image: linear-gradient(currentColor 1px, transparent 1px),
-    linear-gradient(to right, currentColor 1px, transparent 1px);
-  background-size: 25px 25px;
+.navigation-header-2-3 a:hover {
+  color: #e7e7e8;
 }
-.pattern-grid-lg {
-  background-image: linear-gradient(currentColor 1px, transparent 1px),
-    linear-gradient(to right, currentColor 1px, transparent 1px);
-  background-size: 50px 50px;
+.navigation-header-2-3 {
+  color: #707092;
 }
-.pattern-grid-xl {
-  background-image: linear-gradient(currentColor 1px, transparent 1px),
-    linear-gradient(to right, currentColor 1px, transparent 1px);
-  background-size: 100px 100px;
+.bg-screen-header-2-3 {
+  background-color: #707092;
 }
-
-.pattern-dots-sm {
-  background-image: radial-gradient(currentColor 0.5px, transparent 0.5px);
-  background-size: calc(10 * 0.5px) calc(10 * 0.5px);
+.bg-popup-header-2-3 {
+  background-color: #141432;
 }
-.pattern-dots-md {
-  background-image: radial-gradient(currentColor 1px, transparent 1px);
-  background-size: calc(10 * 1px) calc(10 * 1px);
+.list-footer-2-3 li a {
+  color: #707092;
 }
-.pattern-dots-lg {
-  background-image: radial-gradient(currentColor 1.5px, transparent 1.5px);
-  background-size: calc(10 * 1.5px) calc(10 * 1.5px);
+.list-footer-2-3 li a:hover {
+  color: #ffffff;
+  cursor: pointer;
 }
-.pattern-dots-xl {
-  background-image: radial-gradient(currentColor 2px, transparent 2px);
-  background-size: calc(10 * 2px) calc(10 * 2px);
+.border-color-footer-2-3 {
+  color: #707092;
 }
-
-.pattern-cross-dots-sm {
-  background-image: radial-gradient(currentColor 0.5px, transparent 0.5px),
-    radial-gradient(currentColor 0.5px, transparent 0.5px);
-  background-size: calc(20 * 0.5px) calc(20 * 0.5px);
-  background-position: 0 0, calc(10 * 0.5px) calc(10 * 0.5px);
+.footer-link-footer-2-3:hover {
+  color: #ffffff;
+  cursor: pointer;
 }
-.pattern-cross-dots-md {
-  background-image: radial-gradient(currentColor 1px, transparent 1px),
-    radial-gradient(currentColor 1px, transparent 1px);
-  background-size: calc(20 * 1px) calc(20 * 1px);
-  background-position: 0 0, calc(10 * 1px) calc(10 * 1px);
+.social-media-c-footer-2-3:hover circle,
+.social-media-p-footer-2-3:hover path {
+  fill: #ffffff;
+  cursor: pointer;
 }
-.pattern-cross-dots-lg {
-  background-image: radial-gradient(currentColor 1.5px, transparent 1.5px),
-    radial-gradient(currentColor 1.5px, transparent 1.5px);
-  background-size: calc(20 * 1.5px) calc(20 * 1.5px);
-  background-position: 0 0, calc(10 * 1.5px) calc(10 * 1.5px);
-}
-.pattern-cross-dots-xl {
-  background-image: radial-gradient(currentColor 2px, transparent 2px),
-    radial-gradient(currentColor 2px, transparent 2px);
-  background-size: calc(20 * 2px) calc(20 * 2px);
-  background-position: 0 0, calc(10 * 2px) calc(10 * 2px);
-}
-.pattern-vertical-lines-sm {
-  background-image: repeating-linear-gradient(
-    to right,
-    currentColor,
-    currentColor 1px,
-    transparent 1px,
-    transparent
-  );
-  background-size: 10px 10px;
-}
-.pattern-horizontal-lines-sm {
-  background-image: repeating-linear-gradient(
-    0deg,
-    currentColor,
-    currentColor 1px,
-    transparent 1px,
-    transparent
-  );
-  background-size: 10px 10px;
-}
-.pattern-diagonal-lines-sm {
-  background-image: repeating-linear-gradient(
-    45deg,
-    currentColor 0,
-    currentColor 1px,
-    transparent 0,
-    transparent 50%
-  );
-  background-size: 10px 10px;
-}
-.pattern-vertical-lines-md {
-  background-image: repeating-linear-gradient(
-    to right,
-    currentColor,
-    currentColor 1px,
-    transparent 1px,
-    transparent
-  );
-  background-size: 25px 25px;
-}
-.pattern-horizontal-lines-md {
-  background-image: repeating-linear-gradient(
-    0deg,
-    currentColor,
-    currentColor 1px,
-    transparent 1px,
-    transparent
-  );
-  background-size: 25px 25px;
-}
-.pattern-diagonal-lines-md {
-  background-image: repeating-linear-gradient(
-    45deg,
-    currentColor 0,
-    currentColor 1px,
-    transparent 0,
-    transparent 50%
-  );
-  background-size: 25px 25px;
-}
-.pattern-vertical-lines-lg {
-  background-image: repeating-linear-gradient(
-    to right,
-    currentColor,
-    currentColor 1px,
-    transparent 1px,
-    transparent
-  );
-  background-size: 50px 50px;
-}
-.pattern-horizontal-lines-lg {
-  background-image: repeating-linear-gradient(
-    0deg,
-    currentColor,
-    currentColor 1px,
-    transparent 1px,
-    transparent
-  );
-  background-size: 50px 50px;
-}
-.pattern-diagonal-lines-lg {
-  background-image: repeating-linear-gradient(
-    45deg,
-    currentColor 0,
-    currentColor 1px,
-    transparent 0,
-    transparent 50%
-  );
-  background-size: 50px 50px;
-}
-.pattern-vertical-lines-xl {
-  background-image: repeating-linear-gradient(
-    to right,
-    currentColor,
-    currentColor 1px,
-    transparent 1px,
-    transparent
-  );
-  background-size: 100px 100px;
-}
-.pattern-horizontal-lines-xl {
-  background-image: repeating-linear-gradient(
-    0deg,
-    currentColor,
-    currentColor 1px,
-    transparent 1px,
-    transparent
-  );
-  background-size: 100px 100px;
-}
-.pattern-diagonal-lines-xl {
-  background-image: repeating-linear-gradient(
-    45deg,
-    currentColor 0,
-    currentColor 1px,
-    transparent 0,
-    transparent 50%
-  );
-  background-size: 100px 100px;
-}
-.pattern-vertical-stripes-sm {
-  background-image: linear-gradient(90deg, transparent 50%, currentColor 50%);
-  background-size: 10px 10px;
-}
-.pattern-horizontal-stripes-sm {
-  background-image: linear-gradient(0deg, transparent 50%, currentColor 50%);
-  background-size: 10px 10px;
-}
-.pattern-diagonal-stripes-sm {
-  background: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 10px,
-    currentColor 10px,
-    currentColor calc(2 * 10px)
-  );
-}
-.pattern-vertical-stripes-md {
-  background-image: linear-gradient(90deg, transparent 50%, currentColor 50%);
-  background-size: 25px 25px;
-}
-.pattern-horizontal-stripes-md {
-  background-image: linear-gradient(0deg, transparent 50%, currentColor 50%);
-  background-size: 25px 25px;
-}
-.pattern-diagonal-stripes-md {
-  background: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 25px,
-    currentColor 25px,
-    currentColor calc(2 * 25px)
-  );
-}
-.pattern-vertical-stripes-lg {
-  background-image: linear-gradient(90deg, transparent 50%, currentColor 50%);
-  background-size: 50px 50px;
-}
-.pattern-horizontal-stripes-lg {
-  background-image: linear-gradient(0deg, transparent 50%, currentColor 50%);
-  background-size: 50px 50px;
-}
-.pattern-diagonal-stripes-lg {
-  background: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 50px,
-    currentColor 50px,
-    currentColor calc(2 * 50px)
-  );
-}
-.pattern-vertical-stripes-xl {
-  background-image: linear-gradient(90deg, transparent 50%, currentColor 50%);
-  background-size: 100px 100px;
-}
-.pattern-horizontal-stripes-xl {
-  background-image: linear-gradient(0deg, transparent 50%, currentColor 50%);
-  background-size: 100px 100px;
-}
-.pattern-diagonal-stripes-xl {
-  background: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 100px,
-    currentColor 100px,
-    currentColor calc(2 * 100px)
-  );
-}
-.pattern-zigzag-sm {
-  background: linear-gradient(135deg, currentColor 25%, transparent 25%) -10px 0,
-    linear-gradient(225deg, currentColor 25%, transparent 25%) -10px 0,
-    linear-gradient(315deg, currentColor 25%, transparent 25%),
-    linear-gradient(45deg, currentColor 25%, transparent 25%);
-  background-size: calc(2 * 10px) calc(2 * 10px);
-}
-.pattern-zigzag-md {
-  background: linear-gradient(135deg, currentColor 25%, transparent 25%) -25px 0,
-    linear-gradient(225deg, currentColor 25%, transparent 25%) -25px 0,
-    linear-gradient(315deg, currentColor 25%, transparent 25%),
-    linear-gradient(45deg, currentColor 25%, transparent 25%);
-  background-size: calc(2 * 25px) calc(2 * 25px);
-}
-.pattern-zigzag-lg {
-  background: linear-gradient(135deg, currentColor 25%, transparent 25%) -50px 0,
-    linear-gradient(225deg, currentColor 25%, transparent 25%) -50px 0,
-    linear-gradient(315deg, currentColor 25%, transparent 25%),
-    linear-gradient(45deg, currentColor 25%, transparent 25%);
-  background-size: calc(2 * 50px) calc(2 * 50px);
-}
-.pattern-zigzag-xl {
-  background: linear-gradient(135deg, currentColor 25%, transparent 25%) -100px 0,
-    linear-gradient(225deg, currentColor 25%, transparent 25%) -100px 0,
-    linear-gradient(315deg, currentColor 25%, transparent 25%),
-    linear-gradient(45deg, currentColor 25%, transparent 25%);
-  background-size: calc(2 * 100px) calc(2 * 100px);
-}
-.pattern-triangles-sm {
-  background-image: linear-gradient(45deg, currentColor 50%, transparent 50%);
-  background-size: 10px 10px;
-}
-.pattern-triangles-md {
-  background-image: linear-gradient(45deg, currentColor 50%, transparent 50%);
-  background-size: 25px 25px;
-}
-.pattern-triangles-lg {
-  background-image: linear-gradient(45deg, currentColor 50%, transparent 50%);
-  background-size: 50px 50px;
-}
-.pattern-triangles-xl {
-  background-image: linear-gradient(45deg, currentColor 50%, transparent 50%);
-  background-size: 100px 100px;
-}
-.text-pattern {
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.pattern-w-sm {
-  width: 10px;
-}
-.pattern-h-sm {
-  height: 10px;
-}
-.pattern-w-md {
-  width: 25px;
-}
-.pattern-h-md {
-  height: 25px;
-}
-.pattern-w-lg {
-  width: 50px;
-}
-.pattern-h-lg {
-  height: 50px;
-}
-.pattern-w-xl {
-  width: 100px;
-}
-.pattern-h-xl {
-  height: 100px;
-}
-/*# sourceMappingURL=pattern.min.css.map */
 </style>
-

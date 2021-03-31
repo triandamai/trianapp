@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "myproject-64aac"
+  },
+  "targets": {
+    "myproject-64aac": {
+      "hosting": {
+        "tabungan": [
+          "savings-cf7d2"
+        ]
+      }
+    }
   }
 }
