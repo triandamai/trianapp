@@ -5,8 +5,8 @@
   "targets": {
     "myproject-64aac": {
       "hosting": {
-        "tabungan": [
-          "savings-cf7d2"
+        "trianapp": [
+          "myproject-64aac"
         ]
       }
     }
