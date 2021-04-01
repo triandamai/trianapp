@@ -1,15 +1,18 @@
 <template>
-  <HelloWorld />
+  <home-header />
+  <Footer />
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import HelloWorld from "./components/HelloWorld.vue";
+import HomeHeader from "./components/HomeHeader.vue";
+import Footer from "./components/Footer.vue";
 
 export default defineComponent({
   name: "App",
   components: {
-    HelloWorld,
+    HomeHeader,
+    Footer,
   },
 });
 </script>
@@ -65,5 +68,27 @@ export default defineComponent({
 .social-media-p-footer-2-3:hover path {
   fill: #ffffff;
   cursor: pointer;
+}
+.btn-fill-1-2 {
+  background-color: #ffdda9;
+  color: #372642;
+}
+.btn-fill-1-2:hover {
+  background-color: #fcd396;
+  color: #372642;
+}
+nav a.nav-1-2 {
+  color: #ffffff;
+}
+nav a.nav-1-2:hover {
+  color: #ffdda9;
+  font-weight: 500;
+}
+nav a.nav-1-2.active {
+  color: #ffdda9;
+}
+#menu-toggle-1-2:checked + #menu-1-2,
+#menu-toggle-1-2:checked + #menu-1-2 + #menu-1-2 {
+  display: block;
 }
 </style>
