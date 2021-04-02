@@ -9,19 +9,24 @@ export const router = createRouter({
       component: () => import("./pages/Main.vue"),
     },
     {
-      path: "/Posts",
+      path: "/posts",
       name: "Posts",
       component: () => import("./pages/Posts.vue"),
     },
     {
-      path: "/About",
+      path: "/about",
       name: "About",
       component: () => import("./pages/About.vue"),
     },
     {
-      path: "/Post",
+      path: "/post",
       name: "Post",
       component: () => import("./pages/Post.vue"),
+    },
+    {
+      path: "/projects",
+      name: "Post",
+      component: () => import("./pages/Projects.vue"),
     },
     {
       path: "/:pathMatch(.*)*",

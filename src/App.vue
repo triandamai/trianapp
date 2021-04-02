@@ -28,4 +28,21 @@ export default defineComponent({
   @apply font-mono;
   @apply h-min-screen;
 }
+#content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @apply text-center;
+}
+#content-about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#name {
+  font-size: 72px;
+  background: -webkit-linear-gradient(#eee, #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 </style>

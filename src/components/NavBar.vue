@@ -47,7 +47,7 @@
             Posts
           </router-link>
           <router-link
-            to="/posts"
+            to="/projects"
             class="text-base font-medium text-gray-500 hover:text-gray-900"
           >
             Project

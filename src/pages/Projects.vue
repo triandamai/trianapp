@@ -13,11 +13,3 @@ export default defineComponent({
   setup() {},
 });
 </script>
-<style scoped>
-#content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  @apply text-center;
-}
-</style>

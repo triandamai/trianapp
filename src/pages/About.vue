@@ -1,6 +1,6 @@
 <template>
-  <div class="text-start" id="content">
-    <div class="px-6">
+  <div class="text-start" id="content-about">
+    <div class="px-16">
       <h1 class="font-extrabold text-5xl mb-4">About</h1>
       <h3 class="mb-5">
         Software developer with over 3 of experience with Android. I am a mobile
