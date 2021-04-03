@@ -37,7 +37,7 @@ export const router = createRouter({
     },
     {
       path: "/projects",
-      name: "Post",
+      name: "Projects",
       component: () => import("./pages/Projects.vue"),
       meta: {
         title: "Projects::Trian damai",
