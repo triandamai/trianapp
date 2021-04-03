@@ -36,7 +36,7 @@
                 v-for="(item, index) in filterState.tags"
                 :key="index"
                 class="md:text-xs lg:text-sm 2xl:text-base leading-none"
-                :value="{ item }"
+                :value="item"
               >
                 {{ item }}
               </option>
