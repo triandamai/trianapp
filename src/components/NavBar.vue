@@ -162,6 +162,7 @@
     >
       <div
         v-show="mobileNav"
+        ref="target"
         class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
       >
         <div
@@ -199,12 +200,12 @@
             <div class="mt-6">
               <nav class="grid gap-y-8">
                 <a
-                  href="#"
-                  class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50 dark:text-gray-400 text-gray-900"
+                  @click="goTo('/posts')"
+                  class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50 dark:text-gray-400 text-gray-900 dark:focus:bg-gray-800"
                 >
                   <!-- Heroicon name: outline/cursor-click -->
                   <svg
-                    class="flex-shrink-0 h-6 w-6 text-indigo-600"
+                    class="flex-shrink-0 h-6 w-6 text-indigo-600 dark:text-gray-200"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -222,12 +223,12 @@
                 </a>
 
                 <a
-                  href="#"
+                  @click="goTo('/projects')"
                   class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50 dark:text-gray-400 text-gray-900"
                 >
                   <!-- Heroicon name: outline/shield-check -->
                   <svg
-                    class="flex-shrink-0 h-6 w-6 text-indigo-600"
+                    class="flex-shrink-0 h-6 w-6 text-indigo-600 dark:text-gray-200"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -245,12 +246,12 @@
                 </a>
 
                 <a
-                  href="#"
+                  @click="goTo('/about')"
                   class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50 dark:text-gray-400 text-gray-900"
                 >
                   <!-- Heroicon name: outline/view-grid -->
                   <svg
-                    class="flex-shrink-0 h-6 w-6 text-indigo-600"
+                    class="flex-shrink-0 h-6 w-6 text-indigo-600 dark:text-gray-200"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -275,13 +276,24 @@
   </nav>
 </template>
 <script lang="ts">
+import { onClickOutside } from "@vueuse/core";
 import { defineComponent, ref } from "vue";
+import { useRouter } from "vue-router";
 import { useTheme } from "../utils/theme";
 
 export default defineComponent({
   setup: () => {
     const mobileNav = ref(false);
-    return { mobileNav, ...useTheme() };
+    const target = ref(null);
+    const router = useRouter();
+    function goTo(path: string) {
+      router.push({ path: path });
+      mobileNav.value = !mobileNav.value;
+    }
+    onClickOutside(target, (event) => {
+      if (mobileNav.value) return (mobileNav.value = false);
+    });
+    return { mobileNav, target, goTo, ...useTheme() };
   },
 });
 </script>
