@@ -2,7 +2,7 @@
   <div class="text-center dark:bg-gray-900" id="content">
     <div>
       <h1 class="font-extrabold text-5xl text" id="name">Trian Damai</h1>
-      <h2 class="text-lg mt-4 dark:text-gray-400">Software Enginer @Cexup</h2>
+      <h2 class="text-lg mt-4 dark:text-gray-400">Software Developer @Cexup</h2>
       <div>
         <span
           class="mx-2 underline hover:text-orange-500 dark:text-green-200 cursor-pointer"
