@@ -1,5 +1,8 @@
 <template>
-  <div class="text-start" id="content-about">
+  <div
+    class="text-start dark:bg-gray-900 dark:text-gray-400"
+    id="content-about"
+  >
     <div class="px-16">
       <h1 class="font-extrabold text-5xl mb-4">About</h1>
       <h3 class="mb-5">

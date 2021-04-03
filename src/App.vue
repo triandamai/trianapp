@@ -7,7 +7,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, watch } from "vue";
+import { useTheme } from "./utils/theme";
 import NavBar from "./components/NavBar.vue";
 import Footer from "./components/Footer.vue";
 
@@ -17,6 +18,18 @@ export default defineComponent({
     Footer,
   },
   name: "App",
+  setup: () => {
+    const { theme } = useTheme();
+    watch(theme, (newval) => {
+      document.querySelector("html")?.classList.remove("dark");
+      document.querySelector("html")?.classList.remove("light");
+      console.log(newval.theme);
+      document.querySelector("html")?.classList.add(newval.theme);
+    });
+    return {
+      ...useTheme(),
+    };
+  },
 });
 </script>
 <style scoped>

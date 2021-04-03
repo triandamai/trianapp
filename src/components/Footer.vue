@@ -1,5 +1,7 @@
 <template>
-  <footer class="w-min-screen text-center my-5">
-    <span>@ 2021 . CC BY-NC 4.0 .</span>
+  <footer
+    class="w-min-screen text-center py-4 dark:bg-gray-900 dark:text-white"
+  >
+    <span>@ 2021 . TRIAN DAMAI</span>
   </footer>
 </template>

@@ -1,21 +1,55 @@
 <template>
-  <nav class="relative bg-white">
+  <nav class="relative bg-white dark:bg-gray-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div
-        class="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10"
+        class="flex justify-between items-center border-b-2 border-gray-100 dark:border-gray-800 py-6 md:justify-start md:space-x-10"
       >
         <div class="flex justify-start lg:w-0 lg:flex-1">
           <router-link to="/" class="flex justify-between">
-            <span class="text-bold">> trian.app</span>
+            <span class="text-bold text-black dark:text-gray-50"
+              >> trian.app</span
+            >
             <div id="cursor"></div>
           </router-link>
         </div>
         <!-- TGGLE -->
         <div class="-mr-2 -my-2 md:hidden">
+          <button @click="toggleTheme">
+            <svg
+              v-show="theme.theme == 'dark'"
+              class="w-6 h-6 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+              ></path>
+            </svg>
+            <svg
+              v-show="theme.theme == 'light'"
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+              ></path>
+            </svg>
+          </button>
           <button
             @click="mobileNav = !mobileNav"
             type="button"
-            class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+            class="bg-white ml-2 dark:bg-opacity-0 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
             aria-expanded="false"
           >
             <span class="sr-only">Open menu</span>
@@ -60,9 +94,40 @@
           </router-link>
         </nav>
         <!-- END REAL MENU -->
-        <div
-          class="hidden md:flex items-center justify-end md:flex-1 lg:w-0"
-        ></div>
+        <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+          <button @click="toggleTheme">
+            <svg
+              v-show="theme.theme == 'dark'"
+              class="w-6 h-6 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+              ></path>
+            </svg>
+            <svg
+              v-show="theme.theme == 'light'"
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+              ></path>
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
 
@@ -207,11 +272,12 @@
 </template>
 <script lang="ts">
 import { defineComponent, ref } from "vue";
+import { useTheme } from "../utils/theme";
 
 export default defineComponent({
   setup: () => {
     const mobileNav = ref(false);
-    return { mobileNav };
+    return { mobileNav, ...useTheme() };
   },
 });
 </script>
