@@ -67,14 +67,18 @@
               <div
                 class="flex items-center p-2 border rounded border-gray-300 dark:border-gray-700"
               >
-                <span v-for="(item, index) in post.tags" :key="index"
-                  >&nbsp;{{ item }}</span
+                <span
+                  v-for="(item, index) in post.tags"
+                  :key="index"
+                  class="text-sm"
+                  >&nbsp;{{ `#${item}` }}</span
                 >
               </div>
             </div>
             <div class="mt-7 w-full justify-end flex pb-4 sm:pb-0">
               <div class="sm:flex items-stretch w-full sm:w-auto">
-                <button
+                <router-link
+                  to="/post/0ca13bd-f5d0-abd3-ed74-00e063d5b41c"
                   id="0ca13bd-f5d0-abd3-ed74-00e063d5b41c"
                   class="justify-center w-full sm:w-auto flex items-center flex-shrink-0 text-white focus:outline-none bg-gradient-to-r from-red-500 to-pink-500 rounded-md py-2 px-3"
                 >
@@ -100,7 +104,7 @@
                     class="flex-shrink-0 ml-2 font-medium leading-none dark:text-white text-sm 2xl:text-base"
                     >Read more</span
                   >
-                </button>
+                </router-link>
               </div>
             </div>
           </div>

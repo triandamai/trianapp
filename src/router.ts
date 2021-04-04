@@ -28,7 +28,7 @@ export const router = createRouter({
       },
     },
     {
-      path: "/post",
+      path: "/post/:id",
       name: "Post",
       component: () => import("./pages/Post.vue"),
       meta: {

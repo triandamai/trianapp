@@ -1,4 +1,4 @@
-const data = [
+export const data = [
   {
     type: "p",
     body:
@@ -10,8 +10,16 @@ const data = [
       "The following tutorial demonstrates how to accept crypto payments with Coinbase Commerce, using Firebase Cloud Functions as your backend server.",
   },
   {
+    type: "code",
+    body: `const c = a+b;
+          for(i=0; i<10;i++){
+            console.log('hai');
+          }
+    `,
+  },
+  {
     type: "h1",
-    bdy: "Crypto Payment Flow",
+    body: "Crypto Payment Flow",
   },
   {
     type: "p",
@@ -28,7 +36,7 @@ const data = [
   },
   {
     type: "h1",
-    bdy: "Initial stup",
+    body: "Initial stup",
   },
   {
     type: "p",

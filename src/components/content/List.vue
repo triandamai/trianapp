@@ -1,5 +1,9 @@
 <template>
-  <p v-html="body" class="dark:bg-gray-900 dark:text-gray-50"></p>
+  <ul>
+    <li class="text-sm my-2" v-for="(item, index) in body" :key="index">
+      - {{ item }}
+    </li>
+  </ul>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";

@@ -20,10 +20,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, watch } from "vue";
+import { defineComponent, onMounted, watch } from "vue";
 import { useTheme } from "./utils/theme";
 import NavBar from "./components/NavBar.vue";
 import Footer from "./components/Footer.vue";
+
+import Prism from "prismjs";
 
 export default defineComponent({
   components: {
@@ -33,6 +35,9 @@ export default defineComponent({
   name: "App",
   setup: () => {
     const { theme } = useTheme();
+    onMounted(() => {
+      Prism.highlightAll();
+    });
     watch(theme, (newval) => {
       document.querySelector("html")?.classList.remove("dark");
       document.querySelector("html")?.classList.remove("light");

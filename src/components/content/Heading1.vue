@@ -1,5 +1,5 @@
 <template>
-  <p v-html="body" class="dark:bg-gray-900 dark:text-gray-50"></p>
+  <h1 class="text-2xl md:text-3xl">{{ body }}</h1>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";

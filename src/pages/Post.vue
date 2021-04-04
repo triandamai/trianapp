@@ -1,5 +1,5 @@
 <template>
-  <div class="px-6 md:px-16">
+  <div class="px-6 md:px-16 dark:bg-gray-900">
     <!-- TITTLE -->
     <h1
       class="text-center text-wrap mt-4 mb-6 text-md md:text-5xl font-extrabold mx-6"
@@ -42,12 +42,38 @@
         </div>
       </div>
     </div>
+    <!-- CONTENT -->
+    <div v-for="(content, index) in data" :key="index" class="my-6 px-6">
+      <Paragraf v-if="content.type == 'p'" :body="content.body" />
+      <Heading v-else-if="content.type == 'h1'" :body="content.body" />
+      <List v-else-if="content.type == 'ul'" :body="content.body" />
+      <Code
+        v-else-if="content.type == 'code'"
+        :body="content.body"
+        :lang="'languange-js'"
+      />
+    </div>
   </div>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
-
+import "prismjs/themes/prism.css";
+import { data } from "../utils/mock";
+import Paragraf from "../components/content/Paragraf.vue";
+import Heading from "../components/content/Heading1.vue";
+import H2 from "../components/content/Heading2.vue";
+import List from "../components/content/List.vue";
+import Code from "../components/content/Code.vue";
 export default defineComponent({
-  setup() {},
+  components: {
+    Paragraf,
+    Heading,
+    H2,
+    List,
+    Code,
+  },
+  setup() {
+    return { data };
+  },
 });
 </script>
