@@ -10,7 +10,7 @@
 
     <div>
       <img
-        class="w-full md:h-100 h-50 lg:h-100"
+        class="w-full md:h-100 h-50 lg:h-150"
         src="https://fireship.io/courses/flutter-firebase/img/featured.jpg"
         alt="tailwind css components and templates"
       />
