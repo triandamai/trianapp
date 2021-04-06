@@ -47,11 +47,8 @@
       <Paragraf v-if="content.type == 'p'" :body="content.body" />
       <Heading v-else-if="content.type == 'h1'" :body="content.body" />
       <List v-else-if="content.type == 'ul'" :body="content.body" />
-      <Code
-        v-else-if="content.type == 'code'"
-        :body="content.body"
-        :lang="'languange-js'"
-      />
+      <Code v-else-if="content.type == 'code'" :body="content" />
+      <Terminal v-else-if="content.type == 'terminal'" :body="content.body" />
     </div>
   </div>
 </template>
@@ -64,6 +61,8 @@ import Heading from "../components/content/Heading1.vue";
 import H2 from "../components/content/Heading2.vue";
 import List from "../components/content/List.vue";
 import Code from "../components/content/Code.vue";
+import Terminal from "../components/content/Terminal.vue";
+
 export default defineComponent({
   components: {
     Paragraf,
@@ -71,6 +70,7 @@ export default defineComponent({
     H2,
     List,
     Code,
+    Terminal,
   },
   setup() {
     return { data };

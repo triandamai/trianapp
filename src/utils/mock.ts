@@ -11,11 +11,9 @@ export const data = [
   },
   {
     type: "code",
-    body: `const c = a+b;
-          for(i=0; i<10;i++){
-            console.log('hai');
-          }
-    `,
+    lang: "js",
+    label: "main.js",
+    body: "const c = a+b; \n  for(i=0; i<10;i++){\n   console.log('hai');\n}",
   },
   {
     type: "h1",
@@ -51,7 +49,11 @@ export const data = [
   },
   {
     type: "terminal",
+    body: "firebase init functions",
+  },
+  {
+    type: "terminal",
     body:
-      "firebase init functions cd functions npm install coinbase-commerce-node cors # If using TypeScript use these types npm install @types/coinbase-commerce-node --save-dev",
+      "firebase init functions cd functions npm install coinbase-commerce-node cors \n# If using TypeScript use these types \nnpm install @types/coinbase-commerce-node --save-dev",
   },
 ];

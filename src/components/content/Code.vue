@@ -1,28 +1,21 @@
 <template>
-  <pre>
-      <code class="languange-js">
-import { defineComponent, onBeforeMount } from "vue";
-
-export default defineComponent({
-  props: ["body", "lang"],
-  setup({ body, lang }) {
-    return {
-      body,
-      lang,
-    };
-  },
-});</code>
-</pre>
+  <ssh-pre :language="body.lang" :label="body.label">
+    {{ body.body }}
+  </ssh-pre>
 </template>
-<script lang="ts">
+<script>
 import { defineComponent } from "vue";
+import SshPre from "simple-syntax-highlighter";
+import "../../assets/highlight.css";
 
 export default defineComponent({
-  props: ["body", "lang"],
-  setup({ body, lang }) {
+  props: ["body"],
+  components: {
+    SshPre,
+  },
+  setup({ body }) {
     return {
       body,
-      lang,
     };
   },
 });
