@@ -13,15 +13,37 @@
       <h2 class="font-bold text-3xl mb-4">Contact me</h2>
       <ul>
         <li>
-          Email:<a href="#" target="blank" class="underline"
+          Email:<a
+            href="https://mail.google.com/mail/u/0/#inbox?compose=new"
+            target="blank"
+            class="underline"
             >triandamai@gmail.com</a
           >
         </li>
         <li>
-          Twitter:<a href="#" target="blank" class="underline">@TrianDN_</a>
+          Twitter:<a
+            href="https://twitter.com/TrianDN__"
+            target="blank"
+            class="underline"
+            >@TrianDN_</a
+          >
         </li>
-        <li><a href="#" target="blank" class="underline">LinkedIn</a></li>
-        <li><a href="#" target="blank" class="underline">Github</a></li>
+        <li>
+          <a
+            href="https://id.linkedin.com/in/trian-damai-315a74137"
+            target="blank"
+            class="underline"
+            >LinkedIn</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.github.com/triandamai"
+            target="blank"
+            class="underline"
+            >Github</a
+          >
+        </li>
       </ul>
     </div>
   </div>

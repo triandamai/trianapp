@@ -1,5 +1,5 @@
 <template>
-  <ssh-pre :language="body.lang" :label="body.label">
+  <ssh-pre :language="body.lang" :label="body.label" :dark="true">
     {{ body.body }}
   </ssh-pre>
 </template>

@@ -4,12 +4,16 @@
       <h1 class="font-extrabold text-5xl text" id="name">Trian Damai</h1>
       <h2 class="text-lg mt-4 dark:text-gray-400">Software Developer @Cexup</h2>
       <div>
-        <span
+        <a
+          href="https://www.github.com/triandamai"
+          target="blank"
           class="mx-2 underline hover:text-orange-500 dark:text-green-200 cursor-pointer"
-          >Github</span
-        ><span
+          >Github</a
+        ><a
+          href="https://id.linkedin.com/in/trian-damai-315a74137"
+          target="blank"
           class="mx-2 underline hover:text-orange-500 dark:text-green-200 cursor-pointer"
-          >LinkedIn</span
+          >LinkedIn</a
         >
       </div>
     </div>

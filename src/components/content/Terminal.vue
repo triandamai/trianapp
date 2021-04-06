@@ -1,7 +1,5 @@
 <template>
-  <ssh-pre language="pug" label="Terminal">
-    {{ body }}
-  </ssh-pre>
+  <ssh-pre language="pug" label="Terminal" :dark="true"> {{ body }} </ssh-pre>
 </template>
 <script>
 import { defineComponent } from "vue";
