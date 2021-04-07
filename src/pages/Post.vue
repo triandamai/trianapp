@@ -54,7 +54,7 @@
     </div>
     <!-- CONTENT -->
     <div
-      v-for="(content, index) in data"
+      v-for="(content, index) in data.content"
       :key="index"
       class="my-4 mx-4 md:my-6 md:px-6 lg:my-8 lg:mx-8"
     >
@@ -62,14 +62,13 @@
       <Heading v-else-if="content.type == 'h1'" :body="content.body" />
       <List v-else-if="content.type == 'ul'" :body="content" />
       <Code v-else-if="content.type == 'code'" :body="content" />
-      <Terminal v-else-if="content.type == 'terminal'" :body="content.body" />
     </div>
   </div>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
-import "prismjs/themes/prism.css";
-import { data } from "../utils/mock";
+
+import { data } from "../utils/content";
 import Paragraf from "../components/content/Paragraf.vue";
 import Heading from "../components/content/Heading1.vue";
 import H2 from "../components/content/Heading2.vue";

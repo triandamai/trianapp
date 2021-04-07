@@ -24,8 +24,7 @@ import { defineComponent, onMounted, watch } from "vue";
 import { useTheme } from "./utils/theme";
 import NavBar from "./components/NavBar.vue";
 import Footer from "./components/Footer.vue";
-
-import Prism from "prismjs";
+import hljs from "highlight.js";
 
 export default defineComponent({
   components: {
@@ -35,8 +34,9 @@ export default defineComponent({
   name: "App",
   setup: () => {
     const { theme } = useTheme();
+
     onMounted(() => {
-      Prism.highlightAll();
+      // hljs.highlight();
     });
     watch(theme, (newval) => {
       document.querySelector("html")?.classList.remove("dark");
