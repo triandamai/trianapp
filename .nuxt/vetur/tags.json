@@ -1,4 +1,16 @@
 {
+  "ContentFooter": {
+    "description": "Auto imported from components/ContentFooter.vue"
+  },
+  "ContentMetadata": {
+    "description": "Auto imported from components/ContentMetadata.vue"
+  },
+  "ContentNextArticle": {
+    "description": "Auto imported from components/ContentNextArticle.vue"
+  },
+  "ContentPrevArticle": {
+    "description": "Auto imported from components/ContentPrevArticle.vue"
+  },
   "Footer": {
     "description": "Auto imported from components/Footer.vue"
   },
@@ -19,6 +31,9 @@
   },
   "NuxtLogo": {
     "description": "Auto imported from components/NuxtLogo.vue"
+  },
+  "TagsArticle": {
+    "description": "Auto imported from components/TagsArticle.vue"
   },
   "ThemeSwitch": {
     "description": "Auto imported from components/ThemeSwitch.vue"

@@ -165,18 +165,14 @@
             "
           >
             <p>
-              Tails Azimuth is a professor of atmospheric sciences at the
-              Stanford AI Lab. His research interests includes complexity
-              modelling of tailwinds, headwinds and crosswinds.
+              I am a Mobile developer located in Jakarta,Indonesia. I currently work as full time Junior mobile developer for PT. Cexup Telemedicine in Jakarta
             </p>
-            <p>
-              He leads the clean energy group which develops 3D air
-              pollution-climate models, writes differential equation solvers,
-              and manufactures titanium plated air ballons. In his free time he
-              bakes raspberry pi.
+            <p class="pt-3">
+               I also using my free time as Freelance Front End developer for bakaranproject.com, I currently learning about `Vue.js`,`Jetpack Compose`,`Kotlin`
             </p>
-            <p>
-              Pada waktu luang saya habiskan dengan bermain game,membaca.
+            <p class="pt-3">
+              I enjoyed learn about new tech and what happen in the ecosystem and happy to share my experience so i made this web 
+              <a>See latest post -></a>
             </p>
           </div>
         </div>

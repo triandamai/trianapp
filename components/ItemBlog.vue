@@ -33,7 +33,7 @@
           </div>
           <div class="text-base font-medium leading-6">
             <nuxt-link
-                to="/article/hello"
+                :to="'article/'+article.slug"
                 class="text-green-500 hover:text-green-600 dark:hover:text-green-400"
                 aria-label="Read"
             >

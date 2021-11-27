@@ -24,11 +24,11 @@
         <nuxt-link to="/" class="p-1 font-medium text-gray-900 sm:p-4 dark:text-gray-100">
           Home
         </nuxt-link>
-        <nuxt-link to="/projects" class="p-1 font-medium text-gray-900 sm:p-4 dark:text-gray-100">
-          Projects
-        </nuxt-link>
         <nuxt-link to="/blog" class="p-1 font-medium text-gray-900 sm:p-4 dark:text-gray-100">
           Blog
+        </nuxt-link>
+        <nuxt-link to="/projects" class="p-1 font-medium text-gray-900 sm:p-4 dark:text-gray-100">
+          Projects
         </nuxt-link>
         <nuxt-link to="/tags" class="p-1 font-medium text-gray-900 sm:p-4 dark:text-gray-100">
           Tags

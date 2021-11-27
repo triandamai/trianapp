@@ -1,3 +1,7 @@
+export { default as ContentFooter } from '../../components/ContentFooter.vue'
+export { default as ContentMetadata } from '../../components/ContentMetadata.vue'
+export { default as ContentNextArticle } from '../../components/ContentNextArticle.vue'
+export { default as ContentPrevArticle } from '../../components/ContentPrevArticle.vue'
 export { default as Footer } from '../../components/Footer.vue'
 export { default as Header } from '../../components/Header.vue'
 export { default as ItemBlog } from '../../components/ItemBlog.vue'
@@ -5,6 +9,7 @@ export { default as ItemProject } from '../../components/ItemProject.vue'
 export { default as ItemTag } from '../../components/ItemTag.vue'
 export { default as MobileNav } from '../../components/MobileNav.vue'
 export { default as NuxtLogo } from '../../components/NuxtLogo.vue'
+export { default as TagsArticle } from '../../components/TagsArticle.vue'
 export { default as ThemeSwitch } from '../../components/ThemeSwitch.vue'
 
 // nuxt/nuxt.js#8607

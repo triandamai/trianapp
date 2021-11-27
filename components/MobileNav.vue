@@ -89,6 +89,12 @@ export default {
   }),
   methods:{
     onToggleNav(){
+      if (this.navShow) {
+        document.body.style.overflow = 'auto'
+      } else {
+        // Prevent scrolling
+        document.body.style.overflow = 'hidden'
+      }
       this.navShow = !this.navShow
     }
   }

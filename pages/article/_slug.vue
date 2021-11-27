@@ -15,9 +15,9 @@
                   dark:text-gray-400
                 "
               >
-                <time :datetime="article.createdAt"
-                  >{{getDate(article.createdAt)}}</time
-                >
+                <time :datetime="article.createdAt">{{
+                  getDate(article.createdAt)
+                }}</time>
               </dd>
             </div>
           </dl>
@@ -39,175 +39,29 @@
           </div>
         </div>
       </header>
-      <div
-        class="
-          divide-y divide-gray-200
-          xl:divide-y-0
-          dark:divide-gray-700
-          xl:grid xl:grid-cols-4 xl:gap-x-6
-          border-b-2
-        "
-        style="grid-template-rows: auto 1fr"
-      >
-        <dl
+    </div>
+    <div class="grid grid-rows-2 grid-flow-col gap-4">
+      <div class="row-span-1 sm:row-span-1 md:row-span-1 lg:row-span-3 xl:row-span-3">
+        <ContentMetadata />
+      </div>
+
+      <div class="row-span-2 col-span-2">
+        <div
           class="
-            pt-6
-            pb-10
-            xl:pt-11 xl:border-b xl:border-gray-200 xl:dark:border-gray-700
+            divide-y divide-gray-200
+            dark:divide-gray-700
+            pt-10
+            prose
+            dark:prose-dark
+            max-w-none
           "
         >
-          <dt class="sr-only">Authors</dt>
-          <dd>
-            <ul
-              class="
-                flex
-                justify-center
-                space-x-8
-                xl:block
-                sm:space-x-12
-                xl:space-x-0 xl:space-y-8
-              "
-            >
-              <li class="flex items-center space-x-2">
-                <span
-                  style="
-                    box-sizing: border-box;
-                    display: inline-block;
-                    overflow: hidden;
-                    width: initial;
-                    height: initial;
-                    background: none;
-                    opacity: 1;
-                    border: 0px;
-                    margin: 0px;
-                    padding: 0px;
-                    position: relative;
-                    max-width: 100%;
-                  "
-                  ><img
-                    alt="avatar"
-                    class="w-10 h-10 rounded-full"
-                    src="https://avatars.githubusercontent.com/u/41132846?v=4"
-                    decoding="async"
-                    data-nimg="intrinsic"
-                /></span>
-                <dl class="text-sm font-medium leading-5 whitespace-nowrap">
-                  <dt class="sr-only">Name</dt>
-                  <dd class="text-gray-900 dark:text-gray-100">
-                    {{article.author}}
-                  </dd>
-                  <dt class="sr-only">Twitter</dt>
-                  <dd>
-                    <a
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href="https://twitter.com/Twitter"
-                      class="
-                        text-green-600
-                        hover:text-green-800
-                        dark:hover:text-green-400
-                      "
-                      >@Twitter</a
-                    >
-                  </dd>
-                </dl>
-              </li>
-            </ul>
-          </dd>
-        </dl>
+          <nuxt-content :document="article" class="prose" />
+        </div>
       </div>
     </div>
-    <nuxt-content :document="article" class="prose"/>
-    <footer>
-      <div
-        class="
-          text-sm
-          font-medium
-          leading-5
-          divide-gray-200
-          xl:divide-y
-          dark:divide-gray-700
-          xl:col-start-1 xl:row-start-2
-        "
-      >
-        <div class="py-4 xl:py-8">
-          <h2
-            class="
-              text-xs
-              tracking-wide
-              text-gray-500
-              uppercase
-              dark:text-gray-400
-            "
-          >
-            Tags
-          </h2>
-          <div class="flex flex-wrap">
-            <ItemTag
-            v-for="(tag,index ) in article.tags"
-            :key="index"
-            :tag="tag"
-              class="
-                mr-3
-                text-sm
-                font-medium
-                uppercase
-                text-primary-500
-                hover:text-primary-600
-                dark:hover:text-primary-400
-              "
-              href="/tags/multi-author"
-              />
-            
-          </div>
-        </div>
-        <div class="flex justify-between py-4 xl:block xl:space-y-8 xl:py-8">
-          <div>
-            <h2
-              class="
-                text-xs
-                tracking-wide
-                text-gray-500
-                uppercase
-                dark:text-gray-400
-              "
-            >
-              Previous Article
-            </h2>
-           
-              <nuxt-link :to="article.prev_link" class="text-green-500
-                hover:text-green-600
-                dark:hover:text-reen-400"
-                >{{article.prev_title}}</nuxt-link
-              >
-         
-          </div>
-          <div>
-            <h2
-              class="
-                text-xs
-                tracking-wide
-                text-gray-500
-                uppercase
-                dark:text-gray-400
-              "
-            >
-              Next Article
-            </h2>
-               <nuxt-link :to="article.next_link"
-               class=" text-green-500
-                hover:text-green-600
-                dark:hover:text-green-400"
-                >{{article.next_title}}</nuxt-link
-              >
-          </div>
-        </div>
-      </div>
-      <nuxt-link to="/blog" class="text-green-500 hover:text-green-600 dark:hover:text-green-400 pt-4 xl:pt-8">
-        ← Back to the blog
-      </nuxt-link>
-     
-    </footer>
+
+    <ContentFooter />
   </article>
 </template>
 <script>
@@ -216,14 +70,16 @@ export default {
     const article = await $content("blog", params.slug).fetch();
     return { article };
   },
-  methods:{
-    getDate(date){
-      console.log(date)
-      return new Date(date).toLocaleString('en-US',
-      { year: 'numeric', month: 'long', day: 'numeric' }
-      )
-    }
-  }
+  methods: {
+    getDate(date) {
+      console.log(date);
+      return new Date(date).toLocaleString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
+    },
+  },
 };
 </script>
 <style>
@@ -262,8 +118,8 @@ export default {
   font-size: 15px;
   font-weight: 300;
 }
-.nuxt-content blockquote{
-  @apply bg-pink-600 bg-opacity-20 rounded-md pl-2 pr-2 pt-2 pb-1 border-l-2; 
+.nuxt-content blockquote {
+  @apply bg-pink-600 bg-opacity-20 rounded-md pl-2 pr-2 pt-2 border-l-2;
 }
 .nuxt-content h1 {
   font-weight: 500;
@@ -285,23 +141,23 @@ export default {
 .nuxt-content h3 {
   font-weight: 400;
   font-size: 22px;
-   @apply dark:text-white text-black;
+  @apply dark:text-white text-black;
 }
 
 .nuxt-content h4 {
   font-weight: 400;
   font-size: 18px;
-   @apply dark:text-white text-black;
+  @apply dark:text-white text-black;
 }
 .nuxt-content h5 {
   font-weight: 400;
   font-size: 16px;
-   @apply dark:text-white text-black;
+  @apply dark:text-white text-black;
 }
 .nuxt-content h6 {
   font-weight: 400;
   font-size: 12px;
-   @apply dark:text-white text-black;
+  @apply dark:text-white text-black;
 }
 
 .nuxt-content p {
@@ -309,7 +165,7 @@ export default {
   margin-bottom: 30px;
   word-spacing: 2px;
   line-height: 32px;
-   @apply dark:text-white text-black;
+  @apply dark:text-white text-black;
 }
 
 .nuxt-content p code,
@@ -320,7 +176,7 @@ export default {
   font-size: 0.85em;
   border-radius: 3px;
   font-family: Consolas, Roboto Mono, monospace;
-  @apply bg-pink-500 bg-pink-300 bg-opacity-10 text-pink-800
+  @apply bg-pink-500 bg-pink-300 bg-opacity-10 text-pink-800;
 }
 
 .nuxt-content ul {
@@ -335,7 +191,7 @@ export default {
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   padding-inline-start: 40px;
-  @apply dark:text-white text-black 
+  @apply dark:text-white text-black;
 }
 
 .v-application code {

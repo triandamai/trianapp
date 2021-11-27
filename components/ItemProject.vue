@@ -5,7 +5,7 @@
         <nuxt-link to="/" aria-label=""> 
           <img
             alt="title"
-            :src="require('assets/img/project.webp')"
+            :src="project.image"
             class="object-cover object-center lg:h-48 md:h-36"
             width="544px"
             height="306px"
@@ -15,18 +15,18 @@
       <div class="p-6">
         <h2 class="mb-3 text-2xl font-bold leading-8 tracking-tight">
       
-            <nuxt-link  to="/" aria-label="ttile">
-              Ini Judul
+            <nuxt-link  to="/" aria-label="ttile" class="text-black dark:text-white">
+              {{project.name}}
             </nuxt-link>
        
         </h2>
         <p class="mb-3 prose text-gray-500 max-w-none dark:text-gray-400">
-          Deskripsi
+          {{project.description}}
           </p>
       
           <nuxt-link
             to="/"
-            class="text-base font-medium leading-6 text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+            class="text-base font-medium leading-6 text-green-500 hover:text-green-600 dark:hover:text-green-400"
             aria-label="title"
           >
             Learn more &rarr;
@@ -36,3 +36,15 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  props:{
+    project:Object
+  },
+  methods:{
+    getImage(url){
+      return require(url)
+    }
+  }
+}
+</script>
