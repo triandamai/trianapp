@@ -24,16 +24,58 @@
   </svg>
   </button>
 </template>
-<script lang="ts">
+<script >
+
 export default {
   data:()=>{
     return{
       isDark:false
     }
   },
+  mounted(){
+    this.initTheme()
+  },
   methods:{
+    initTheme(){
+      let theme = window.localStorage.getItem('theme')
+     
+     if(theme){
+       if(theme === 'dark'){
+         this.isDark = true
+         document.querySelector("html").classList.remove("light")
+         document.querySelector("html").classList.add("dark");
+       }else{
+          this.isDark = false
+          document.querySelector("html").classList.remove("dark")
+          document.querySelector("html").classList.add("light");
+       }
+     }else{
+       this.isDark = false
+        document.querySelector("html").classList.remove("dark")
+        document.querySelector("html").classList.add("light");
+     }
+    },
     changeTheme(){
-      this.isDark = !this.isDark
+     let theme = window.localStorage.getItem('theme')
+     
+     if(theme){
+       if(theme === 'dark'){
+         this.isDark = true
+         window.localStorage.setItem('theme','light')
+         document.querySelector("html").classList.remove("dark")
+         document.querySelector("html").classList.add("light");
+       }else{
+            this.isDark = false
+          window.localStorage.setItem('theme','dark')
+          document.querySelector("html").classList.remove("light")
+          document.querySelector("html").classList.add("dark");
+       }
+     }else{
+          this.isDark = false
+        document.querySelector("html").classList.remove("dark")
+        document.querySelector("html").classList.add("light");
+     }
+      this.isDark = theme === 'dark'
     }
   }
 }

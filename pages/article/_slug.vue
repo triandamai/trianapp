@@ -15,8 +15,8 @@
                   dark:text-gray-400
                 "
               >
-                <time datetime="2021-05-02T00:00:00.000Z"
-                  >Sunday, May 2, 2021</time
+                <time :datetime="article.createdAt"
+                  >{{getDate(article.createdAt)}}</time
                 >
               </dd>
             </div>
@@ -94,7 +94,7 @@
                 <dl class="text-sm font-medium leading-5 whitespace-nowrap">
                   <dt class="sr-only">Name</dt>
                   <dd class="text-gray-900 dark:text-gray-100">
-                    Tails Azimuth
+                    {{article.author}}
                   </dd>
                   <dt class="sr-only">Twitter</dt>
                   <dd>
@@ -103,9 +103,9 @@
                       rel="noopener noreferrer"
                       href="https://twitter.com/Twitter"
                       class="
-                        text-primary-500
-                        hover:text-primary-600
-                        dark:hover:text-primary-400
+                        text-green-600
+                        hover:text-green-800
+                        dark:hover:text-green-400
                       "
                       >@Twitter</a
                     >
@@ -143,9 +143,10 @@
             Tags
           </h2>
           <div class="flex flex-wrap">
-            <a
+            <ItemTag
             v-for="(tag,index ) in article.tags"
             :key="index"
+            :tag="tag"
               class="
                 mr-3
                 text-sm
@@ -156,8 +157,8 @@
                 dark:hover:text-primary-400
               "
               href="/tags/multi-author"
-              >{{tag}}</a
-            >
+              />
+            
           </div>
         </div>
         <div class="flex justify-between py-4 xl:block xl:space-y-8 xl:py-8">
@@ -215,12 +216,21 @@ export default {
     const article = await $content("blog", params.slug).fetch();
     return { article };
   },
+  methods:{
+    getDate(date){
+      console.log(date)
+      return new Date(date).toLocaleString('en-US',
+      { year: 'numeric', month: 'long', day: 'numeric' }
+      )
+    }
+  }
 };
 </script>
 <style>
 .blog-list-link {
   text-decoration: none;
-  color: #000 !important;
+
+  @apply dark:text-white text-black;
 }
 
 .blog-list-link:hover {
@@ -252,18 +262,46 @@ export default {
   font-size: 15px;
   font-weight: 300;
 }
-
+.nuxt-content blockquote{
+  @apply bg-pink-600 bg-opacity-20 rounded-md pl-2 pr-2 pt-2 pb-1 border-l-2; 
+}
+.nuxt-content h1 {
+  font-weight: 500;
+  font-size: 34px;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid #eaecef;
+  margin-bottom: 1rem;
+  @apply dark:text-white text-black;
+}
 .nuxt-content h2 {
   font-weight: 500;
   font-size: 30px;
   padding-bottom: 0.3rem;
   border-bottom: 1px solid #eaecef;
   margin-bottom: 1rem;
+  @apply dark:text-white text-black;
 }
 
 .nuxt-content h3 {
   font-weight: 400;
   font-size: 22px;
+   @apply dark:text-white text-black;
+}
+
+.nuxt-content h4 {
+  font-weight: 400;
+  font-size: 18px;
+   @apply dark:text-white text-black;
+}
+.nuxt-content h5 {
+  font-weight: 400;
+  font-size: 16px;
+   @apply dark:text-white text-black;
+}
+.nuxt-content h6 {
+  font-weight: 400;
+  font-size: 12px;
+   @apply dark:text-white text-black;
 }
 
 .nuxt-content p {
@@ -271,18 +309,18 @@ export default {
   margin-bottom: 30px;
   word-spacing: 2px;
   line-height: 32px;
+   @apply dark:text-white text-black;
 }
 
 .nuxt-content p code,
 .nuxt-content h2 code,
 .nuxt-content h3 code {
-  color: #476582;
   padding: 0.25rem 0.5rem;
   margin: 0;
   font-size: 0.85em;
-  background-color: rgba(27, 31, 35, 0.05);
   border-radius: 3px;
   font-family: Consolas, Roboto Mono, monospace;
+  @apply bg-pink-500 bg-pink-300 bg-opacity-10 text-pink-800
 }
 
 .nuxt-content ul {
@@ -297,6 +335,7 @@ export default {
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   padding-inline-start: 40px;
+  @apply dark:text-white text-black 
 }
 
 .v-application code {

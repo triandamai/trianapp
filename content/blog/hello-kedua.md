@@ -1,7 +1,10 @@
 ---
+author: Trian Damai
 title: Pengenalan blog kedua
 description: Ini adalah blog kedua dengan beberapa konfirgurasi
 slug: hello-kedua
+createdAt: 2021-11-27 15:00
+updatedAt: 2021-11-27 16:00
 tags:
     - Md
     - JS

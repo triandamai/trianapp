@@ -1,8 +1,21 @@
 ---
-title: Pengenalan blog ketiga
-description: Blog pertama saya dibuat dengan nuxt js dan tailwind
-slug: hello
+author: Trian Damai
+title: Pengenalan blog kedua
+description: Ini adalah blog kedua dengan beberapa konfirgurasi
+slug: hello-kedua
+createdAt: 2021-11-27 15:00
+updatedAt: 2021-11-27 16:00
+tags:
+    - Md
+    - VUE
+    - Tailwind
+    - Nuxt
+prev_title: Blog pertama saya
+prev_link: /article/hello
+next_title: Blog ketiga saya
+next_link: /article/hllo
 ---
+
 
  
 # h1 Heading

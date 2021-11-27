@@ -5,7 +5,7 @@
         <dl>
           <dt class="sr-only">Published on</dt>
           <dd class="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-            <time datetime="2008-02-14 20:00">23 Nov 2021</time>
+            <time :datetime="article.createdAt">{{getDate(article.createdAt)}}</time>
           </dd>
         </dl>
         <div class="space-y-5 xl:col-span-3">
@@ -20,8 +20,10 @@
                 </nuxt-link>
               </h2>
               <div class="flex flex-wrap">
-
-                <ItemTag  />
+                
+                <span v-for="(item,index) in article.tags" :key="index">
+                  <ItemTag :tag="item" />
+                </span>
 
               </div>
             </div>
@@ -32,7 +34,7 @@
           <div class="text-base font-medium leading-6">
             <nuxt-link
                 to="/article/hello"
-                class="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                class="text-green-500 hover:text-green-600 dark:hover:text-green-400"
                 aria-label="Read"
             >
             Read more &rarr;
@@ -43,13 +45,21 @@
     </article>
   </li>
 </template>
-<script lang="ts">
+<script>
 export default {
   props:{
     article:Object
   },
   data:()=>({
 
-  })
+  }),
+  methods:{
+    getDate(date){
+      console.log(date)
+      return new Date(date).toLocaleString('en-US',
+      { year: 'numeric', month: 'long', day: 'numeric' }
+      )
+    }
+  }
 }
 </script>
