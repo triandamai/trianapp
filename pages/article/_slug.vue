@@ -1,67 +1,95 @@
 <template>
   <article>
-    <div class="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700 pb-8">
-      <header class="pt-6 xl:pb-6">
-        <div class="space-y-1 text-center">
-          <dl class="space-y-10">
-            <div>
-              <dt class="sr-only">Published on</dt>
-              <dd
-                class="
-                  text-base
-                  font-medium
-                  leading-6
-                  text-gray-500
-                  dark:text-gray-400
-                "
-              >
-                <time :datetime="article.createdAt">{{
-                  getDate(article.createdAt)
-                }}</time>
-              </dd>
-            </div>
-          </dl>
-          <div>
-            <h1
-              class="
-                text-3xl
-                font-extrabold
-                leading-9
-                tracking-tight
-                text-gray-900
-                dark:text-gray-100
-                sm:text-4xl sm:leading-10
-                md:text-5xl md:leading-14
-              "
-            >
-              {{ article.title }}
-            </h1>
-          </div>
-        </div>
-      </header>
-    </div>
-    <div class="grid grid-rows-2 grid-flow-col gap-4">
-      <div class="row-span-1 sm:row-span-1 md:row-span-1 lg:row-span-3 xl:row-span-3">
-        <ContentMetadata />
+    <div class="py-6 md:py-12 lg:w-10/12 center md:text-center mx-auto">
+      <div class="font-medium text-gray-700 dark:text-white">
+        {{ getDate(article.createdAt) }}
       </div>
 
-      <div class="row-span-2 col-span-2">
-        <div
-          class="
-            divide-y divide-gray-200
-            dark:divide-gray-700
-            pt-10
-            prose
-            dark:prose-dark
-            max-w-none
-          "
-        >
+      <h1
+        class="
+          heading
+          text-4xl
+          md:text-6xl
+          font-bold font-sans
+          md:leading-tight
+          text-black
+          dark:text-white
+        "
+      >
+        {{ article.title }}
+      </h1>
+
+      <h2 class="text-xl text-gray-600 dark:text-gray-100 mt-2">{{ article.description }}</h2>
+    </div>
+    <div class="flex flex-col pb-3 md:hidden">
+      <Author :author="article.author"/>
+    </div>
+
+    <img
+      width="1600"
+      height="900"
+      :src="article.image"
+    />
+
+    <div class="flex flex-col md:flex-row py-6 md:py-12">
+      <div class="w-full md:w-3/12 pr-3">
+        <div class="flex flex-col hidden md:flex mb-3 md:mb-6">
+          <Author :author="article.author" />
+        </div>
+        <div class="hidden md:block">
+          <TagsArticle :tags="article.tags" />
+        </div>
+        <div class="hidden md:block">
+          <ContentPrevArticle :link="article.prev_link" :desc="article.prev_title"/>
+          <ContentNextArticle :link="article.next_link" :desc="article.next_title"/>
+          <nuxt-link
+            to="/blog"
+            class="
+              text-green-500
+              hover:text-green-600
+              dark:hover:text-green-400
+              pt-6
+              xl:pt-8
+            "
+          >
+            ← Back to the blog
+          </nuxt-link>
+        </div>
+      </div>
+
+      <div class="w-full md:w-9/12">
+        <div class="prose">
           <nuxt-content :document="article" class="prose" />
         </div>
       </div>
     </div>
 
-    <ContentFooter />
+    <div class="py-6 mt-6 border-t-2 block md:hidden">
+      <TagsArticle :tags="article.tags" />
+    </div>
+    <footer class="
+    visible 
+    xl:invisible 
+    lg:invisible 
+    md:invisible 
+    sm:visible 
+    xs:visible" >
+      <div
+        class="
+         text-sm font-medium leading-5 divide-gray-200 xl:divide-y dark:divide-gray-700
+        "
+      >
+    
+        <div class="flex justify-between py-4 xl:block xl:space-y-8 xl:py-8">
+          <ContentPrevArticle :link="article.prev_link" :desc="article.prev_title"/>
+          <ContentNextArticle :link="article.next_link" :desc="article.next_title"/>
+        </div>
+      </div>
+      <nuxt-link to="/blog" class="text-green-500 hover:text-green-600 dark:hover:text-green-400 pt-4 xl:pt-8">
+        ← Back to the blog
+      </nuxt-link>
+     
+    </footer>
   </article>
 </template>
 <script>

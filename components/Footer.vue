@@ -2,7 +2,7 @@
   <footer class="bg-white dark:bg-gray-800">
     <div class="flex flex-col items-center mt-16">
       <div class="flex mb-3 space-x-4">
-
+        <SocialIcon/>
       </div>
       <div class="flex mb-2 space-x-2 text-sm text-gray-500 dark:text-gray-400">
         <div>Author</div>

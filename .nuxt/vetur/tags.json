@@ -1,9 +1,6 @@
 {
-  "ContentFooter": {
-    "description": "Auto imported from components/ContentFooter.vue"
-  },
-  "ContentMetadata": {
-    "description": "Auto imported from components/ContentMetadata.vue"
+  "Author": {
+    "description": "Auto imported from components/Author.vue"
   },
   "ContentNextArticle": {
     "description": "Auto imported from components/ContentNextArticle.vue"
@@ -31,6 +28,12 @@
   },
   "NuxtLogo": {
     "description": "Auto imported from components/NuxtLogo.vue"
+  },
+  "SocialIcon": {
+    "description": "Auto imported from components/SocialIcon.vue"
+  },
+  "TagPost": {
+    "description": "Auto imported from components/TagPost.vue"
   },
   "TagsArticle": {
     "description": "Auto imported from components/TagsArticle.vue"

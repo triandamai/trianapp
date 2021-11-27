@@ -5,13 +5,13 @@
       <div>
         <nuxt-link to="/" aria-label="Tailwind CSS Blog">
           <div class="flex items-center justify-between">
-            <div class="mr-3">
-<!--              <Logo />-->
+            <!-- <div class="mr-3">
+             <Logo />
               Ini logo
-            </div>
+            </div> -->
 
-            <div class="hidden h-6 text-2xl font-semibold sm:block">
-              Title
+            <div class="hidden h-6 text-2xl font-semibold sm:block text-black dark:text-white">
+              Trian.app
             </div>
 
           </div>

@@ -6,8 +6,7 @@ You can directly use them in pages and other components without the need to impo
 
 **Tip:** If a component is conditionally rendered with `v-if` and is big, it is better to use `Lazy` or `lazy-` prefix to lazy load.
 
-- `<ContentFooter>` | `<content-footer>` (components/ContentFooter.vue)
-- `<ContentMetadata>` | `<content-metadata>` (components/ContentMetadata.vue)
+- `<Author>` | `<author>` (components/Author.vue)
 - `<ContentNextArticle>` | `<content-next-article>` (components/ContentNextArticle.vue)
 - `<ContentPrevArticle>` | `<content-prev-article>` (components/ContentPrevArticle.vue)
 - `<Footer>` | `<footer>` (components/Footer.vue)
@@ -17,5 +16,7 @@ You can directly use them in pages and other components without the need to impo
 - `<ItemTag>` | `<item-tag>` (components/ItemTag.vue)
 - `<MobileNav>` | `<mobile-nav>` (components/MobileNav.vue)
 - `<NuxtLogo>` | `<nuxt-logo>` (components/NuxtLogo.vue)
+- `<SocialIcon>` | `<social-icon>` (components/SocialIcon.vue)
+- `<TagPost>` | `<tag-post>` (components/TagPost.vue)
 - `<TagsArticle>` | `<tags-article>` (components/TagsArticle.vue)
 - `<ThemeSwitch>` | `<theme-switch>` (components/ThemeSwitch.vue)
