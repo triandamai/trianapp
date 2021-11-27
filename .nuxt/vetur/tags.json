@@ -1,0 +1,26 @@
+{
+  "Footer": {
+    "description": "Auto imported from components/Footer.vue"
+  },
+  "Header": {
+    "description": "Auto imported from components/Header.vue"
+  },
+  "ItemBlog": {
+    "description": "Auto imported from components/ItemBlog.vue"
+  },
+  "ItemProject": {
+    "description": "Auto imported from components/ItemProject.vue"
+  },
+  "ItemTag": {
+    "description": "Auto imported from components/ItemTag.vue"
+  },
+  "MobileNav": {
+    "description": "Auto imported from components/MobileNav.vue"
+  },
+  "NuxtLogo": {
+    "description": "Auto imported from components/NuxtLogo.vue"
+  },
+  "ThemeSwitch": {
+    "description": "Auto imported from components/ThemeSwitch.vue"
+  }
+}
