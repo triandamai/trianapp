@@ -1,6 +1,4 @@
-
-
-export default {
+export default  {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
@@ -47,10 +45,11 @@ export default {
   modules: [
     "@nuxt/content"
   ],
-
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+
   },
+
   //https://content.nuxtjs.org/configuration/#markdownprismtheme
   content: {
     markdown: {

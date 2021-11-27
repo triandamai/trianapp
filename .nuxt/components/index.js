@@ -1,17 +1,17 @@
-export { default as Author } from '../../components/Author.vue'
-export { default as ContentNextArticle } from '../../components/ContentNextArticle.vue'
-export { default as ContentPrevArticle } from '../../components/ContentPrevArticle.vue'
-export { default as Footer } from '../../components/Footer.vue'
-export { default as Header } from '../../components/Header.vue'
-export { default as ItemBlog } from '../../components/ItemBlog.vue'
-export { default as ItemProject } from '../../components/ItemProject.vue'
-export { default as ItemTag } from '../../components/ItemTag.vue'
-export { default as MobileNav } from '../../components/MobileNav.vue'
-export { default as NuxtLogo } from '../../components/NuxtLogo.vue'
-export { default as SocialIcon } from '../../components/SocialIcon.vue'
-export { default as TagPost } from '../../components/TagPost.vue'
-export { default as TagsArticle } from '../../components/TagsArticle.vue'
-export { default as ThemeSwitch } from '../../components/ThemeSwitch.vue'
+export const Author = () => import('../../components/Author.vue' /* webpackChunkName: "components/author" */).then(c => wrapFunctional(c.default || c))
+export const ContentNextArticle = () => import('../../components/ContentNextArticle.vue' /* webpackChunkName: "components/content-next-article" */).then(c => wrapFunctional(c.default || c))
+export const ContentPrevArticle = () => import('../../components/ContentPrevArticle.vue' /* webpackChunkName: "components/content-prev-article" */).then(c => wrapFunctional(c.default || c))
+export const Footer = () => import('../../components/Footer.vue' /* webpackChunkName: "components/footer" */).then(c => wrapFunctional(c.default || c))
+export const Header = () => import('../../components/Header.vue' /* webpackChunkName: "components/header" */).then(c => wrapFunctional(c.default || c))
+export const ItemBlog = () => import('../../components/ItemBlog.vue' /* webpackChunkName: "components/item-blog" */).then(c => wrapFunctional(c.default || c))
+export const ItemProject = () => import('../../components/ItemProject.vue' /* webpackChunkName: "components/item-project" */).then(c => wrapFunctional(c.default || c))
+export const ItemTag = () => import('../../components/ItemTag.vue' /* webpackChunkName: "components/item-tag" */).then(c => wrapFunctional(c.default || c))
+export const MobileNav = () => import('../../components/MobileNav.vue' /* webpackChunkName: "components/mobile-nav" */).then(c => wrapFunctional(c.default || c))
+export const NuxtLogo = () => import('../../components/NuxtLogo.vue' /* webpackChunkName: "components/nuxt-logo" */).then(c => wrapFunctional(c.default || c))
+export const SocialIcon = () => import('../../components/SocialIcon.vue' /* webpackChunkName: "components/social-icon" */).then(c => wrapFunctional(c.default || c))
+export const TagPost = () => import('../../components/TagPost.vue' /* webpackChunkName: "components/tag-post" */).then(c => wrapFunctional(c.default || c))
+export const TagsArticle = () => import('../../components/TagsArticle.vue' /* webpackChunkName: "components/tags-article" */).then(c => wrapFunctional(c.default || c))
+export const ThemeSwitch = () => import('../../components/ThemeSwitch.vue' /* webpackChunkName: "components/theme-switch" */).then(c => wrapFunctional(c.default || c))
 
 // nuxt/nuxt.js#8607
 function wrapFunctional(options) {

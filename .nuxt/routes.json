@@ -3,30 +3,35 @@
     "name": "blog",
     "path": "/blog",
     "component": "/Users/macbook/IdeaProjects/trianapp/pages/blog.vue",
-    "chunkName": "pages/blog"
+    "chunkName": "pages/blog",
+    "_name": "_4e5f35f8"
   },
   {
     "name": "projects",
     "path": "/projects",
     "component": "/Users/macbook/IdeaProjects/trianapp/pages/projects.vue",
-    "chunkName": "pages/projects"
+    "chunkName": "pages/projects",
+    "_name": "_ecbfa648"
   },
   {
     "name": "tags",
     "path": "/tags",
     "component": "/Users/macbook/IdeaProjects/trianapp/pages/tags.vue",
-    "chunkName": "pages/tags"
+    "chunkName": "pages/tags",
+    "_name": "_5879540a"
   },
   {
     "name": "article-slug",
     "path": "/article/:slug?",
     "component": "/Users/macbook/IdeaProjects/trianapp/pages/article/_slug.vue",
-    "chunkName": "pages/article/_slug"
+    "chunkName": "pages/article/_slug",
+    "_name": "_663a56bf"
   },
   {
     "name": "index",
     "path": "/",
     "component": "/Users/macbook/IdeaProjects/trianapp/pages/index.vue",
-    "chunkName": "pages/index"
+    "chunkName": "pages/index",
+    "_name": "_4cfd1040"
   }
 ]

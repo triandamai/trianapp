@@ -37,9 +37,10 @@ export default {
   },
   methods:{
     initTheme(){
-      let theme = window.localStorage.getItem('theme')
+      console.log("init theme")
+      let theme = localStorage.getItem('theme')
      
-     if(theme){
+     if(theme != null){
        if(theme === 'dark'){
          this.isDark = true
          document.querySelector("html").classList.remove("light")
@@ -56,25 +57,29 @@ export default {
      }
     },
     changeTheme(){
-     let theme = window.localStorage.getItem('theme')
+      
+     let theme = localStorage.getItem('theme')
      
-     if(theme){
+     if(theme != null){
        if(theme === 'dark'){
          this.isDark = true
-         window.localStorage.setItem('theme','light')
+         localStorage.setItem('theme','light')
          document.querySelector("html").classList.remove("dark")
          document.querySelector("html").classList.add("light");
        }else{
             this.isDark = false
-          window.localStorage.setItem('theme','dark')
+          localStorage.setItem('theme','dark')
           document.querySelector("html").classList.remove("light")
           document.querySelector("html").classList.add("dark");
        }
      }else{
+        localStorage.setItem('theme','light')
+        console.log("init null",theme)
           this.isDark = false
         document.querySelector("html").classList.remove("dark")
         document.querySelector("html").classList.add("light");
      }
+      console.log("init theme",theme)
       this.isDark = theme === 'dark'
     }
   }

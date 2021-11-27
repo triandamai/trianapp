@@ -72,19 +72,14 @@
             "
           >
             <p>
-              I am a Mobile developer located in Jakarta,Indonesia. I currently
-              work as full time Junior mobile developer for PT. Cexup
-              Telemedicine in Jakarta
+              Trian Damai is a Software Developer spent few years as Mobile Developer and Web Developer. 
             </p>
             <p class="pt-3">
-              I also using my free time as Freelance Front End developer for
-              bakaranproject.com, I currently learning about `Vue.js`,`Jetpack
-              Compose`,`Kotlin`
+              Trian currently work fulltime in PT.Tele Cexup Indonesa and Freelance at Bakaranproject.com.
             </p>
             <p class="pt-3">
-              I enjoyed learn about new tech and what happen in the ecosystem
-              and happy to share my experience so i made this web
-              <a>See latest post -></a>
+              Trian enjoyed learn about new tech and currently learning on `Jetpack compose`,`Vue js`
+          
             </p>
           </div>
         </div>

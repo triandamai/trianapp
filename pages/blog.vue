@@ -37,12 +37,15 @@
   </div>
 </template>
 <script>
+
 export default {
-  async asyncData({$content,params}) {
-    const articles = await $content('blog',params.slug)
+  async asyncData(context) {
+    const articles = await context.$content('blog')
       .only(['title','description','slug','createdAt','updatedAt','tags'])
       .sortBy('createdAt','asc')
       .fetch()
+
+     // console.log( context.$content)
 
     return{articles}
   }
