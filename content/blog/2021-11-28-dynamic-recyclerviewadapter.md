@@ -1,11 +1,11 @@
 ---
 author: Trian Damai
-title: Writing with markdown
+title: Dynamic Recyclerview Adapter
 description: Markdown is a lightweight markup language with plain-text-formatting syntax. Its design allows it to be converted to many output formats, but the original tool by the same name only supports HTML.
 slug: 2021-11-28-dynamic-recyclerviewadapter
 createdAt: 2021-11-28 15:00
 updatedAt: 2021-11-28 16:00
-image: "https://source.unsplash.com/CTivHyiTbFw/1600x900"
+image: https://source.unsplash.com/INHtWKpBTsA/1600x900
 tags:
     - Md
     - JS

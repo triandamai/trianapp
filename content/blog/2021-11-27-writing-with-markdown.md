@@ -5,7 +5,7 @@ description: Markdown is a lightweight markup language with plain-text-formattin
 slug: 2021-11-27-writing-with-markdown
 createdAt: 2021-11-27 15:00
 updatedAt: 2021-11-27 16:00
-image: "https://source.unsplash.com/CTivHyiTbFw/1600x900"
+image: https://source.unsplash.com/CTivHyiTbFw/1600x900
 tags:
     - Md
     - JS
