@@ -42,7 +42,7 @@ export default {
   async asyncData(context) {
     const articles = await context.$content('blog')
       .only(['title','description','slug','createdAt','updatedAt','tags'])
-      .sortBy('createdAt','asc')
+      .sortBy('createdAt','desc')
       .fetch()
 
      // console.log( context.$content)
