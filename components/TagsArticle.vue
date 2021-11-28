@@ -19,7 +19,7 @@
           hover:text-primary-600
           dark:hover:text-primary-400
         "
-        href="/tags/multi-author"
+        :href="'/tags'"
       />
     </div>
   </div>
