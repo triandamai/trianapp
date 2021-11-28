@@ -27,25 +27,25 @@ export default {
         name:"Cexup",
         description:"Telemedhicine app provide integrated IoT",
         url:"https://cexup.com/",
-        image:"project-cexup.webp"
+        image:"/project-cexup.webp"
       },
       {
         name:"Panda",
         description:"Panda memberikan solusi pelayanan masyarakat dengan cara akurat, cepat dan cerdas.",
         url:"https://play.google.com/store/apps/details?id=com.panda.puskomedia",
-        image:"project-panda.webp"
+        image:"/project-panda.webp"
       },
       {
         name:"Chameleon Cloth",
         description:"Store you can buy a fancy suit",
         url:"https://www.chameleoncloth.co.id/user/home",
-        image:"project-chameleon.webp"
+        image:"/project-chameleon.webp"
       },
       {
         name:"Kopra.id",
         description:"Store you can buy a fancy suit",
         url:"https://www.chameleoncloth.co.id/user/home",
-        image:"project-kopra.webp"
+        image:"/project-kopra.webp"
       }
     ]
   })
