@@ -7,7 +7,7 @@ createdAt: 2021-11-27 15:00
 updatedAt: 2021-11-27 16:00
 image: https://source.unsplash.com/CTivHyiTbFw/1600x900
 tags:
-    - Md
+    - Markdown
     - JS
     - Tailwind
 prev_title: Writing With Markdown

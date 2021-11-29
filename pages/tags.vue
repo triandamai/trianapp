@@ -7,14 +7,8 @@
           </h1>
         </div>
         <div class="flex flex-wrap max-w-lg">
-              <div v-for="(item,index) in tagsKey" :key="index"  class="mt-2 mb-2 mr-5">
+              <div v-for="(item,index) in tags" :key="index"  class="mt-2 mb-2">
                 <ItemTag :tag="item"/>
-                <nuxt-link
-                  to=""
-                  class="-ml-2 text-sm font-semibold text-gray-600 uppercase dark:text-gray-300"
-                >
-                  {{'('+counts[item]+')'}}
-                </nuxt-link>
               </div>
          
         </div>
@@ -24,24 +18,23 @@
 <script>
 
 export default {
-  async asyncData({$content,params}) {
-    const articles = await $content('blog',params.slug)
+  async asyncData({$content}) {
+    const articles = await $content('blog')
       .only(['tags'])
       .fetch()
 
-      const counts = {};
-      let tags =[]
-      articles.forEach((tag)=>{
-          tag.tags.forEach((t)=>{
-            tags.push(t)
-          })
-      });
-      tags.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; });
-      const tagsKey = Object.keys(counts)
-   
+    const counts = {};
+    let tags =[]
+    articles.forEach((tag)=>{
+      tag.tags.forEach((t)=>{
+        tags.push(t)
+      })
+    });
+    tags.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; });
+    const tagsKey = Object.keys(counts)
+
     return{
-      counts,
-      tagsKey,
+      tags:tagsKey,
     }
   }
 }

@@ -34,10 +34,24 @@
           <div class="text-base font-medium leading-6">
             <nuxt-link
                 :to="'article/'+article.slug"
-                class="text-green-500 hover:text-green-600 dark:hover:text-green-400"
+                class="
+                inline-flex
+                items-center
+                hover:underline
+                leading-5
+                py-2
+                  text-green-500
+                  hover:text-yellow-600
+                  dark:hover:text-yellow-400"
+
                 aria-label="Read"
             >
-            Read more &rarr;
+
+                Read more
+
+              <svg xmlns="http://www.w3.org/2000/svg" class="inline-block pl-2 h-6 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
             </nuxt-link>
           </div>
         </div>

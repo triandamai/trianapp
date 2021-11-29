@@ -7,9 +7,9 @@ createdAt: 2021-11-28 15:00
 updatedAt: 2021-11-28 16:00
 image: https://source.unsplash.com/INHtWKpBTsA/1600x900
 tags:
-    - Md
-    - JS
-    - Tailwind
+    - Xml
+    - Android
+    - Java
 prev_title: Writing Markdown
 prev_link: /article/2021-11-27-writing-with-markdown
 next_title: Dynamic RecyclerAdapter
