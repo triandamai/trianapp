@@ -46,6 +46,12 @@ export default {
         description:"Store you can buy a fancy suit",
         url:"https://www.chameleoncloth.co.id/user/home",
         image:"/project-kopra.webp"
+      },
+      {
+        name:"Cashier Desktop App",
+        description:"UI Desktop POS build with compose multiplatform",
+        url:"https://github.com/trianapp/CashierDesktopApp",
+        image:"https://raw.githubusercontent.com/trianapp/CashierDesktopApp/master/preview/preview.png"
       }
     ]
   })
