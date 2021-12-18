@@ -1,5 +1,6 @@
 <template>
   <div class="sm:hidden">
+
     <button
       type="button"
       class="w-8 h-8 ml-1 mr-1 rounded"
@@ -28,8 +29,12 @@
         />
       </svg>
     </button>
+   
     <div
-      class="fixed w-full h-full top-24 right-0 bg-gray-200 dark:bg-gray-800 opacity-95 z-10 transform ease-in-out duration-300"
+      class="
+      backdrop-blur-xl
+      dark:backdrop-blur-xl
+      fixed w-full h-full top-24 right-0 z-10 transform ease-in-out duration-300"
       :class="navShow ? 'translate-x-0' : 'translate-x-full'"
 
     >
@@ -40,44 +45,32 @@
         @click="onToggleNav"
       ></button>
       <nav class="fixed h-full mt-8">
-
-        <div  class="px-12 py-4">
+        
+        <div class="px-12 py-4" v-for="(menu,index) in menus" :key="index">
           <nuxt-link
-            to="/"
-            class="text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100"
+            :to="menu.url"
+            class="text-2xl font-bold tracking-widest 
+                text-transparent 
+                bg-clip-text 
+                bg-gradient-to-r 
+                dark:from-white 
+                dark:to-white
+                from-gray-800
+                to-gray-800
+                hover:bg-clip-text 
+                hover:bg-gradient-to-r 
+                hover:from-pink-500 
+                hover:to-rose-500
+                dark:hover:bg-clip-text 
+                dark:hover:bg-gradient-to-r 
+                dark:hover:from-pink-500 
+                dark:hover:to-rose-500
+                "
 
           >
-            Home
+            {{menu.title}}
           </nuxt-link>
         </div>
-        <div  class="px-12 py-4">
-          <nuxt-link
-            to="/blog"
-            class="text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100"
-
-          >
-            Blog
-          </nuxt-link>
-        </div>
-        <div  class="px-12 py-4">
-          <nuxt-link
-            to="projects"
-            class="text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100"
-
-          >
-            Projects
-          </nuxt-link>
-        </div>
-        <div  class="px-12 py-4">
-          <nuxt-link
-            to="tags"
-            class="text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100"
-
-          >
-            Tags
-          </nuxt-link>
-        </div>
-
       </nav>
     </div>
   </div>
@@ -86,6 +79,24 @@
 export default {
   data:()=>({
       navShow:false,
+      menus:[
+        {
+          title:"Home",
+          url:"/"
+        },
+         {
+          title:"Blog",
+          url:"/blog"
+        },
+        {
+          title:"Projects",
+          url:"/projects"
+        },
+        {
+          title:"Tags",
+          url:"/tags"
+        }
+      ]
   }),
   methods:{
     onToggleNav(){

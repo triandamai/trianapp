@@ -1,8 +1,8 @@
 <template>
-  <header class="flex items-center justify-between py-10">
+  <header class="flex items-center justify-between my-5">
 
 <!--   logo -->
-      <div>
+      
         <nuxt-link to="/" aria-label="Tailwind CSS Blog">
           <div class="flex items-center justify-between">
             <!-- <div class="mr-3">
@@ -10,13 +10,21 @@
               Ini logo
             </div> -->
 
-            <div class="hidden h-6 text-2xl font-semibold sm:block text-black dark:text-white">
+            <div class="
+            hidden 
+             font-semibold sm:block
+              text-transparent 
+                bg-clip-text 
+                bg-gradient-to-r 
+                from-pink-500 
+                to-rose-500
+            ">
               Trian.app
             </div>
 
           </div>
         </nuxt-link>
-      </div>
+   
     <!--      end logo-->
     <div class="flex items-center text-base leading-5">
 <!--      nav-->

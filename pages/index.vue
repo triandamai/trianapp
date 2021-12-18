@@ -42,11 +42,15 @@
               class="
                 pt-4
                 pb-2
-                text-2xl text-gray-900
-                dark:text-gray-100
+                text-2xl 
                 font-bold
                 leading-8
                 tracking-tight
+                text-transparent 
+                bg-clip-text 
+                bg-gradient-to-r 
+                from-pink-500 
+                to-rose-500
               "
             >
               Trian Damai
