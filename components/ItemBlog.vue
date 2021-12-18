@@ -13,7 +13,7 @@
             <div>
               <h2 class="text-2xl font-bold leading-8 tracking-tight">
                 <nuxt-link
-                    to="/article/hello"
+                     :to="'article/'+article.slug"
                     class="text-gray-900 dark:text-gray-100"
                 >
                   {{article.title}}

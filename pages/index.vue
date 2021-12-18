@@ -52,7 +52,7 @@
               Trian Damai
             </h3>
             <div class="text-gray-500 dark:text-gray-400">
-              Software engineer
+              Software Developer
             </div>
             <div class="text-gray-500 dark:text-gray-400">Cexup</div>
             <SocialIcon/>
@@ -73,11 +73,7 @@
               Trian Damai is a Software Developer spent few years as Mobile Developer and Web Developer. 
             </p>
             <p class="pt-3">
-              Trian currently work fulltime in PT.Tele Cexup Indonesa and Freelance at Bakaranproject.com.
-            </p>
-            <p class="pt-3">
-              Trian enjoyed learn about new tech and currently learning on `Jetpack compose`,`Vue js`
-          
+              Trian currently work fulltime in <a class="text-sky-300" href="https://cexup.com" target="blank">PT.Tele Cexup Indonesa</a> and Freelance at <a class="text-sky-300" href="https://bakaranproject.com" target="blank">Bakaranproject.com</a>.
             </p>
           </div>
         </div>
