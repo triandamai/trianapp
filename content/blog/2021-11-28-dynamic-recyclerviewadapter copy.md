@@ -10,8 +10,8 @@ tags:
     - Xml
     - Android
     - Java
-prev_title: Writing Markdown
-prev_link: /article/2021-11-27-writing-with-markdown
+prev_title: Mengenal Jetpack compose
+prev_link: /article/2021-12-20-mengenal-jetpack-compose
 next_title: Dynamic RecyclerAdapter
 next_link: /article/2021-11-28-dynamic-recyclerviewadapter
 ---
