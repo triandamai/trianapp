@@ -163,3 +163,7 @@ Untuk menggunakan layout/component lama kiat cukup menggunakan `AndroidView()` y
 ## Penutup
 Jetpack Compose memberikan dampak besar dalam dunia Android development karena mempercepat proses development. Saya sudah menggunakan Jetpack compose untuk Kantor tempat saya bekerja,saya dan tim memutuskan menggunakan Jetpack Compose secara menyeluruh dengan me-Recode aplikasi dari nol. dan hasilnya cukup mengesankan. dari segelintir kelebihan bukan berarti Jetpack compose sudah sempurna dan jauh dari bug 😅 masih cukup banyak bug dan kurangnya fitur atau library-library pendukung karena masih cukup awal. Apakah Jetpack Compose akan spenuhnya menggantikan xml? Saya rasa tidak untuk dalam waktu dekat ini.
 Sekian terimakasih. 
+
+### Referensi
+- https://blog.logrocket.com/building-faster-android-apps-jetpack-compose
+- https://developer.android.com/jetpack/compose?hl=id
