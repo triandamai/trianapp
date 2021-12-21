@@ -12,7 +12,7 @@
         <a href="/">Title</a>
       </div>
       <div class="mb-8 text-sm text-gray-500 dark:text-gray-400">
-        <a>Trian Damai</a>
+        <a href="https://trian.app">Trian Damai</a>
       </div>
     </div>
   </footer>

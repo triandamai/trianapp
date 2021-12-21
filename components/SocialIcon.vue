@@ -51,7 +51,7 @@
                 class="text-sm text-gray-500 transition hover:text-gray-600"
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://www.linkedin.com"
+                href="https://id.linkedin.com/in/trian-damai-315a74137"
                 ><span class="sr-only">linkedin</span
                 ><svg
                   viewBox="0 0 24 24"
@@ -73,7 +73,7 @@
                 class="text-sm text-gray-500 transition hover:text-gray-600"
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://twitter.com/Twitter"
+                href="https://twitter.com/triandamaiN"
                 ><span class="sr-only">twitter</span
                 ><svg
                   xmlns="http://www.w3.org/2000/svg"
