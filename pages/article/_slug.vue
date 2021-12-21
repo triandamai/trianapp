@@ -29,6 +29,7 @@
       width="1600"
       height="900"
       :src="article.image"
+      :alt="params.slug"
     />
 
     <div class="flex flex-col md:flex-row py-6 md:py-12">

@@ -1,6 +1,6 @@
 <template>
   <nuxt-link to="/tags" class="pb-1 pt-1">
-    <a class="
+    <p class="
     ml-1
     mr-1
     pl-3
@@ -10,11 +10,10 @@
     rounded-sm
     text-sm
     font-medium
-    uppercase"
-       :class="color"
+    uppercase" :class="color"
     >
       {{tag}}
-    </a>
+    </p>
   </nuxt-link>
 </template>
 <script>

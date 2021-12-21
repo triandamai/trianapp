@@ -15,7 +15,7 @@
       >
       <a
         class="text-sm ml-1 block text-green-400"
-        href="https://www.twitter.com/"
+        href="https://twitter.com/triandamaiN"
         >Twitter</a
       >
     </div>
