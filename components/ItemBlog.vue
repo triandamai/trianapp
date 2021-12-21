@@ -15,6 +15,7 @@
                 <nuxt-link
                      :to="'article/'+article.slug"
                     class="text-gray-900 dark:text-gray-100"
+                    :aria-label="'Learn More About'+article.slug"
                 >
                   {{article.title}}
                 </nuxt-link>
@@ -44,7 +45,7 @@
                   hover:text-yellow-600
                   dark:hover:text-yellow-400"
 
-                aria-label="Read"
+                 :aria-label="'Learn More About'+article.slug"
             >
 
                 Read more
