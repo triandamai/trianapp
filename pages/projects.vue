@@ -21,6 +21,14 @@
 </template>
 <script>
 export default {
+  head () {
+    return {
+      title: 'Projects - Trian.app',
+      meta: [
+        { hid: 'description', name: 'description', content: 'Projects Trian Damai' }
+      ]
+    }
+  },
   data:()=>({
     projects:[
       {

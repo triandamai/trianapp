@@ -46,6 +46,14 @@
 <script>
 
 export default {
+  head () {
+    return {
+      title: 'Tags - Trian.app',
+      meta: [
+        { hid: 'description', name: 'description', content: 'Tags in Trian.app' }
+      ]
+    }
+  },
   async asyncData({$content}) {
     const articles = await $content('blog')
       .only(['tags'])
