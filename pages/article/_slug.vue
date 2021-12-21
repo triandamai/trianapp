@@ -29,7 +29,7 @@
       width="1600"
       height="900"
       :src="article.image"
-      :alt="params.slug"
+      alt="Banner article trian.app"
     />
 
     <div class="flex flex-col md:flex-row py-6 md:py-12">
