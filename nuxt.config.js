@@ -11,8 +11,10 @@ export default  {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { hid: 'description', name: 'description', content: 'Trian Damai Personal Website,Trian app,Share some great stuff focusing on programming' },
+      { name: 'format-detection', content: 'telephone=no' },
+      {name:"keywords" ,content:"Java,CSS,Android,Jetpack,Compose,Kotlin,JavaScript,Vue Js,React Js,Node Js,Dart,Flutter"},
+      {name:"author",content:"Trian Damai"}
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
