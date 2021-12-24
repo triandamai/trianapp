@@ -10,10 +10,10 @@ tags:
     - Jetpack Compose
     - Android
     - Kotlin
-prev_title: Mengenal Jetpack compose
-prev_link: /article/2021-12-20-mengenal-jetpack-compose
+prev_title: Lazy Column & Lazy Grid
+prev_link: /article/2021-12-24-lazygrid-dalam-lazycoumn
 next_title: Dynamic RecyclerAdapter
-next_link: /article/2021-11-28-dynamic-recyclerviewadapter
+next_link: /article/2021-11-28-recyclerviewadapter-dinamis
 ---
 
 Jetpack compose adalah ui toolkit terbaru dari google yang menggunakan pendakatan deklarative UI. beberapa waktu lalu tepatnya [21 july 2021](https://android-developers.googleblog.com/2021/07/jetpack-compose-announcement.html) google mengumumkan versi stabil dari jetpack compose,sebenarnya saya sudah mulai mencoba jetpack compose dari versi beta hanya untuk percobaan dan belajar saja namun saat diumumkan versi stabilnya saya mulai menggunakannya pada projek-projek saya baik pribadi maupun projek dari kantor, saya ingin membagikan pengalaman saya tentang jetpack compose.

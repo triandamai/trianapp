@@ -2,7 +2,7 @@
 author: Trian Damai
 title: Dynamic Recyclerview Adapter
 description: Recyclerview memudahkan kita dalam membuat sebuah tampilan list data.Namun recyclerview sendiri membutuhkan kofigurasi yang cukup melelahkan karena akan ada boilerplate ketika kita memiliki banyak tampilan menggunakan recyclerview.
-slug: 2021-11-28-dynamic-recyclerviewadapter
+slug: 2021-11-28-recyclerviewadapter-dinamis
 createdAt: 2021-11-28 15:00
 updatedAt: 2021-11-28 16:00
 image: https://source.unsplash.com/INHtWKpBTsA/1600x900
@@ -12,8 +12,8 @@ tags:
     - Java
 prev_title: Mengenal Jetpack compose
 prev_link: /article/2021-12-20-mengenal-jetpack-compose
-next_title: Dynamic RecyclerAdapter
-next_link: /article/2021-11-28-dynamic-recyclerviewadapter
+prev_title: Lazy Column & Lazy Grid
+prev_link: /article/2021-12-24-lazygrid-dalam-lazycoumn
 ---
 
 Recyclerview memudahkan kita dalam membuat sebuah tampilan list data.Namun recyclerview sendiri membutuhkan kofigurasi yang cukup melelahkan karena akan ada boilerplate ketika kita memiliki banyak tampilan menggunakan recyclerview. Dari situ saya memiliki ide untuk membuar adapter recyclerview lebih dinamis dan mengurangi boilerplate.
