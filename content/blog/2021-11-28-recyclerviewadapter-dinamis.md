@@ -12,8 +12,8 @@ tags:
     - Java
 prev_title: Mengenal Jetpack compose
 prev_link: /article/2021-12-20-mengenal-jetpack-compose
-prev_title: Lazy Column & Lazy Grid
-prev_link: /article/2021-12-24-lazygrid-dalam-lazycoumn
+next_title: Lazy Column & Lazy Grid
+next_link: /article/2021-12-24-lazygrid-dalam-lazycoumn
 ---
 
 Recyclerview memudahkan kita dalam membuat sebuah tampilan list data.Namun recyclerview sendiri membutuhkan kofigurasi yang cukup melelahkan karena akan ada boilerplate ketika kita memiliki banyak tampilan menggunakan recyclerview. Dari situ saya memiliki ide untuk membuar adapter recyclerview lebih dinamis dan mengurangi boilerplate.

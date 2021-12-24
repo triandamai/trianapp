@@ -45,7 +45,7 @@ export default {
       .sortBy('createdAt','desc')
       .fetch()
 
-     // console.log( context.$content)
+      console.log(articles)
 
     return{articles}
   }
