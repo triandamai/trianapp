@@ -22,8 +22,8 @@ Mebuat List pada aplikasi merupaka hal yang hampir semua developer temui di andr
 ## Memulai
 Ketika kita akan menggunakan LazyGrid didalam LazyRow maka kita akan mendapatkan error 
 
-```groovy
- implementation 'com.github.triandamai:singleadapter:v1.0.15'
+```text
+java.lang.IllegalStateException: Nesting scrollable in the same direction layouts like LazyColumn and Column(Modifier.verticalScroll()) is not allowed. If you want to add a header before the list of items please take a look on LazyColumn component which has a DSL api which allows to first add a header via item() function and then the list of items via items().
 ```
 Setelah bolak-balik mencari jawaban di google saya mendapatkan solusi yang cukup tricky yaitu kita menggunakan `LazyColumn` dimana kita perlu membuat extension untuk item grid nya menggunakan DSL. Oke mari kita mulai
 1. Pertama kita buat extension untuk `LazyList` nya
