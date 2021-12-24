@@ -2,9 +2,9 @@
 author: Trian Damai
 title: Lazy Column dan Lazy Grid
 description: Bagi yang sudah pernah menggunakan atau mencoba Jetpack Compose pasti akan menyadari bahwa ketika kita menggunakan Lazy Column dan Lazy Grid bersamaan maka tidak akan berhasil.
-slug: 2021-11-28-dynamic-recyclerviewadapter
-createdAt: 2021-11-28 15:00
-updatedAt: 2021-11-28 16:00
+slug: 2021-12-24-lazygrid-dalam-lazycoumn
+createdAt: 2021-12-24 15:00
+updatedAt: 2021-12-24 16:00
 image: https://source.unsplash.com/INHtWKpBTsA/1600x900
 tags:
     - Xml
