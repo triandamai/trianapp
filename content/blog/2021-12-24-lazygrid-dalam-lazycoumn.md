@@ -7,9 +7,10 @@ createdAt: 2021-12-24 15:00
 updatedAt: 2021-12-24 16:00
 image: https://source.unsplash.com/INHtWKpBTsA/1600x900
 tags:
-    - Xml
+    - Jetpack Compose
     - Android
-    - Java
+    - DSL
+    - Listview
 prev_title: Mengenal Jetpack compose
 prev_link: /article/2021-12-20-mengenal-jetpack-compose
 next_title: Dynamic RecyclerAdapter
