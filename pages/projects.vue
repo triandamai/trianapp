@@ -60,6 +60,12 @@ export default {
         description:"UI Desktop POS build with compose multiplatform",
         url:"https://github.com/trianapp/CashierDesktopApp",
         image:"https://raw.githubusercontent.com/trianapp/CashierDesktopApp/master/preview/preview.png"
+      },
+      {
+        name:"Bank Falah Syariah",
+        description:"Bank App SMKN 1 Build with vue js ",
+        url:"https://bfs.bakaranproject.com/",
+        image:"https://user-images.githubusercontent.com/41132846/145071116-3fdb1d9a-f101-442a-be16-e121f5824de6.png"
       }
     ]
   })
