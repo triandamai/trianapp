@@ -21,8 +21,9 @@
           {{project.description}}
           </p>
       
-          <nuxt-link
-            to="/"
+          <a
+            :href="project.url"
+            target="blank"
             class="inline-flex racking-tight font-medium leading-6 text-green-500 hover:text-green-600 dark:hover:text-green-400"
             aria-label="Learn More"
           >
@@ -33,7 +34,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
 
-          </nuxt-link>
+          </a>
      
       </div>
     </div>
