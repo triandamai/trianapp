@@ -6,7 +6,7 @@
           Projects
         </h1>
         <p class="text-lg leading-7 text-gray-500 dark:text-gray-400">
-          Great stuff i've been made
+          Trian damai recent works
         </p>
       </div>
       <div class="container py-12">
