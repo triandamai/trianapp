@@ -66,6 +66,12 @@ export default {
         description:"Bank App SMKN 1 Build with vue js ",
         url:"https://bfs.bakaranproject.com/",
         image:"https://user-images.githubusercontent.com/41132846/145071116-3fdb1d9a-f101-442a-be16-e121f5824de6.png"
+      },
+      {
+        name:"Wordle Game",
+        description:"Game tebak kata",
+        url:"https://wordle.trian.app/",
+        image:"/wordle-game.webp"
       }
     ]
   })
