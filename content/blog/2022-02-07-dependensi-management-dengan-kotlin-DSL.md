@@ -147,3 +147,4 @@ dependencies {
 
 ### Referensi
 - https://betterprogramming.pub/gradle-dependency-management-with-buildsrc-and-kotlin-dsl-1de958eab166
+- https://github.com/trianapp/tudu
