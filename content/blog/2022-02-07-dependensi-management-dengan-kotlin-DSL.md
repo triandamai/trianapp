@@ -5,7 +5,7 @@ description: Saat ini gradle merupakan pusat utama untuk managament dependensi d
 slug: 2022-02-07-dependensi-management-dengan-kotlin-DSL
 createdAt: 2022-02-07 10:30
 updatedAt: 2022-02-07 10:30
-image: https://1.bp.blogspot.com/-9MiK78CFMLM/YQFurOq9AII/AAAAAAAAQ1A/lKj5GiDnO_MkPLb72XqgnvD5uxOsHO-eACLcBGAsYHQ/s0/Android-Compose-1.0-header-v2.png
+image: https://miro.medium.com/max/1400/1*4ClhGUTyUOz_YVIioIKNsQ.png
 tags:
     - Gradle
     - Android
