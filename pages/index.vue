@@ -74,7 +74,7 @@
             "
           >
             <p>
-              Trian Damai is a Software Developer spent few years as Mobile Developer and Web Developer. 
+              Trian Damai is a Software Developer spent few years as Mobile  and Web Developer. 
             </p>
             <p class="pt-3">
               Trian currently work fulltime in <a class="text-sky-300" href="https://cexup.com" target="blank">PT.Tele Cexup Indonesa</a> and Freelance at <a class="text-sky-300" href="https://bakaranproject.com" target="blank">Bakaranproject.com</a>.
