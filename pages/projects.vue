@@ -72,6 +72,12 @@ export default {
         description:"Game tebak kata",
         url:"https://wordle.trian.app/",
         image:"/wordle-game.webp"
+      },
+      {
+        name:"Tudu-APp",
+        description:"Aplikasi Task managemtn",
+        url:"https://tudu.trian.app/",
+        image:"/wordle-game.webp"
       }
     ]
   })
