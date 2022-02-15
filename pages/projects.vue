@@ -71,13 +71,13 @@ export default {
         name:"Wordle Game",
         description:"Game tebak kata",
         url:"https://wordle.trian.app/",
-        image:"/wordle-game.webp"
+        image:"/project-wordle.webp"
       },
       {
-        name:"Tudu-APp",
-        description:"Aplikasi Task managemtn",
+        name:"Tudu-App",
+        description:"Aplikasi Task Management",
         url:"https://tudu.trian.app/",
-        image:"/wordle-game.webp"
+        image:"/project-tudu.webp"
       }
     ]
   })
