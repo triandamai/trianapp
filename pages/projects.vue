@@ -32,6 +32,18 @@ export default {
   data:()=>({
     projects:[
       {
+        name:"Tudu-App",
+        description:"Aplikasi Task Management",
+        url:"https://tudu.trian.app/",
+        image:"/project-tudu.webp"
+      },
+       {
+        name:"Wordle Game",
+        description:"Game tebak kata",
+        url:"https://wordle.trian.app/",
+        image:"/project-wordle.webp"
+      },
+      {
         name:"Cexup",
         description:"Telemedhicine app provide integrated IoT",
         url:"https://cexup.com/",
@@ -66,19 +78,8 @@ export default {
         description:"Bank App SMKN 1 Build with vue js ",
         url:"https://bfs.bakaranproject.com/",
         image:"https://user-images.githubusercontent.com/41132846/145071116-3fdb1d9a-f101-442a-be16-e121f5824de6.png"
-      },
-      {
-        name:"Wordle Game",
-        description:"Game tebak kata",
-        url:"https://wordle.trian.app/",
-        image:"/project-wordle.webp"
-      },
-      {
-        name:"Tudu-App",
-        description:"Aplikasi Task Management",
-        url:"https://tudu.trian.app/",
-        image:"/project-tudu.webp"
       }
+    
     ]
   })
 }
