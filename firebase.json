@@ -2,7 +2,7 @@
   "hosting": [
     {
       "target": "trianapp",
-      "public": "dist",
+      "public": ".output/public",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
         {

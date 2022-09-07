@@ -34,7 +34,8 @@ const { formatDate } = useDate()
                 </svg>
             </button>
             <div class="flex flex-col">
-                <h1 class="mt-2 text-4xl font-bold text-slate-900"> {{title}}</h1><time :datetime="date"
+                <h1 class="mt-2 text-4xl font-bold text-slate-900"> {{title}}</h1>
+                <time :datetime="date"
                     class="order-first font-mono text-sm leading-7 text-slate-500">{{formatDate(date)}}</time>
             </div>
         </div>
