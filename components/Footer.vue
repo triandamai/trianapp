@@ -1,19 +1,31 @@
 <template>
-  <footer>
-    <div class="flex flex-col items-center mt-16">
-      <div class="flex mb-3 space-x-4">
-        <SocialIcon/>
-      </div>
-      <div class="flex mb-2 space-x-2 text-sm text-gray-500 dark:text-gray-400">
-        <div>Author</div>
-        <div>{{` • `}}</div>
-        <div>{{`© ${new Date().getFullYear()}`}}</div>
-        <div>{{` • `}}</div>
-        <a href="/">Title</a>
-      </div>
-      <div class="mb-8 text-sm text-gray-500 dark:text-gray-400">
-        <a href="https://trian.app">Trian Damai</a>
-      </div>
-    </div>
-  </footer>
+         
+         <footer class="border-t border-slate-200 bg-slate-50 py-10 pb-40 sm:py-16 sm:pb-32 lg:hidden">
+            <div class="mx-auto px-4 sm:px-6 md:max-w-2xl md:px-4">
+                <section>
+                    <h2 class="flex items-center font-mono text-sm font-medium leading-7 text-slate-900"><svg
+                            aria-hidden="true" viewBox="0 0 10 10" class="h-2.5 w-2.5">
+                            <path d="M0 5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V5Z"
+                                class="fill-violet-300"></path>
+                            <path d="M6 1a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V1Z"
+                                class="fill-pink-300"></path>
+                        </svg><span class="ml-2.5">About</span></h2>
+                    <p class="mt-2 text-base leading-7 text-slate-700 lg:line-clamp-4">In this show, Eric and Wes dig
+                        deep to get to the facts with guests who have been labeled villains by a society quick to judge,
+                        without actually getting the full story. Tune in every Thursday to get to the truth with another
+                        misunderstood outcast as they share the missing context in their tragic tale.</p><button
+                        type="button"
+                        class="mt-2 hidden text-sm font-bold leading-6 text-pink-500 hover:text-pink-700 active:text-pink-900 lg:inline-block">Show
+                        more</button>
+                </section>
+                <h2 class="mt-8 flex items-center font-mono text-sm font-medium leading-7 text-slate-900"><svg
+                        aria-hidden="true" viewBox="0 0 11 12" class="h-3 w-auto fill-slate-300">
+                        <path
+                            d="M5.019 5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Zm3.29 7c1.175 0 2.12-1.046 1.567-2.083A5.5 5.5 0 0 0 5.019 7 5.5 5.5 0 0 0 .162 9.917C-.39 10.954.554 12 1.73 12h6.578Z">
+                        </path>
+                    </svg><span class="ml-2.5">Made by</span></h2>
+                <div class="mt-2 flex gap-6 text-sm font-bold leading-7 text-slate-900">Trian Damai</div>
+            </div>
+        </footer>
+        <div class="fixed inset-x-0 bottom-0 z-10 lg:left-112 xl:left-120"></div><audio></audio>
 </template>

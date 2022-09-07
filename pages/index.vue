@@ -1,99 +1,36 @@
 <template>
-  <div
-    class="
-      divide-y divide-gray-200
-      dark:divide-gray-700
-    "
-  >
-    <div class="pt-6 pb-8 space-y-2 md:space-y-5">
-      <h1
-        class="
-          text-3xl
-          font-extrabold
-          leading-9
-          tracking-tight
-          text-gray-900
-          dark:text-gray-100
-          sm:text-4xl sm:leading-10
-          md:text-6xl md:leading-14
-        "
-      >
-        About
-      </h1>
-    </div>
-    <div class="container py-12">
-      <div class="flex flex-wrap -m-4">
-        <div
-          class="
-            items-start
-            m-16
-            space-y-2
-            xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0
-          "
-        >
-          <div class="flex flex-col items-center pt-8 space-x-2">
-            <img
-              alt=""
-              aria-hidden="true"
-              src="https://avatars.githubusercontent.com/u/41132846?v=4"
-              class="rounded-full md:w-20 w-20 lg:w-26"
-            />
-            <h3
-              class="
-                pt-4
-                pb-2
-                text-2xl 
-                font-bold
-                leading-8
-                tracking-tight
-                text-transparent 
-                bg-clip-text 
-                bg-gradient-to-r 
-                from-pink-500 
-                to-rose-500
-              "
-            >
-              Trian Damai
-            </h3>
-            <div class="text-gray-500 dark:text-gray-400">
-              Software Developer
-            </div>
-            <div class="text-gray-500 dark:text-gray-400">Cexup</div>
-            <SocialIcon/>
-          </div>
-          <div
-            class="
-              pt-8
-              pb-8
-              prose
-              dark:prose-dark
-              text-gray-900
-              dark:text-gray-100
-              max-w-none
-              xl:col-span-2
-            "
-          >
-            <p>
-              Trian Damai is a Software Developer spent few years as Mobile  and Web Developer. 
-            </p>
-            <p class="pt-3">
-              Trian currently work fulltime in <a class="text-sky-300" href="https://cexup.com" target="blank">PT.Tele Cexup Indonesa</a> and Freelance at <a class="text-sky-300" href="https://bakaranproject.com" target="blank">Bakaranproject.com</a>.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+        <SectionContent title="Blogs">
+            <article aria-labelledby="episode-5-title" class="py-10 sm:py-12">
+                <div class="lg:px-8">
+                    <div class="lg:max-w-4xl">
+                        <div class="mx-auto px-4 sm:px-6 md:max-w-2xl md:px-4 lg:px-0">
+                            <div class="flex flex-col items-start">
+                                <h2 id="episode-5-title" class="mt-2 text-lg font-bold text-slate-900">
+                                    <nuxt-link to="/blogs/Tes-aja">Artikel pertama</nuxt-link>
+                                </h2>
+                                <time datetime="2022-02-24T00:00:00.000Z"
+                                    class="order-first font-mono text-sm leading-7 text-slate-500">February
+                                    24, 2022</time>
+                                <p class="mt-1 text-base leading-7 text-slate-700">He’s going to need you to
+                                    go ahead and come in on Saturday, but there’s a lot more to the story
+                                    than you think.</p>
+                                <div class="mt-4 flex items-center gap-4">
+                                    <button type="button"
+                                        class="flex items-center text-sm font-bold leading-6 text-pink-500 hover:text-pink-700 active:text-pink-900"
+                                        aria-label="Play episode 5: Bill Lumbergh"><svg aria-hidden="true"
+                                            viewBox="0 0 10 10" fill="none" class="h-2.5 w-2.5 fill-current">
+                                            <path
+                                                d="M8.25 4.567a.5.5 0 0 1 0 .866l-7.5 4.33A.5.5 0 0 1 0 9.33V.67A.5.5 0 0 1 .75.237l7.5 4.33Z">
+                                            </path>
+                                        </svg><span class="ml-3" aria-hidden="true">Read More</span></button>
+                                    <span aria-hidden="true" class="text-sm font-bold text-slate-400">/</span><a
+                                        class="flex items-center text-sm font-bold leading-6 text-pink-500 hover:text-pink-700 active:text-pink-900"
+                                        aria-label="Show notes for episode 5: Bill Lumbergh" href="/5">#Tags</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </SectionContent>
 </template>
-<script>
-export default {
-  head () {
-    return {
-      title: 'About Trian Damai - Trian.app',
-      meta: [
-        { hid: 'description', name: 'description', content: 'About Trian Damai' }
-      ]
-    }
-  }
-}
-</script>
