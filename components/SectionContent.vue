@@ -20,6 +20,7 @@
                     </div>
                     <div class="divide-y divide-slate-100 sm:mt-4 lg:mt-8 lg:border-t lg:border-slate-100">
                       <slot></slot>
+                      <slot name="loading"></slot>
                     </div>
                 </div>
             </div>
