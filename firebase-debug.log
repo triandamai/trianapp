@@ -1,0 +1,1002 @@
+[debug] [2022-09-07T12:33:07.596Z] ----------------------------------------------------------------------
+[debug] [2022-09-07T12:33:07.597Z] Command:       /Users/triandamai/.nvm/versions/node/v14.18.0/bin/node /Users/triandamai/.nvm/versions/node/v14.18.0/bin/firebase deploy
+[debug] [2022-09-07T12:33:07.597Z] CLI Version:   11.8.0
+[debug] [2022-09-07T12:33:07.597Z] Platform:      darwin
+[debug] [2022-09-07T12:33:07.597Z] Node Version:  v14.18.0
+[debug] [2022-09-07T12:33:07.598Z] Time:          Wed Sep 07 2022 19:33:07 GMT+0700 (Western Indonesia Time)
+[debug] [2022-09-07T12:33:07.598Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-09-07T12:33:07.653Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-09-07T12:33:07.653Z] > authorizing via signed-in user (triandamai@gmail.com)
+[debug] [2022-09-07T12:33:07.653Z] [iam] checking project myproject-64aac for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-09-07T12:33:07.655Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/myproject-64aac:testIamPermissions [none]
+[debug] [2022-09-07T12:33:07.655Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/myproject-64aac:testIamPermissions x-goog-quota-user=projects/myproject-64aac
+[debug] [2022-09-07T12:33:07.655Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/myproject-64aac:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-09-07T12:33:08.810Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/myproject-64aac:testIamPermissions 200
+[debug] [2022-09-07T12:33:08.810Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/myproject-64aac:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-09-07T12:33:08.812Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/myproject-64aac/serviceAccounts/myproject-64aac@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2022-09-07T12:33:08.812Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/myproject-64aac/serviceAccounts/myproject-64aac@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2022-09-07T12:33:09.948Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/myproject-64aac/serviceAccounts/myproject-64aac@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2022-09-07T12:33:09.949Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/myproject-64aac/serviceAccounts/myproject-64aac@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2022-09-07T12:33:09.952Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/myproject-64aac [none]
+[debug] [2022-09-07T12:33:10.359Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/myproject-64aac 200
+[debug] [2022-09-07T12:33:10.360Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/myproject-64aac {"projectId":"myproject-64aac","projectNumber":"264573731963","displayName":"myproject","name":"projects/myproject-64aac","resources":{"hostingSite":"myproject-64aac","realtimeDatabaseInstance":"myproject-64aac","storageBucket":"myproject-64aac.appspot.com","locationId":"asia-northeast3"},"state":"ACTIVE","etag":"1_4b1c9103-c18d-48dd-967f-b5bf7742a69b"}
+[info] 
+[info] === Deploying to 'myproject-64aac'...
+[info] 
+[info] i  deploying functions, hosting 
+[debug] [2022-09-07T12:33:10.366Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/myproject-64aac [none]
+[debug] [2022-09-07T12:33:10.972Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/myproject-64aac 200
+[debug] [2022-09-07T12:33:10.973Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/myproject-64aac {"projectId":"myproject-64aac","projectNumber":"264573731963","displayName":"myproject","name":"projects/myproject-64aac","resources":{"hostingSite":"myproject-64aac","realtimeDatabaseInstance":"myproject-64aac","storageBucket":"myproject-64aac.appspot.com","locationId":"asia-northeast3"},"state":"ACTIVE","etag":"1_4b1c9103-c18d-48dd-967f-b5bf7742a69b"}
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2022-09-07T12:33:10.977Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/myproject-64aac/services/cloudfunctions.googleapis.com [none]
+[debug] [2022-09-07T12:33:10.979Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/myproject-64aac/services/runtimeconfig.googleapis.com [none]
+[debug] [2022-09-07T12:33:10.980Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/myproject-64aac/services/cloudbuild.googleapis.com [none]
+[debug] [2022-09-07T12:33:10.982Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/myproject-64aac/services/artifactregistry.googleapis.com [none]
+[debug] [2022-09-07T12:33:12.421Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/myproject-64aac/services/artifactregistry.googleapis.com 200
+[debug] [2022-09-07T12:33:12.422Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/myproject-64aac/services/artifactregistry.googleapis.com [omitted]
+[info] ✔  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2022-09-07T12:33:12.425Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/myproject-64aac/services/runtimeconfig.googleapis.com 200
+[debug] [2022-09-07T12:33:12.425Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/myproject-64aac/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2022-09-07T12:33:12.430Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/myproject-64aac/services/cloudfunctions.googleapis.com 200
+[debug] [2022-09-07T12:33:12.430Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/myproject-64aac/services/cloudfunctions.googleapis.com [omitted]
+[info] ✔  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2022-09-07T12:33:12.448Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/myproject-64aac/services/cloudbuild.googleapis.com 200
+[debug] [2022-09-07T12:33:12.449Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/myproject-64aac/services/cloudbuild.googleapis.com [omitted]
+[info] ✔  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2022-09-07T12:33:12.449Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/myproject-64aac/adminSdkConfig [none]
+[debug] [2022-09-07T12:33:12.812Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/myproject-64aac/adminSdkConfig 200
+[debug] [2022-09-07T12:33:12.813Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/myproject-64aac/adminSdkConfig {"projectId":"myproject-64aac","databaseURL":"https://myproject-64aac.firebaseio.com","storageBucket":"myproject-64aac.appspot.com","locationId":"asia-northeast3"}
+[debug] [2022-09-07T12:33:12.814Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/myproject-64aac/configs [none]
+[debug] [2022-09-07T12:33:14.246Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/myproject-64aac/configs 200
+[debug] [2022-09-07T12:33:14.246Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/myproject-64aac/configs {}
+[info] i  functions: preparing codebase default for deployment 
+[debug] [2022-09-07T12:33:14.256Z] Validating nodejs source
+[debug] [2022-09-07T12:33:15.492Z] > [functions] package.json contents: {
+  "private": true,
+  "type": "module",
+  "main": "./index.mjs",
+  "dependencies": {
+    "firebase-functions-test": "latest",
+    "firebase-admin": "11.0.1",
+    "firebase-functions": "3.23.0",
+    "abort-controller": "3.0.0",
+    "agent-base": "6.0.2",
+    "arrify": "2.0.1",
+    "async-retry": "1.3.3",
+    "bail": "2.0.2",
+    "bignumber.js": "9.1.0",
+    "bluebird": "3.7.2",
+    "base64-js": "1.5.1",
+    "buffer-equal-constant-time": "1.0.1",
+    "buffer-from": "1.1.2",
+    "ccount": "2.0.1",
+    "character-entities": "2.0.2",
+    "character-entities-html4": "2.1.0",
+    "character-entities-legacy": "3.0.0",
+    "character-reference-invalid": "2.0.1",
+    "comma-separated-tokens": "2.0.2",
+    "compressible": "2.0.18",
+    "cookie-es": "0.5.0",
+    "cors": "2.8.5",
+    "csvtojson": "2.0.10",
+    "debug": "4.3.4",
+    "decode-named-character-reference": "1.0.2",
+    "defu": "6.1.0",
+    "destr": "1.1.1",
+    "detab": "3.0.1",
+    "duplexify": "4.1.2",
+    "ecdsa-sig-formatter": "1.0.11",
+    "emoticon": "4.0.1",
+    "end-of-stream": "1.4.4",
+    "ent": "2.2.0",
+    "escape-string-regexp": "5.0.0",
+    "estree-walker": "2.0.2",
+    "event-target-shim": "5.0.1",
+    "extend": "3.0.2",
+    "fast-deep-equal": "3.1.3",
+    "fast-text-encoding": "1.0.6",
+    "flat": "5.0.2",
+    "functional-red-black-tree": "1.0.1",
+    "gcp-metadata": "5.0.0",
+    "gaxios": "4.3.3",
+    "github-slugger": "1.4.0",
+    "google-auth-library": "7.14.1",
+    "google-gax": "2.30.5",
+    "google-p12-pem": "4.0.1",
+    "gtoken": "5.3.2",
+    "h3": "0.7.21",
+    "has-flag": "4.0.0",
+    "hast-to-hyperscript": "10.0.1",
+    "hast-util-from-parse5": "7.1.0",
+    "hast-util-has-property": "2.0.0",
+    "hast-util-heading-rank": "2.1.0",
+    "hast-util-is-element": "2.1.2",
+    "hast-util-parse-selector": "3.1.0",
+    "hast-util-raw": "7.2.2",
+    "hast-util-to-parse5": "7.0.0",
+    "hastscript": "7.0.2",
+    "hookable": "5.3.0",
+    "html-tags": "3.2.0",
+    "html-void-elements": "2.0.1",
+    "http-proxy-agent": "5.0.0",
+    "https-proxy-agent": "5.0.1",
+    "hast-util-to-string": "2.0.0",
+    "inherits": "2.0.4",
+    "inline-style-parser": "0.1.1",
+    "is-absolute-url": "4.0.1",
+    "is-alphabetical": "2.0.1",
+    "is-buffer": "2.0.5",
+    "is-decimal": "2.0.1",
+    "is-alphanumerical": "2.0.1",
+    "is-hexadecimal": "2.0.1",
+    "is-plain-obj": "4.1.0",
+    "is-stream": "2.0.1",
+    "is-stream-ended": "0.1.4",
+    "is-utf8": "0.2.1",
+    "jose": "2.0.6",
+    "js-yaml": "4.1.0",
+    "json-bigint": "1.0.0",
+    "jwa": "2.0.0",
+    "json5": "2.2.1",
+    "jws": "4.0.0",
+    "jsonwebtoken": "8.5.1",
+    "limiter": "1.1.5",
+    "lodash.camelcase": "4.3.0",
+    "jwks-rsa": "2.1.4",
+    "lodash.clonedeep": "4.5.0",
+    "lodash.includes": "4.3.0",
+    "lodash.isboolean": "3.0.3",
+    "lodash": "4.17.21",
+    "lodash.isnumber": "3.0.3",
+    "lodash.isplainobject": "4.0.6",
+    "lodash.isstring": "4.0.1",
+    "lodash.once": "4.1.1",
+    "lodash.isinteger": "4.0.4",
+    "lru-cache": "4.0.2",
+    "long": "4.0.0",
+    "lru-memoizer": "2.1.4",
+    "mdast-squeeze-paragraphs": "5.2.0",
+    "mdast-util-definitions": "5.1.1",
+    "markdown-table": "3.0.2",
+    "mdast-util-find-and-replace": "2.2.1",
+    "mdast-util-gfm": "2.0.1",
+    "mdast-util-from-markdown": "1.2.0",
+    "mdast-util-gfm-autolink-literal": "1.0.2",
+    "mdast-util-gfm-footnote": "1.0.1",
+    "mdast-util-gfm-strikethrough": "1.0.1",
+    "mdast-util-gfm-table": "1.0.4",
+    "mdast-util-gfm-task-list-item": "1.0.1",
+    "mdast-util-to-hast": "12.2.1",
+    "mdast-util-to-markdown": "1.3.0",
+    "mdast-util-to-string": "3.1.0",
+    "mdurl": "1.0.1",
+    "micromark": "3.0.10",
+    "micromark-core-commonmark": "1.0.6",
+    "micromark-extension-gfm": "2.0.1",
+    "micromark-extension-gfm-autolink-literal": "1.0.3",
+    "micromark-extension-gfm-footnote": "1.0.4",
+    "micromark-extension-gfm-strikethrough": "1.0.4",
+    "micromark-extension-gfm-tagfilter": "1.0.1",
+    "micromark-factory-destination": "1.0.0",
+    "micromark-factory-label": "1.0.2",
+    "micromark-extension-gfm-table": "1.0.5",
+    "micromark-extension-gfm-task-list-item": "1.0.3",
+    "micromark-factory-title": "1.0.2",
+    "micromark-factory-space": "1.0.0",
+    "micromark-util-character": "1.1.0",
+    "micromark-factory-whitespace": "1.0.0",
+    "micromark-util-classify-character": "1.0.0",
+    "micromark-util-combine-extensions": "1.0.0",
+    "micromark-util-chunked": "1.0.0",
+    "micromark-util-decode-numeric-character-reference": "1.0.0",
+    "micromark-util-decode-string": "1.0.2",
+    "micromark-util-encode": "1.0.1",
+    "micromark-util-html-tag-name": "1.1.0",
+    "micromark-util-normalize-identifier": "1.0.0",
+    "micromark-util-sanitize-uri": "1.0.0",
+    "micromark-util-subtokenize": "1.0.2",
+    "mime": "3.0.0",
+    "micromark-util-resolve-all": "1.0.0",
+    "mime-db": "1.52.0",
+    "mime-types": "2.1.35",
+    "ms": "2.1.2",
+    "node-fetch": "2.6.7",
+    "node-emoji": "1.11.0",
+    "object-assign": "4.1.1",
+    "node-fetch-native": "0.1.4",
+    "node-forge": "1.3.1",
+    "ohash": "0.1.5",
+    "object-hash": "3.0.0",
+    "ohmyfetch": "0.4.18",
+    "once": "1.4.0",
+    "p-limit": "3.1.0",
+    "parse-entities": "4.0.0",
+    "parse5": "6.0.1",
+    "pathe": "0.3.7",
+    "property-information": "6.1.1",
+    "proto3-json-serializer": "0.1.9",
+    "protobufjs": "7.1.0",
+    "pseudomap": "1.0.2",
+    "radix3": "0.1.2",
+    "rehype-external-links": "1.0.1",
+    "readable-stream": "3.6.0",
+    "rehype-raw": "6.1.1",
+    "rehype-slug": "5.0.1",
+    "rehype-sort-attribute-values": "4.0.0",
+    "rehype-sort-attributes": "4.0.0",
+    "remark-emoji": "3.0.2",
+    "remark-gfm": "3.0.1",
+    "remark-parse": "10.0.1",
+    "remark-squeeze-paragraphs": "5.0.1",
+    "remark-rehype": "10.1.0",
+    "retry": "0.13.1",
+    "retry-request": "5.0.1",
+    "safe-buffer": "5.2.1",
+    "scule": "0.3.2",
+    "semver": "5.7.1",
+    "shiki-es": "0.1.2",
+    "slugify": "1.6.5",
+    "source-map": "0.6.1",
+    "source-map-support": "0.5.21",
+    "space-separated-tokens": "2.0.1",
+    "stream-events": "1.0.5",
+    "stream-shift": "1.0.1",
+    "string_decoder": "1.3.0",
+    "stringify-entities": "4.0.3",
+    "strip-bom": "2.0.0",
+    "stubs": "3.0.0",
+    "style-to-object": "0.3.0",
+    "supports-color": "7.2.0",
+    "teeny-request": "8.0.1",
+    "text-decoding": "1.0.0",
+    "tr46": "0.0.3",
+    "trim-lines": "3.0.1",
+    "trough": "2.1.0",
+    "tslib": "2.4.0",
+    "ufo": "0.8.5",
+    "unctx": "2.0.2",
+    "unenv": "0.6.2",
+    "unified": "10.1.2",
+    "unist-builder": "3.0.0",
+    "unist-util-generated": "2.0.0",
+    "unist-util-is": "5.1.1",
+    "unist-util-position": "4.0.3",
+    "unist-util-remove": "3.1.0",
+    "unist-util-stringify-position": "3.0.2",
+    "unist-util-visit": "4.1.1",
+    "unist-util-visit-parents": "5.1.1",
+    "unstorage": "0.4.2",
+    "util-deprecate": "1.0.2",
+    "uuid": "8.3.2",
+    "vfile": "5.3.4",
+    "vary": "1.1.2",
+    "vfile-message": "3.1.2",
+    "vue": "3.2.38",
+    "vfile-location": "4.0.1",
+    "vue-router": "4.1.5",
+    "web-namespaces": "2.0.1",
+    "webidl-conversions": "3.0.1",
+    "vue-bundle-renderer": "0.4.2",
+    "whatwg-url": "5.0.0",
+    "wrappy": "1.0.2",
+    "yallist": "2.1.2",
+    "yocto-queue": "0.1.0",
+    "@babel/parser": "7.19.0",
+    "@fastify/busboy": "1.1.0",
+    "zwitch": "2.0.2",
+    "@grpc/grpc-js": "1.6.12",
+    "@grpc/proto-loader": "0.6.13",
+    "@firebase/component": "0.5.17",
+    "@firebase/database-compat": "0.2.6",
+    "@firebase/logger": "0.3.3",
+    "@firebase/util": "1.6.3",
+    "@google-cloud/firestore": "5.0.2",
+    "@google-cloud/paginator": "3.0.7",
+    "@google-cloud/projectify": "3.0.0",
+    "@google-cloud/promisify": "3.0.0",
+    "@protobufjs/aspromise": "1.1.2",
+    "@google-cloud/storage": "6.4.2",
+    "@protobufjs/base64": "1.1.2",
+    "@protobufjs/codegen": "2.0.4",
+    "@protobufjs/eventemitter": "1.1.0",
+    "@protobufjs/float": "1.0.2",
+    "@protobufjs/inquire": "1.1.0",
+    "@protobufjs/path": "1.1.2",
+    "@protobufjs/pool": "1.1.0",
+    "@protobufjs/utf8": "1.1.0",
+    "@panva/asn1.js": "1.0.0",
+    "@tootallnate/once": "2.0.0",
+    "@vue/compiler-core": "3.2.38",
+    "@vue/compiler-dom": "3.2.38",
+    "@vue/compiler-ssr": "3.2.38",
+    "@vue/devtools-api": "6.2.1",
+    "@vue/reactivity": "3.2.38",
+    "@protobufjs/fetch": "1.1.0",
+    "@vue/runtime-core": "3.2.38",
+    "@vue/runtime-dom": "3.2.38",
+    "@vue/shared": "3.2.38",
+    "@vue/server-renderer": "3.2.38"
+  },
+  "engines": {
+    "node": "14"
+  }
+}
+[debug] [2022-09-07T12:33:15.493Z] Building nodejs source
+[debug] [2022-09-07T12:33:15.494Z] Could not find functions.yaml. Must use http discovery
+[debug] [2022-09-07T12:33:15.508Z] Error: spawn ./node_modules/.bin/firebase-functions ENOENT
+    at Process.ChildProcess._handle.onexit (internal/child_process.js:274:19)
+    at onErrorNT (internal/child_process.js:469:16)
+    at processTicksAndRejections (internal/process/task_queues.js:82:21)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2022-09-07T12:35:54.308Z] ----------------------------------------------------------------------
+[debug] [2022-09-07T12:35:54.309Z] Command:       /Users/triandamai/.nvm/versions/node/v14.18.0/bin/node /Users/triandamai/.nvm/versions/node/v14.18.0/bin/firebase deploy
+[debug] [2022-09-07T12:35:54.310Z] CLI Version:   11.8.0
+[debug] [2022-09-07T12:35:54.310Z] Platform:      darwin
+[debug] [2022-09-07T12:35:54.310Z] Node Version:  v14.18.0
+[debug] [2022-09-07T12:35:54.315Z] Time:          Wed Sep 07 2022 19:35:54 GMT+0700 (Western Indonesia Time)
+[debug] [2022-09-07T12:35:54.315Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-09-07T12:35:54.371Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-09-07T12:35:54.372Z] > authorizing via signed-in user (triandamai@gmail.com)
+[debug] [2022-09-07T12:35:54.372Z] [iam] checking project myproject-64aac for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-09-07T12:35:54.374Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/myproject-64aac:testIamPermissions [none]
+[debug] [2022-09-07T12:35:54.375Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/myproject-64aac:testIamPermissions x-goog-quota-user=projects/myproject-64aac
+[debug] [2022-09-07T12:35:54.375Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/myproject-64aac:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-09-07T12:35:55.551Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/myproject-64aac:testIamPermissions 200
+[debug] [2022-09-07T12:35:55.551Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/myproject-64aac:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-09-07T12:35:55.552Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/myproject-64aac/serviceAccounts/myproject-64aac@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2022-09-07T12:35:55.552Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/myproject-64aac/serviceAccounts/myproject-64aac@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2022-09-07T12:35:56.656Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/myproject-64aac/serviceAccounts/myproject-64aac@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2022-09-07T12:35:56.656Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/myproject-64aac/serviceAccounts/myproject-64aac@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2022-09-07T12:35:56.658Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/myproject-64aac [none]
+[debug] [2022-09-07T12:35:57.065Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/myproject-64aac 200
+[debug] [2022-09-07T12:35:57.065Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/myproject-64aac {"projectId":"myproject-64aac","projectNumber":"264573731963","displayName":"myproject","name":"projects/myproject-64aac","resources":{"hostingSite":"myproject-64aac","realtimeDatabaseInstance":"myproject-64aac","storageBucket":"myproject-64aac.appspot.com","locationId":"asia-northeast3"},"state":"ACTIVE","etag":"1_5a74030d-a3fc-49f3-86c0-0e25c595aa6b"}
+[info] 
+[info] === Deploying to 'myproject-64aac'...
+[info] 
+[info] i  deploying functions, hosting 
+[debug] [2022-09-07T12:35:57.071Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/myproject-64aac [none]
+[debug] [2022-09-07T12:35:57.475Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/myproject-64aac 200
+[debug] [2022-09-07T12:35:57.476Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/myproject-64aac {"projectId":"myproject-64aac","projectNumber":"264573731963","displayName":"myproject","name":"projects/myproject-64aac","resources":{"hostingSite":"myproject-64aac","realtimeDatabaseInstance":"myproject-64aac","storageBucket":"myproject-64aac.appspot.com","locationId":"asia-northeast3"},"state":"ACTIVE","etag":"1_5a74030d-a3fc-49f3-86c0-0e25c595aa6b"}
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2022-09-07T12:35:57.482Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/myproject-64aac/services/cloudfunctions.googleapis.com [none]
+[debug] [2022-09-07T12:35:57.486Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/myproject-64aac/services/runtimeconfig.googleapis.com [none]
+[debug] [2022-09-07T12:35:57.488Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/myproject-64aac/services/cloudbuild.googleapis.com [none]
+[debug] [2022-09-07T12:35:57.490Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/myproject-64aac/services/artifactregistry.googleapis.com [none]
+[debug] [2022-09-07T12:35:58.913Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/myproject-64aac/services/runtimeconfig.googleapis.com 200
+[debug] [2022-09-07T12:35:58.914Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/myproject-64aac/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2022-09-07T12:35:58.915Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/myproject-64aac/services/artifactregistry.googleapis.com 200
+[debug] [2022-09-07T12:35:58.916Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/myproject-64aac/services/artifactregistry.googleapis.com [omitted]
+[info] ✔  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2022-09-07T12:35:58.919Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/myproject-64aac/services/cloudfunctions.googleapis.com 200
+[debug] [2022-09-07T12:35:58.920Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/myproject-64aac/services/cloudfunctions.googleapis.com [omitted]
+[info] ✔  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2022-09-07T12:35:58.946Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/myproject-64aac/services/cloudbuild.googleapis.com 200
+[debug] [2022-09-07T12:35:58.946Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/myproject-64aac/services/cloudbuild.googleapis.com [omitted]
+[info] ✔  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2022-09-07T12:35:58.947Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/myproject-64aac/adminSdkConfig [none]
+[debug] [2022-09-07T12:35:59.319Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/myproject-64aac/adminSdkConfig 200
+[debug] [2022-09-07T12:35:59.319Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/myproject-64aac/adminSdkConfig {"projectId":"myproject-64aac","databaseURL":"https://myproject-64aac.firebaseio.com","storageBucket":"myproject-64aac.appspot.com","locationId":"asia-northeast3"}
+[debug] [2022-09-07T12:35:59.321Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/myproject-64aac/configs [none]
+[debug] [2022-09-07T12:36:00.923Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/myproject-64aac/configs 200
+[debug] [2022-09-07T12:36:00.924Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/myproject-64aac/configs {}
+[info] i  functions: preparing codebase default for deployment 
+[debug] [2022-09-07T12:36:00.943Z] Validating nodejs source
+[debug] [2022-09-07T12:36:02.592Z] > [functions] package.json contents: {
+  "private": true,
+  "type": "module",
+  "main": "./index.mjs",
+  "dependencies": {
+    "firebase-functions-test": "latest",
+    "firebase-admin": "11.0.1",
+    "firebase-functions": "3.23.0",
+    "abort-controller": "3.0.0",
+    "agent-base": "6.0.2",
+    "arrify": "2.0.1",
+    "async-retry": "1.3.3",
+    "bail": "2.0.2",
+    "bignumber.js": "9.1.0",
+    "bluebird": "3.7.2",
+    "base64-js": "1.5.1",
+    "buffer-equal-constant-time": "1.0.1",
+    "buffer-from": "1.1.2",
+    "ccount": "2.0.1",
+    "character-entities": "2.0.2",
+    "character-entities-html4": "2.1.0",
+    "character-entities-legacy": "3.0.0",
+    "character-reference-invalid": "2.0.1",
+    "comma-separated-tokens": "2.0.2",
+    "compressible": "2.0.18",
+    "cookie-es": "0.5.0",
+    "cors": "2.8.5",
+    "csvtojson": "2.0.10",
+    "debug": "4.3.4",
+    "decode-named-character-reference": "1.0.2",
+    "defu": "6.1.0",
+    "destr": "1.1.1",
+    "detab": "3.0.1",
+    "duplexify": "4.1.2",
+    "ecdsa-sig-formatter": "1.0.11",
+    "emoticon": "4.0.1",
+    "end-of-stream": "1.4.4",
+    "ent": "2.2.0",
+    "escape-string-regexp": "5.0.0",
+    "estree-walker": "2.0.2",
+    "event-target-shim": "5.0.1",
+    "extend": "3.0.2",
+    "fast-deep-equal": "3.1.3",
+    "fast-text-encoding": "1.0.6",
+    "flat": "5.0.2",
+    "functional-red-black-tree": "1.0.1",
+    "gcp-metadata": "5.0.0",
+    "gaxios": "4.3.3",
+    "github-slugger": "1.4.0",
+    "google-auth-library": "7.14.1",
+    "google-gax": "2.30.5",
+    "google-p12-pem": "4.0.1",
+    "gtoken": "5.3.2",
+    "h3": "0.7.21",
+    "has-flag": "4.0.0",
+    "hast-to-hyperscript": "10.0.1",
+    "hast-util-from-parse5": "7.1.0",
+    "hast-util-has-property": "2.0.0",
+    "hast-util-heading-rank": "2.1.0",
+    "hast-util-is-element": "2.1.2",
+    "hast-util-parse-selector": "3.1.0",
+    "hast-util-raw": "7.2.2",
+    "hast-util-to-parse5": "7.0.0",
+    "hastscript": "7.0.2",
+    "hookable": "5.3.0",
+    "html-tags": "3.2.0",
+    "html-void-elements": "2.0.1",
+    "http-proxy-agent": "5.0.0",
+    "https-proxy-agent": "5.0.1",
+    "hast-util-to-string": "2.0.0",
+    "inherits": "2.0.4",
+    "inline-style-parser": "0.1.1",
+    "is-absolute-url": "4.0.1",
+    "is-alphabetical": "2.0.1",
+    "is-buffer": "2.0.5",
+    "is-decimal": "2.0.1",
+    "is-alphanumerical": "2.0.1",
+    "is-hexadecimal": "2.0.1",
+    "is-plain-obj": "4.1.0",
+    "is-stream": "2.0.1",
+    "is-stream-ended": "0.1.4",
+    "is-utf8": "0.2.1",
+    "jose": "2.0.6",
+    "js-yaml": "4.1.0",
+    "json-bigint": "1.0.0",
+    "jwa": "2.0.0",
+    "json5": "2.2.1",
+    "jws": "4.0.0",
+    "jsonwebtoken": "8.5.1",
+    "limiter": "1.1.5",
+    "lodash.camelcase": "4.3.0",
+    "jwks-rsa": "2.1.4",
+    "lodash.clonedeep": "4.5.0",
+    "lodash.includes": "4.3.0",
+    "lodash.isboolean": "3.0.3",
+    "lodash": "4.17.21",
+    "lodash.isnumber": "3.0.3",
+    "lodash.isplainobject": "4.0.6",
+    "lodash.isstring": "4.0.1",
+    "lodash.once": "4.1.1",
+    "lodash.isinteger": "4.0.4",
+    "lru-cache": "4.0.2",
+    "long": "4.0.0",
+    "lru-memoizer": "2.1.4",
+    "mdast-squeeze-paragraphs": "5.2.0",
+    "mdast-util-definitions": "5.1.1",
+    "markdown-table": "3.0.2",
+    "mdast-util-find-and-replace": "2.2.1",
+    "mdast-util-gfm": "2.0.1",
+    "mdast-util-from-markdown": "1.2.0",
+    "mdast-util-gfm-autolink-literal": "1.0.2",
+    "mdast-util-gfm-footnote": "1.0.1",
+    "mdast-util-gfm-strikethrough": "1.0.1",
+    "mdast-util-gfm-table": "1.0.4",
+    "mdast-util-gfm-task-list-item": "1.0.1",
+    "mdast-util-to-hast": "12.2.1",
+    "mdast-util-to-markdown": "1.3.0",
+    "mdast-util-to-string": "3.1.0",
+    "mdurl": "1.0.1",
+    "micromark": "3.0.10",
+    "micromark-core-commonmark": "1.0.6",
+    "micromark-extension-gfm": "2.0.1",
+    "micromark-extension-gfm-autolink-literal": "1.0.3",
+    "micromark-extension-gfm-footnote": "1.0.4",
+    "micromark-extension-gfm-strikethrough": "1.0.4",
+    "micromark-extension-gfm-tagfilter": "1.0.1",
+    "micromark-factory-destination": "1.0.0",
+    "micromark-factory-label": "1.0.2",
+    "micromark-extension-gfm-table": "1.0.5",
+    "micromark-extension-gfm-task-list-item": "1.0.3",
+    "micromark-factory-title": "1.0.2",
+    "micromark-factory-space": "1.0.0",
+    "micromark-util-character": "1.1.0",
+    "micromark-factory-whitespace": "1.0.0",
+    "micromark-util-classify-character": "1.0.0",
+    "micromark-util-combine-extensions": "1.0.0",
+    "micromark-util-chunked": "1.0.0",
+    "micromark-util-decode-numeric-character-reference": "1.0.0",
+    "micromark-util-decode-string": "1.0.2",
+    "micromark-util-encode": "1.0.1",
+    "micromark-util-html-tag-name": "1.1.0",
+    "micromark-util-normalize-identifier": "1.0.0",
+    "micromark-util-sanitize-uri": "1.0.0",
+    "micromark-util-subtokenize": "1.0.2",
+    "mime": "3.0.0",
+    "micromark-util-resolve-all": "1.0.0",
+    "mime-db": "1.52.0",
+    "mime-types": "2.1.35",
+    "ms": "2.1.2",
+    "node-fetch": "2.6.7",
+    "node-emoji": "1.11.0",
+    "object-assign": "4.1.1",
+    "node-fetch-native": "0.1.4",
+    "node-forge": "1.3.1",
+    "ohash": "0.1.5",
+    "object-hash": "3.0.0",
+    "ohmyfetch": "0.4.18",
+    "once": "1.4.0",
+    "p-limit": "3.1.0",
+    "parse-entities": "4.0.0",
+    "parse5": "6.0.1",
+    "pathe": "0.3.7",
+    "property-information": "6.1.1",
+    "proto3-json-serializer": "0.1.9",
+    "protobufjs": "7.1.0",
+    "pseudomap": "1.0.2",
+    "radix3": "0.1.2",
+    "rehype-external-links": "1.0.1",
+    "readable-stream": "3.6.0",
+    "rehype-raw": "6.1.1",
+    "rehype-slug": "5.0.1",
+    "rehype-sort-attribute-values": "4.0.0",
+    "rehype-sort-attributes": "4.0.0",
+    "remark-emoji": "3.0.2",
+    "remark-gfm": "3.0.1",
+    "remark-parse": "10.0.1",
+    "remark-squeeze-paragraphs": "5.0.1",
+    "remark-rehype": "10.1.0",
+    "retry": "0.13.1",
+    "retry-request": "5.0.1",
+    "safe-buffer": "5.2.1",
+    "scule": "0.3.2",
+    "semver": "5.7.1",
+    "shiki-es": "0.1.2",
+    "slugify": "1.6.5",
+    "source-map": "0.6.1",
+    "source-map-support": "0.5.21",
+    "space-separated-tokens": "2.0.1",
+    "stream-events": "1.0.5",
+    "stream-shift": "1.0.1",
+    "string_decoder": "1.3.0",
+    "stringify-entities": "4.0.3",
+    "strip-bom": "2.0.0",
+    "stubs": "3.0.0",
+    "style-to-object": "0.3.0",
+    "supports-color": "7.2.0",
+    "teeny-request": "8.0.1",
+    "text-decoding": "1.0.0",
+    "tr46": "0.0.3",
+    "trim-lines": "3.0.1",
+    "trough": "2.1.0",
+    "tslib": "2.4.0",
+    "ufo": "0.8.5",
+    "unctx": "2.0.2",
+    "unenv": "0.6.2",
+    "unified": "10.1.2",
+    "unist-builder": "3.0.0",
+    "unist-util-generated": "2.0.0",
+    "unist-util-is": "5.1.1",
+    "unist-util-position": "4.0.3",
+    "unist-util-remove": "3.1.0",
+    "unist-util-stringify-position": "3.0.2",
+    "unist-util-visit": "4.1.1",
+    "unist-util-visit-parents": "5.1.1",
+    "unstorage": "0.4.2",
+    "util-deprecate": "1.0.2",
+    "uuid": "8.3.2",
+    "vfile": "5.3.4",
+    "vary": "1.1.2",
+    "vfile-message": "3.1.2",
+    "vue": "3.2.38",
+    "vfile-location": "4.0.1",
+    "vue-router": "4.1.5",
+    "web-namespaces": "2.0.1",
+    "webidl-conversions": "3.0.1",
+    "vue-bundle-renderer": "0.4.2",
+    "whatwg-url": "5.0.0",
+    "wrappy": "1.0.2",
+    "yallist": "2.1.2",
+    "yocto-queue": "0.1.0",
+    "@babel/parser": "7.19.0",
+    "@fastify/busboy": "1.1.0",
+    "zwitch": "2.0.2",
+    "@grpc/grpc-js": "1.6.12",
+    "@grpc/proto-loader": "0.6.13",
+    "@firebase/component": "0.5.17",
+    "@firebase/database-compat": "0.2.6",
+    "@firebase/logger": "0.3.3",
+    "@firebase/util": "1.6.3",
+    "@google-cloud/firestore": "5.0.2",
+    "@google-cloud/paginator": "3.0.7",
+    "@google-cloud/projectify": "3.0.0",
+    "@google-cloud/promisify": "3.0.0",
+    "@protobufjs/aspromise": "1.1.2",
+    "@google-cloud/storage": "6.4.2",
+    "@protobufjs/base64": "1.1.2",
+    "@protobufjs/codegen": "2.0.4",
+    "@protobufjs/eventemitter": "1.1.0",
+    "@protobufjs/float": "1.0.2",
+    "@protobufjs/inquire": "1.1.0",
+    "@protobufjs/path": "1.1.2",
+    "@protobufjs/pool": "1.1.0",
+    "@protobufjs/utf8": "1.1.0",
+    "@panva/asn1.js": "1.0.0",
+    "@tootallnate/once": "2.0.0",
+    "@vue/compiler-core": "3.2.38",
+    "@vue/compiler-dom": "3.2.38",
+    "@vue/compiler-ssr": "3.2.38",
+    "@vue/devtools-api": "6.2.1",
+    "@vue/reactivity": "3.2.38",
+    "@protobufjs/fetch": "1.1.0",
+    "@vue/runtime-core": "3.2.38",
+    "@vue/runtime-dom": "3.2.38",
+    "@vue/shared": "3.2.38",
+    "@vue/server-renderer": "3.2.38"
+  },
+  "engines": {
+    "node": "14"
+  }
+}
+[debug] [2022-09-07T12:36:02.592Z] Building nodejs source
+[debug] [2022-09-07T12:36:02.594Z] Could not find functions.yaml. Must use http discovery
+[debug] [2022-09-07T12:36:02.610Z] Error: spawn ./node_modules/.bin/firebase-functions ENOENT
+    at Process.ChildProcess._handle.onexit (internal/child_process.js:274:19)
+    at onErrorNT (internal/child_process.js:469:16)
+    at processTicksAndRejections (internal/process/task_queues.js:82:21)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2022-09-07T12:42:55.492Z] ----------------------------------------------------------------------
+[debug] [2022-09-07T12:42:55.493Z] Command:       /Users/triandamai/.nvm/versions/node/v14.18.0/bin/node /Users/triandamai/.nvm/versions/node/v14.18.0/bin/firebase deploy
+[debug] [2022-09-07T12:42:55.494Z] CLI Version:   11.8.0
+[debug] [2022-09-07T12:42:55.494Z] Platform:      darwin
+[debug] [2022-09-07T12:42:55.494Z] Node Version:  v14.18.0
+[debug] [2022-09-07T12:42:55.495Z] Time:          Wed Sep 07 2022 19:42:55 GMT+0700 (Western Indonesia Time)
+[debug] [2022-09-07T12:42:55.495Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-09-07T12:42:55.548Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-09-07T12:42:55.549Z] > authorizing via signed-in user (triandamai@gmail.com)
+[debug] [2022-09-07T12:42:55.549Z] [iam] checking project myproject-64aac for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-09-07T12:42:55.551Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/myproject-64aac:testIamPermissions [none]
+[debug] [2022-09-07T12:42:55.551Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/myproject-64aac:testIamPermissions x-goog-quota-user=projects/myproject-64aac
+[debug] [2022-09-07T12:42:55.551Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/myproject-64aac:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-09-07T12:42:56.820Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/myproject-64aac:testIamPermissions 200
+[debug] [2022-09-07T12:42:56.821Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/myproject-64aac:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-09-07T12:42:56.824Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/myproject-64aac/serviceAccounts/myproject-64aac@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2022-09-07T12:42:56.824Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/myproject-64aac/serviceAccounts/myproject-64aac@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2022-09-07T12:42:58.229Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/myproject-64aac/serviceAccounts/myproject-64aac@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2022-09-07T12:42:58.230Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/myproject-64aac/serviceAccounts/myproject-64aac@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2022-09-07T12:42:58.233Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/myproject-64aac [none]
+[debug] [2022-09-07T12:42:58.586Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/myproject-64aac 200
+[debug] [2022-09-07T12:42:58.587Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/myproject-64aac {"projectId":"myproject-64aac","projectNumber":"264573731963","displayName":"myproject","name":"projects/myproject-64aac","resources":{"hostingSite":"myproject-64aac","realtimeDatabaseInstance":"myproject-64aac","storageBucket":"myproject-64aac.appspot.com","locationId":"asia-northeast3"},"state":"ACTIVE","etag":"1_5a74030d-a3fc-49f3-86c0-0e25c595aa6b"}
+[info] 
+[info] === Deploying to 'myproject-64aac'...
+[info] 
+[info] i  deploying functions, hosting 
+[debug] [2022-09-07T12:42:58.593Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/myproject-64aac [none]
+[debug] [2022-09-07T12:42:58.895Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/myproject-64aac 200
+[debug] [2022-09-07T12:42:58.896Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/myproject-64aac {"projectId":"myproject-64aac","projectNumber":"264573731963","displayName":"myproject","name":"projects/myproject-64aac","resources":{"hostingSite":"myproject-64aac","realtimeDatabaseInstance":"myproject-64aac","storageBucket":"myproject-64aac.appspot.com","locationId":"asia-northeast3"},"state":"ACTIVE","etag":"1_5a74030d-a3fc-49f3-86c0-0e25c595aa6b"}
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2022-09-07T12:42:58.900Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/myproject-64aac/services/cloudfunctions.googleapis.com [none]
+[debug] [2022-09-07T12:42:58.902Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/myproject-64aac/services/runtimeconfig.googleapis.com [none]
+[debug] [2022-09-07T12:42:58.903Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/myproject-64aac/services/cloudbuild.googleapis.com [none]
+[debug] [2022-09-07T12:42:58.904Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/myproject-64aac/services/artifactregistry.googleapis.com [none]
+[debug] [2022-09-07T12:43:00.395Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/myproject-64aac/services/artifactregistry.googleapis.com 200
+[debug] [2022-09-07T12:43:00.395Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/myproject-64aac/services/artifactregistry.googleapis.com [omitted]
+[info] ✔  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2022-09-07T12:43:00.399Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/myproject-64aac/services/cloudfunctions.googleapis.com 200
+[debug] [2022-09-07T12:43:00.399Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/myproject-64aac/services/cloudfunctions.googleapis.com [omitted]
+[info] ✔  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2022-09-07T12:43:00.401Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/myproject-64aac/services/cloudbuild.googleapis.com 200
+[debug] [2022-09-07T12:43:00.401Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/myproject-64aac/services/cloudbuild.googleapis.com [omitted]
+[info] ✔  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2022-09-07T12:43:00.421Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/myproject-64aac/services/runtimeconfig.googleapis.com 200
+[debug] [2022-09-07T12:43:00.421Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/myproject-64aac/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2022-09-07T12:43:00.422Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/myproject-64aac/adminSdkConfig [none]
+[debug] [2022-09-07T12:43:00.745Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/myproject-64aac/adminSdkConfig 200
+[debug] [2022-09-07T12:43:00.746Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/myproject-64aac/adminSdkConfig {"projectId":"myproject-64aac","databaseURL":"https://myproject-64aac.firebaseio.com","storageBucket":"myproject-64aac.appspot.com","locationId":"asia-northeast3"}
+[debug] [2022-09-07T12:43:00.747Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/myproject-64aac/configs [none]
+[debug] [2022-09-07T12:43:01.411Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/myproject-64aac/configs 200
+[debug] [2022-09-07T12:43:01.411Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/myproject-64aac/configs {}
+[info] i  functions: preparing codebase default for deployment 
+[debug] [2022-09-07T12:43:01.429Z] Validating nodejs source
+[debug] [2022-09-07T12:43:02.934Z] > [functions] package.json contents: {
+  "private": true,
+  "type": "module",
+  "main": "./index.mjs",
+  "dependencies": {
+    "firebase-functions-test": "latest",
+    "firebase-admin": "11.0.1",
+    "firebase-functions": "3.23.0",
+    "abort-controller": "3.0.0",
+    "agent-base": "6.0.2",
+    "arrify": "2.0.1",
+    "async-retry": "1.3.3",
+    "bail": "2.0.2",
+    "base64-js": "1.5.1",
+    "bignumber.js": "9.1.0",
+    "bluebird": "3.7.2",
+    "buffer-equal-constant-time": "1.0.1",
+    "buffer-from": "1.1.2",
+    "ccount": "2.0.1",
+    "character-entities": "2.0.2",
+    "character-entities-html4": "2.1.0",
+    "character-entities-legacy": "3.0.0",
+    "character-reference-invalid": "2.0.1",
+    "comma-separated-tokens": "2.0.2",
+    "compressible": "2.0.18",
+    "cookie-es": "0.5.0",
+    "csvtojson": "2.0.10",
+    "debug": "4.3.4",
+    "decode-named-character-reference": "1.0.2",
+    "cors": "2.8.5",
+    "destr": "1.1.1",
+    "detab": "3.0.1",
+    "defu": "6.1.0",
+    "duplexify": "4.1.2",
+    "ecdsa-sig-formatter": "1.0.11",
+    "emoticon": "4.0.1",
+    "end-of-stream": "1.4.4",
+    "ent": "2.2.0",
+    "escape-string-regexp": "5.0.0",
+    "estree-walker": "2.0.2",
+    "event-target-shim": "5.0.1",
+    "extend": "3.0.2",
+    "fast-deep-equal": "3.1.3",
+    "fast-text-encoding": "1.0.6",
+    "flat": "5.0.2",
+    "functional-red-black-tree": "1.0.1",
+    "gaxios": "4.3.3",
+    "gcp-metadata": "4.3.1",
+    "github-slugger": "1.4.0",
+    "google-auth-library": "7.14.1",
+    "google-gax": "2.30.5",
+    "google-p12-pem": "3.1.4",
+    "gtoken": "5.3.2",
+    "h3": "0.7.21",
+    "has-flag": "4.0.0",
+    "hast-to-hyperscript": "10.0.1",
+    "hast-util-from-parse5": "7.1.0",
+    "hast-util-has-property": "2.0.0",
+    "hast-util-heading-rank": "2.1.0",
+    "hast-util-is-element": "2.1.2",
+    "hast-util-parse-selector": "3.1.0",
+    "hast-util-raw": "7.2.2",
+    "hast-util-to-parse5": "7.0.0",
+    "hast-util-to-string": "2.0.0",
+    "hastscript": "7.0.2",
+    "hookable": "5.3.0",
+    "html-tags": "3.2.0",
+    "html-void-elements": "2.0.1",
+    "http-proxy-agent": "5.0.0",
+    "https-proxy-agent": "5.0.1",
+    "inherits": "2.0.4",
+    "inline-style-parser": "0.1.1",
+    "is-absolute-url": "4.0.1",
+    "is-alphabetical": "2.0.1",
+    "is-alphanumerical": "2.0.1",
+    "is-buffer": "2.0.5",
+    "is-decimal": "2.0.1",
+    "is-hexadecimal": "2.0.1",
+    "is-plain-obj": "4.1.0",
+    "is-stream": "2.0.1",
+    "is-stream-ended": "0.1.4",
+    "is-utf8": "0.2.1",
+    "jose": "2.0.6",
+    "js-yaml": "4.1.0",
+    "json-bigint": "1.0.0",
+    "json5": "2.2.1",
+    "jsonwebtoken": "8.5.1",
+    "jwa": "2.0.0",
+    "jwks-rsa": "2.1.4",
+    "jws": "4.0.0",
+    "limiter": "1.1.5",
+    "lodash": "4.17.21",
+    "lodash.includes": "4.3.0",
+    "lodash.clonedeep": "4.5.0",
+    "lodash.camelcase": "4.3.0",
+    "lodash.isnumber": "3.0.3",
+    "lodash.isboolean": "3.0.3",
+    "lodash.isinteger": "4.0.4",
+    "lodash.isplainobject": "4.0.6",
+    "lodash.isstring": "4.0.1",
+    "lodash.once": "4.1.1",
+    "long": "4.0.0",
+    "lru-cache": "4.0.2",
+    "lru-memoizer": "2.1.4",
+    "markdown-table": "3.0.2",
+    "mdast-squeeze-paragraphs": "5.2.0",
+    "mdast-util-definitions": "5.1.1",
+    "mdast-util-find-and-replace": "2.2.1",
+    "mdast-util-from-markdown": "1.2.0",
+    "mdast-util-gfm": "2.0.1",
+    "mdast-util-gfm-autolink-literal": "1.0.2",
+    "mdast-util-gfm-footnote": "1.0.1",
+    "mdast-util-gfm-strikethrough": "1.0.1",
+    "mdast-util-gfm-table": "1.0.4",
+    "mdast-util-gfm-task-list-item": "1.0.1",
+    "mdast-util-to-hast": "12.2.1",
+    "mdast-util-to-markdown": "1.3.0",
+    "mdast-util-to-string": "3.1.0",
+    "mdurl": "1.0.1",
+    "micromark": "3.0.10",
+    "micromark-core-commonmark": "1.0.6",
+    "micromark-extension-gfm": "2.0.1",
+    "micromark-extension-gfm-autolink-literal": "1.0.3",
+    "micromark-extension-gfm-footnote": "1.0.4",
+    "micromark-extension-gfm-strikethrough": "1.0.4",
+    "micromark-extension-gfm-table": "1.0.5",
+    "micromark-extension-gfm-tagfilter": "1.0.1",
+    "micromark-extension-gfm-task-list-item": "1.0.3",
+    "micromark-factory-destination": "1.0.0",
+    "micromark-factory-label": "1.0.2",
+    "micromark-factory-space": "1.0.0",
+    "micromark-factory-title": "1.0.2",
+    "micromark-factory-whitespace": "1.0.0",
+    "micromark-util-character": "1.1.0",
+    "micromark-util-chunked": "1.0.0",
+    "micromark-util-classify-character": "1.0.0",
+    "micromark-util-combine-extensions": "1.0.0",
+    "micromark-util-decode-numeric-character-reference": "1.0.0",
+    "micromark-util-decode-string": "1.0.2",
+    "micromark-util-encode": "1.0.1",
+    "micromark-util-html-tag-name": "1.1.0",
+    "micromark-util-normalize-identifier": "1.0.0",
+    "micromark-util-resolve-all": "1.0.0",
+    "micromark-util-sanitize-uri": "1.0.0",
+    "micromark-util-subtokenize": "1.0.2",
+    "mime": "3.0.0",
+    "mime-db": "1.52.0",
+    "mime-types": "2.1.35",
+    "ms": "2.1.2",
+    "node-emoji": "1.11.0",
+    "node-fetch": "2.6.7",
+    "node-fetch-native": "0.1.4",
+    "node-forge": "1.3.1",
+    "object-assign": "4.1.1",
+    "object-hash": "3.0.0",
+    "ohash": "0.1.5",
+    "ohmyfetch": "0.4.18",
+    "once": "1.4.0",
+    "p-limit": "3.1.0",
+    "parse-entities": "4.0.0",
+    "parse5": "6.0.1",
+    "pathe": "0.3.7",
+    "property-information": "6.1.1",
+    "proto3-json-serializer": "0.1.9",
+    "protobufjs": "7.1.0",
+    "pseudomap": "1.0.2",
+    "radix3": "0.1.2",
+    "readable-stream": "3.6.0",
+    "rehype-external-links": "1.0.1",
+    "rehype-raw": "6.1.1",
+    "rehype-slug": "5.0.1",
+    "rehype-sort-attribute-values": "4.0.0",
+    "rehype-sort-attributes": "4.0.0",
+    "remark-emoji": "3.0.2",
+    "remark-gfm": "3.0.1",
+    "remark-parse": "10.0.1",
+    "remark-rehype": "10.1.0",
+    "remark-squeeze-paragraphs": "5.0.1",
+    "retry": "0.13.1",
+    "retry-request": "5.0.1",
+    "safe-buffer": "5.2.1",
+    "scule": "0.3.2",
+    "semver": "5.7.1",
+    "shiki-es": "0.1.2",
+    "slugify": "1.6.5",
+    "source-map": "0.6.1",
+    "source-map-support": "0.5.21",
+    "space-separated-tokens": "2.0.1",
+    "stream-events": "1.0.5",
+    "stream-shift": "1.0.1",
+    "string_decoder": "1.3.0",
+    "stringify-entities": "4.0.3",
+    "strip-bom": "2.0.0",
+    "stubs": "3.0.0",
+    "style-to-object": "0.3.0",
+    "supports-color": "7.2.0",
+    "teeny-request": "8.0.1",
+    "text-decoding": "1.0.0",
+    "tr46": "0.0.3",
+    "trim-lines": "3.0.1",
+    "trough": "2.1.0",
+    "tslib": "2.4.0",
+    "ufo": "0.8.5",
+    "unctx": "2.0.2",
+    "unenv": "0.6.2",
+    "unified": "10.1.2",
+    "unist-builder": "3.0.0",
+    "unist-util-generated": "2.0.0",
+    "unist-util-is": "5.1.1",
+    "unist-util-position": "4.0.3",
+    "unist-util-remove": "3.1.0",
+    "unist-util-stringify-position": "3.0.2",
+    "unist-util-visit": "4.1.1",
+    "unist-util-visit-parents": "5.1.1",
+    "unstorage": "0.4.2",
+    "util-deprecate": "1.0.2",
+    "uuid": "8.3.2",
+    "vary": "1.1.2",
+    "vfile": "5.3.4",
+    "vfile-location": "4.0.1",
+    "vfile-message": "3.1.2",
+    "vue": "3.2.38",
+    "vue-bundle-renderer": "0.4.2",
+    "vue-router": "4.1.5",
+    "web-namespaces": "2.0.1",
+    "webidl-conversions": "3.0.1",
+    "whatwg-url": "5.0.0",
+    "wrappy": "1.0.2",
+    "yallist": "2.1.2",
+    "yocto-queue": "0.1.0",
+    "zwitch": "2.0.2",
+    "@babel/parser": "7.19.0",
+    "@firebase/component": "0.5.17",
+    "@firebase/database-compat": "0.2.6",
+    "@firebase/logger": "0.3.3",
+    "@firebase/util": "1.6.3",
+    "@fastify/busboy": "1.1.0",
+    "@google-cloud/firestore": "5.0.2",
+    "@google-cloud/paginator": "3.0.7",
+    "@google-cloud/projectify": "3.0.0",
+    "@google-cloud/promisify": "3.0.0",
+    "@google-cloud/storage": "6.4.2",
+    "@grpc/grpc-js": "1.6.12",
+    "@grpc/proto-loader": "0.6.13",
+    "@protobufjs/aspromise": "1.1.2",
+    "@protobufjs/base64": "1.1.2",
+    "@protobufjs/codegen": "2.0.4",
+    "@protobufjs/eventemitter": "1.1.0",
+    "@protobufjs/fetch": "1.1.0",
+    "@protobufjs/float": "1.0.2",
+    "@protobufjs/inquire": "1.1.0",
+    "@protobufjs/path": "1.1.2",
+    "@protobufjs/pool": "1.1.0",
+    "@protobufjs/utf8": "1.1.0",
+    "@panva/asn1.js": "1.0.0",
+    "@tootallnate/once": "2.0.0",
+    "@vue/compiler-core": "3.2.38",
+    "@vue/compiler-dom": "3.2.38",
+    "@vue/compiler-ssr": "3.2.38",
+    "@vue/devtools-api": "6.2.1",
+    "@vue/reactivity": "3.2.38",
+    "@vue/runtime-core": "3.2.38",
+    "@vue/runtime-dom": "3.2.38",
+    "@vue/server-renderer": "3.2.38",
+    "@vue/shared": "3.2.38"
+  },
+  "engines": {
+    "node": "14"
+  }
+}
+[debug] [2022-09-07T12:43:02.934Z] Building nodejs source
+[debug] [2022-09-07T12:43:02.936Z] Could not find functions.yaml. Must use http discovery
+[debug] [2022-09-07T12:43:02.952Z] Error: spawn ./node_modules/.bin/firebase-functions ENOENT
+    at Process.ChildProcess._handle.onexit (internal/child_process.js:274:19)
+    at onErrorNT (internal/child_process.js:469:16)
+    at processTicksAndRejections (internal/process/task_queues.js:82:21)
+[error] 
+[error] Error: An unexpected error has occurred.
