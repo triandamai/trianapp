@@ -1,9 +1,7 @@
 <script setup lang="ts">
     const route = useRoute()
-    const { data ,pending,refresh } = await useAsyncData('blogs', () => queryContent('blogs').where({slug:route.params.slug}).findOne())
-    onMounted(()=>{
-        refresh()
-    })
+    const data  = await queryContent('blogs').where({slug:route.params.slug}).findOne()
+  
 
 </script>
 <template>
