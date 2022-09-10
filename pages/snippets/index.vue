@@ -1,7 +1,7 @@
 <template>
   <SectionContent title="Blogs">
     <ItemBlog v-for="(item,index) in data" :date="item.publishedAt" :title="item.title" :key="item.slug"
-      :description="item.description" :tags="item.tags" :path="'/blogs/'+item.slug" />
+      :description="item.description" :tags="item.tags" :path="'/snippets/'+item.slug" />
   </SectionContent>
 </template>
 <script>
@@ -15,7 +15,7 @@ export default {
     }
   },
   async asyncData(ctx) {
-    const data = await ctx.$content('blogs')
+    const data = await ctx.$content('snippets')
       .only([
         'title', 'description', 'slug', 'createdAt', 'updatedAt', 'tags'
       ])

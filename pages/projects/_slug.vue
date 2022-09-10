@@ -20,16 +20,13 @@ import Prism from "prismjs"
 export default {
   mounted(){
     Prism.highlightAll()
-
-
   },
   async asyncData({ $content, params }) {
-    const data = await $content('blogs').where({
+    const data = await $content('projects').where({
       slug:params.slug
     }).fetch()
 
     return { data }
   },
- 
 }
 </script>
