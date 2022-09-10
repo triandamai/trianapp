@@ -7,7 +7,7 @@
             <TitleBlog :title="data.title" :tags="data.tags" :description="data.description" :date="data.date" />
             <hr class="my-12 border-gray-200">
             <div>
-              <nuxt-content :document="data" class="prose" />
+              <nuxt-content v-if="data.length > 0" :document="data[0]" class="prose" />
             </div>
           </div>
         </div>
@@ -16,9 +16,15 @@
   </SectionContent>
 </template>
 <script>
+import Prism from "prismjs"
 export default {
+  mounted(){
+    Prism.highlightAll()
+  },
   async asyncData({ $content, params }) {
-    const data = await $content('projects', params.slug).fetch()
+    const data = await $content('projects').where({
+      slug:params.slug
+    }).fetch()
 
     return { data }
   },

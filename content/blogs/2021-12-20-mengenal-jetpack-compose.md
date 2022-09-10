@@ -22,7 +22,7 @@ Jetpack compose adalah ui toolkit terbaru dari google yang menggunakan pendakata
 Salah satu perbedaan yang paling mencolok antara jetpack compose dengan xml adalah untuk membuat UI tidak perlu menggunakan xml melainkan kita akan menggukana kotlin secara keseluruhan mulai dari typography,color
 Untuk membuat UI kita cukup menggunakan `composable` function:<br>
 
-```kotlin
+```kotlin{1,2}[component.kt]
 @Composable
 fun Composable() {
     Text("Halo Dunia!")

@@ -36,8 +36,8 @@ export default {
             default: "2022-09-07"
         },
         tags: {
-            type: [],
-            default: []
+            type: Array,
+            default: (()=>[])
         },
 
     },

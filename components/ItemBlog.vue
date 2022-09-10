@@ -46,8 +46,8 @@ export default {
             default: "default description"
         },
         tags: {
-            type: [],
-            default: []
+            type: Array,
+            default: (()=>[])
         },
         date: {
             type: String,
