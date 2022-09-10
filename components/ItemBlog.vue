@@ -1,29 +1,3 @@
-<script setup lang="ts">
-const { formatDate } = useDate()
-defineProps({
-    title: {
-        type: String,
-        default: "default title"
-    },
-    description: {
-        type: String,
-        default: "default description"
-    },
-    tags: {
-        type: Array<String>,
-        default: []
-    },
-    date: {
-        type: String,
-        default: "2022-09-07"
-    },
-    path: {
-        type: String
-    }
-
-})
-
-</script>
 <template>
     <article aria-labelledby="episode-5-title" class="py-10 sm:py-12">
         <div class="lg:px-8">
@@ -60,3 +34,38 @@ defineProps({
         </div>
     </article>
 </template>
+<script>
+
+    export default{
+        props:{
+            title: {
+                type: String,
+            default: "default title"
+    },
+    description: {
+        type: String,
+        default: "default description"
+    },
+    tags: {
+        type: [],
+        default: []
+    },
+    date: {
+        type: String,
+        default: "2022-09-07"
+    },
+    path: {
+        type: String
+    }
+
+},
+methods:{
+    formatDate(date) {
+        return new Date(date).toString()
+    }
+}
+    }
+
+
+
+</script>
