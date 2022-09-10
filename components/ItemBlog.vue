@@ -1,80 +1,62 @@
-<template>
-  <li key="slug" class="py-12 list-none">
-    <article>
-      <div class="space-y-2 xl:grid xl:grid-cols-4 xl:space-y-0 xl:items-baseline">
-        <dl>
-          <dt class="sr-only">Published on</dt>
-          <dd class="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-            <time :datetime="article.createdAt">{{getDate(article.createdAt)}}</time>
-          </dd>
-        </dl>
-        <div class="space-y-5 xl:col-span-3">
-          <div class="space-y-6">
-            <div>
-              <h2 class="text-2xl font-bold leading-8 tracking-tight">
-                <nuxt-link
-                     :to="'article/'+article.slug"
-                    class="text-gray-900 dark:text-gray-100"
-                    :aria-label="'Learn More About'+article.slug"
-                >
-                  {{article.title}}
-                </nuxt-link>
-              </h2>
-              <div class="flex flex-wrap">
-                
-                <span v-for="(item,index) in article.tags" :key="index">
-                  <ItemTag :tag="item" />
-                </span>
-
-              </div>
-            </div>
-            <div class="prose text-gray-500 max-w-none dark:text-gray-400">
-              {{article.description}}
-            </div>
-          </div>
-          <div class="text-base font-medium leading-6">
-            <nuxt-link
-                :to="'article/'+article.slug"
-                class="
-                inline-flex
-                items-center
-                hover:underline
-                leading-5
-                py-2
-                  text-green-500
-                  hover:text-yellow-600
-                  dark:hover:text-yellow-400"
-
-                 :aria-label="'Learn More About'+article.slug"
-            >
-
-                Read more
-
-              <svg xmlns="http://www.w3.org/2000/svg" class="inline-block pl-2 h-6 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </nuxt-link>
-          </div>
-        </div>
-      </div>
-    </article>
-  </li>
-</template>
-<script>
-export default {
-  props:{
-    article:Object
-  },
-  data:()=>({
-
-  }),
-  methods:{
-    getDate(date){
-      console.log(date)
-      return new Date(date).toLocaleString('en-US',
-      { year: 'numeric', month: 'long', day: 'numeric' }
-      )
+<script setup lang="ts">
+const { formatDate } = useDate()
+defineProps({
+    title: {
+        type: String,
+        default: "default title"
+    },
+    description: {
+        type: String,
+        default: "default description"
+    },
+    tags: {
+        type: Array<String>,
+        default: []
+    },
+    date: {
+        type: String,
+        default: "2022-09-07"
+    },
+    path: {
+        type: String
     }
-  }
-}
+
+})
+
 </script>
+<template>
+    <article aria-labelledby="episode-5-title" class="py-10 sm:py-12">
+        <div class="lg:px-8">
+            <div class="lg:max-w-4xl">
+                <div class="mx-auto px-4 sm:px-6 md:max-w-2xl md:px-4 lg:px-0">
+                    <div class="flex flex-col items-start">
+                        <h2 id="episode-5-title" class="mt-2 text-lg font-bold text-slate-900">
+                            <nuxt-link :to="path">{{title}}</nuxt-link>
+                        </h2>
+                        <time datetime="2022-02-24T00:00:00.000Z"
+                            class="order-first font-mono text-sm leading-7 text-slate-500">{{formatDate(date)}}</time>
+                        <p class="mt-1 text-base leading-7 text-slate-700">{{description}}.</p>
+                        <div class="mt-4 flex items-center gap-4">
+                            <nuxt-link :to="path"
+                                class="flex items-center 
+                                text-sm font-bold leading-6 text-pink-500 hover:text-pink-700 active:text-pink-900"
+                                :aria-label="'Read more about' +title"><svg aria-hidden="true" viewBox="0 0 10 10"
+                                    fill="none" class="h-2.5 w-2.5 fill-current">
+                                    <path
+                                        d="M8.25 4.567a.5.5 0 0 1 0 .866l-7.5 4.33A.5.5 0 0 1 0 9.33V.67A.5.5 0 0 1 .75.237l7.5 4.33Z">
+                                    </path>
+                                </svg><span class="ml-3" aria-hidden="true">Read More</span>
+                            </nuxt-link>
+                            <span aria-hidden="true" class="text-sm font-bold text-slate-400">/
+
+                            </span>
+                            <a v-for="(item,index) in tags" :key="index"
+                                class="flex items-center text-sm font-bold leading-6 text-pink-500 hover:text-pink-700 active:text-pink-900"
+                                aria-label="Tags">#{{item}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</template>
