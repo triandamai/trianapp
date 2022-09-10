@@ -26,6 +26,7 @@
                     </svg><span class="ml-2.5">Made by</span></h2>
                 <div class="mt-2 flex gap-6 text-sm font-bold leading-7 text-slate-900">Trian Damai</div>
             </div>
+            <!-- <div class="fixed inset-x-0 bottom-0 z-10 lg:left-112 xl:left-120"></div><audio></audio> -->
         </footer>
-        <div class="fixed inset-x-0 bottom-0 z-10 lg:left-112 xl:left-120"></div><audio></audio>
+        
 </template>
