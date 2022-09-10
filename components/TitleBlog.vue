@@ -14,32 +14,37 @@
             <div class="flex flex-col">
                 <h1 class="mt-2 text-4xl font-bold text-slate-900"> {{title}}</h1>
                 <time :datetime="date"
-                    class="order-first font-mono text-sm leading-7 text-slate-500">{{date}}</time>
+                    class="order-first font-mono text-sm leading-7 text-slate-500">{{formatDate(date)}}</time>
             </div>
         </div>
         <p class="ml-24 mt-3 text-lg font-medium leading-8 text-slate-700">{{description}}.</p>
     </header>
 </template>
 <script>
-    export default{
-        props:{
-    title: {
-        type: String,
-        default: "default title"
-    },
-    description: {
-        type: String,
-        default: "default description"
-    },
-    date: {
-        type: String,
-        default: "2022-09-07"
-    },
-    tags: {
-        type: [],
-        default: []
-    },
+export default {
+    props: {
+        title: {
+            type: String,
+            default: "default title"
+        },
+        description: {
+            type: String,
+            default: "default description"
+        },
+        date: {
+            type: String,
+            default: "2022-09-07"
+        },
+        tags: {
+            type: [],
+            default: []
+        },
 
-}
+    },
+    methods: {
+        formatDate(date) {
+            return new Date(date).toString()
+        }
     }
+}
 </script>

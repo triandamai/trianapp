@@ -11,8 +11,7 @@
                             class="order-first font-mono text-sm leading-7 text-slate-500">{{formatDate(date)}}</time>
                         <p class="mt-1 text-base leading-7 text-slate-700">{{description}}.</p>
                         <div class="mt-4 flex items-center gap-4">
-                            <nuxt-link :to="path"
-                                class="flex items-center 
+                            <nuxt-link :to="path" class="flex items-center 
                                 text-sm font-bold leading-6 text-pink-500 hover:text-pink-700 active:text-pink-900"
                                 :aria-label="'Read more about' +title"><svg aria-hidden="true" viewBox="0 0 10 10"
                                     fill="none" class="h-2.5 w-2.5 fill-current">
@@ -36,36 +35,33 @@
 </template>
 <script>
 
-    export default{
-        props:{
-            title: {
-                type: String,
+export default {
+    props: {
+        title: {
+            type: String,
             default: "default title"
-    },
-    description: {
-        type: String,
-        default: "default description"
-    },
-    tags: {
-        type: [],
-        default: []
-    },
-    date: {
-        type: String,
-        default: "2022-09-07"
-    },
-    path: {
-        type: String
-    }
+        },
+        description: {
+            type: String,
+            default: "default description"
+        },
+        tags: {
+            type: [],
+            default: []
+        },
+        date: {
+            type: String,
+            default: "2022-09-07"
+        },
+        path: {
+            type: String
+        }
 
-},
-methods:{
-    formatDate(date) {
-        return new Date(date).toString()
+    },
+    methods: {
+        formatDate(date) {
+            return new Date(date).toString()
+        }
     }
 }
-    }
-
-
-
 </script>

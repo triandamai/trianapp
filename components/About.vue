@@ -7,7 +7,8 @@
                 <path d="M6 1a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V1Z" class="fill-pink-300">
                 </path>
             </svg><span class="ml-2.5">About</span></h2>
-        <p class="font-thin mt-2  text-sm leading-7 text-slate-700 lg:line-clamp-4">Talented Android developer with over 3 years
+        <p class="font-thin mt-2  text-sm leading-7 text-slate-700 lg:line-clamp-4">Talented Android developer with over
+            3 years
             of experience in developing software and
             web in a wide range of industries, health,Delivery service, Solid understanding of full
             mobile and software development life cycles, UIX, and Agile methodologies. Dedicated
