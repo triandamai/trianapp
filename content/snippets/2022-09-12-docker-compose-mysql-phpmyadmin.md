@@ -7,9 +7,9 @@ createdAt: 2022-09-13 09:22
 updatedAt: 2022-09-13 09:22
 image: https://source.unsplash.com/INHtWKpBTsA/1600x900
 tags:
-    - Xml
-    - Android
-    - Java
+    - MYSQL
+    - Docker
+    - PHPMYADMIN
 prev_title: Mengenal Jetpack compose
 prev_link: /article/2021-12-20-mengenal-jetpack-compose
 next_title: Lazy Column & Lazy Grid
