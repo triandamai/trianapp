@@ -17,7 +17,6 @@ next_link: /article/2021-12-24-lazygrid-dalam-lazycoumn
 ---
 
 ```yml{1}[docker-compose.yml]
-```yml
 version: "3"
 
 services:
