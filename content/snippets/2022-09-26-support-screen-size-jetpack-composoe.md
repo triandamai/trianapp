@@ -15,6 +15,23 @@ prev_link: /article/2021-12-20-mengenal-jetpack-compose
 next_title: Lazy Column & Lazy Grid
 next_link: /article/2021-12-24-lazygrid-dalam-lazycoumn
 ---
+## Usages
+```kotlin
+@Composable
+fun Component(){
+    val ctx = LocalContext.current
+    Text(
+        modifier=Modifier.width(
+            16.dp.from(ctx)
+        ),
+        style=TextStyle(
+            fontSize=16.sp.from(ctx)
+        )
+    )
+}
+```
+
+## Extensions
 
 ```kotlin
 
@@ -74,3 +91,4 @@ fun TextUnit.from(
 
 }
 ```
+
